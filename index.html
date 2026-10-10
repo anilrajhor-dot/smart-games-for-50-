@@ -614,6 +614,81 @@ body.no-nav #view { padding-bottom: 2rem; }
 }
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 
+/* ---------- Quiz helpers: listen, 50:50, receipts, clock ---------- */
+.qtools { display: flex; flex-wrap: wrap; gap: .5rem; margin: -.25rem 0 .75rem; }
+.qtools .btn { flex: 1 1 auto; }
+.opt.is-removed { opacity: .35; text-decoration: line-through; }
+.receipt { font-family: "Courier New", ui-monospace, monospace; background: #fffdf6; color: #2a2118; border: 2px dashed var(--border); border-radius: 10px; padding: .8rem 1rem; margin-bottom: .9rem; font-size: 1.02rem; }
+.theme-dark .receipt { background: #2f2a24; color: var(--text); }
+.high-contrast .receipt { background: var(--surface); color: var(--text); border-color: var(--text); }
+.receipt-head { font-weight: 800; text-align: center; margin-bottom: .4rem; font-family: inherit; }
+.receipt-line { display: flex; justify-content: space-between; gap: 1rem; padding: .2rem 0; border-bottom: 1px dotted var(--border); }
+.receipt-line span { overflow-wrap: break-word; min-width: 0; }
+.qclock { display: flex; justify-content: center; margin-bottom: .75rem; }
+.clock-svg { width: min(240px, 70vw); height: auto; }
+.clock-face { fill: var(--surface); stroke: var(--text); stroke-width: 5; }
+.clock-tick { stroke: var(--muted); stroke-width: 1.5; }
+.clock-tick5 { stroke: var(--text); stroke-width: 3.5; }
+.clock-num { fill: var(--text); font-size: 20px; font-weight: 800; font-family: Arial, sans-serif; }
+.clock-hour { stroke: var(--text); stroke-width: 8; stroke-linecap: round; }
+.clock-min { stroke: var(--primary); stroke-width: 5; stroke-linecap: round; }
+.clock-pin { fill: var(--primary); }
+
+/* ---------- Memory Pairs ---------- */
+.pairs-status { font-weight: 800; font-size: 1.1rem; text-align: center; }
+.pairs-note { text-align: center; min-height: 1.6em; font-weight: 700; }
+.pairs-grid { display: grid; gap: .55rem; margin: .5rem 0; }
+.pairs-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pairs-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pcard {
+  min-height: 92px; border-radius: 14px; border: 2px solid var(--primary); cursor: pointer; padding: .3rem;
+  background: linear-gradient(135deg, var(--primary), #c7612e); color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; transition: transform .2s ease;
+}
+.high-contrast .pcard, .theme-dark .pcard { background: var(--primary); color: var(--primary-ink); }
+.pcard-back { font-size: 2rem; opacity: .9; }
+.pcard.up { background: var(--surface); color: var(--text); border-color: var(--secondary); transform: scale(1.03); }
+.pcard.matched { background: var(--good-bg); border-color: var(--good); border-width: 3px; cursor: default; opacity: 1; }
+.pcard.matched::after { content: "✓"; font-weight: 900; color: var(--good); }
+.pcard-emoji { font-size: 2.1rem; line-height: 1.1; }
+.pcard-name { font-size: .78rem; font-weight: 800; line-height: 1.15; overflow-wrap: break-word; }
+
+/* ---------- Follow the Lamps ---------- */
+.lamps-info { font-size: 1.2rem; font-weight: 800; text-align: center; min-height: 1.6em; }
+.lamps-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; max-width: 460px; margin: 0 auto 1rem; }
+.lamp {
+  min-height: 140px; border-radius: 22px; border: 4px solid transparent; cursor: pointer; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: .3rem; color: #fff; font-weight: 800; font-size: 1.05rem; opacity: .55;
+  transition: opacity .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.lamp[disabled] { cursor: default; }
+.lamp-0 { background: #b3261e; } .lamp-1 { background: #1b6e3e; } .lamp-2 { background: #1f4fa3; } .lamp-3 { background: #9a6a00; }
+.lamp-diya { font-size: 3rem; line-height: 1; }
+.lamp.lit { opacity: 1; border-color: #ffe08a; box-shadow: 0 0 0 6px rgba(255, 210, 90, .55), 0 0 30px rgba(255, 200, 60, .9); transform: scale(1.05); }
+.lamp.lit .lamp-label::before { content: "★ "; }
+.reduce-motion .lamp.lit { transform: none; }
+
+/* ---------- Mini Sudoku ---------- */
+.sudoku-msg { font-weight: 750; text-align: center; min-height: 1.6em; }
+.sudoku { display: flex; flex-direction: column; margin: .5rem auto 1rem; border: 3px solid var(--text); border-radius: 10px; overflow: hidden; width: min(100%, 420px); }
+.sk-row { display: flex; }
+.sk-cell {
+  flex: 1 1 0; aspect-ratio: 1 / 1; min-height: 48px; min-width: 0; border: 1px solid var(--border); background: var(--surface);
+  font-size: 1.6rem; font-weight: 800; color: var(--secondary); cursor: pointer; position: relative; padding: 0;
+}
+.sudoku.n6 .sk-cell { font-size: 1.3rem; }
+.sk-cell.given { color: var(--text); background: var(--surface-2); cursor: default; }
+.sk-cell.bR { border-right: 3px solid var(--text); }
+.sk-cell.bB { border-bottom: 3px solid var(--text); }
+.sk-cell.sel { background: var(--primary-soft); outline: 3px solid var(--primary); outline-offset: -3px; }
+.sk-cell.bad { background: var(--bad-bg); color: var(--bad); }
+.sk-x { position: absolute; top: 1px; right: 4px; font-size: .8rem; color: var(--bad); }
+.sk-pad { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: .75rem; }
+.sk-num { min-width: 56px; min-height: 56px; border-radius: 14px; border: 2px solid var(--secondary); background: var(--surface); font-size: 1.4rem; font-weight: 800; cursor: pointer; }
+.sk-erase { font-size: 1rem; padding: 0 .8rem; border-color: var(--border); }
+.sk-tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.quick { margin-bottom: .5rem; }
+
 </style>
 </head>
 <body>
@@ -1432,6 +1507,114 @@ body.no-nav #view { padding-bottom: 2rem; }
   };
 })();
 
+/* ---------- Additional text: newer games and helpers (merged into the dictionaries above) ---------- */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  function merge(dst, src) {
+    Object.keys(src).forEach(function (k) {
+      if (src[k] && typeof src[k] === 'object' && !Array.isArray(src[k])) { dst[k] = dst[k] || {}; merge(dst[k], src[k]); }
+      else dst[k] = src[k];
+    });
+  }
+  merge(S50.STR.en, {
+    common: { listen: '🔊 Listen', hint: '💡 50:50 hint', hintUsed: '💡 Two wrong answers removed (half points)' },
+    home: { cont: 'Continue playing', suggest: 'Today’s suggestion' },
+    settings: { readAloud: 'Read questions aloud automatically' },
+    games: {
+      pairs: { name: 'Memory Pairs', desc: 'Turn over cards and find the matching pairs.' },
+      lamps: { name: 'Follow the Lamps', desc: 'Watch the diyas light up, then repeat the pattern.' },
+      oddone: { name: 'Odd One Out', desc: 'Spot the one that does not belong.' },
+      clock: { name: 'Clock Reader', desc: 'Read the clock and work out the time.' },
+      sudoku: { name: 'Mini Sudoku', desc: 'A gentle number puzzle — no maths needed.' },
+      kirana: { name: 'Kirana Shop Maths', desc: 'Bills, change, best buys and discounts.' }
+    },
+    pairs: {
+      intro: 'Tap two cards to turn them over. Find all the matching pairs. Take your time!',
+      turns: 'Turns: {n}', found: 'Pairs found: {f} of {t}', match: '✓ A pair!', nomatch: 'Not a pair — remember where they are.',
+      card: 'Card {n}', hidden: 'face down'
+    },
+    lamps: {
+      intro: 'Watch the lamps light up one by one. Then tap them in the same order.',
+      watch: '👀 Watch the lamps…', your: '👉 Your turn — tap the lamps in the same order',
+      good: '✓ Well done! The next pattern is one lamp longer.', retry: 'Not quite — let us watch that pattern once more.',
+      length: 'Pattern of {n} lamps', lamp: 'Lamp {n}', best: 'Longest pattern remembered: {n}',
+      colors: ['Red', 'Green', 'Blue', 'Yellow']
+    },
+    oddone: { q: 'Which one does not belong with the others?', e: 'The others are all {cat}. {item} belongs with {other}.' },
+    clock: {
+      q: 'What time does the clock show?', qAfter: 'This is the time now. What time will it be after {n} minutes?',
+      e: 'The short hand shows the hour and the long hand shows the minutes: {ans}.', eAfter: '{a} + {n} minutes = {ans}.',
+      aria: 'Clock face'
+    },
+    sudoku: {
+      intro: 'Fill the grid so that every row, every column and every box has each number exactly once.',
+      pick: 'Tap an empty square, then tap a number below.', check: '✓ Check', hint: '💡 Hint', erase: '⌫ Erase', skip: 'Skip this puzzle',
+      solved: '✓ Solved! Beautifully done.', conflicts: 'Some numbers repeat in a row, column or box (marked ✗).',
+      incomplete: 'Looking good so far — {n} squares still empty.', puzzle: 'Puzzle {n} of {t}', hintsUsed: 'Hints used: {n}',
+      cell: 'Row {r}, column {c}', empty: 'empty', given: 'fixed'
+    },
+    kirana: {
+      shop: 'Kirana shop', bill: 'Bill', paid: 'You pay with',
+      qTotal: 'What is the total bill?', qChange: 'How much change should you get back?',
+      qUnit: 'Which is the better buy (cheaper for the same amount)?', same: 'Both cost the same',
+      qDiscount: 'A {item} costs {a}. The shop gives {p}% off. How much will you pay?',
+      qSplit: '{n} friends share a restaurant bill of {a} equally. How much does each person pay?',
+      eUnit: 'Small pack: {a} per {u}. Big pack: {b} ÷ {q} = {per} per {u}.',
+      eDiscount: '{p}% of {a} is {d}. {a} − {d} = {ans}.',
+      unit: { kg: 'kg', litre: 'litre', packet: 'packet', piece: 'piece', dozen: 'dozen' }
+    }
+  });
+  merge(S50.STR.hi, {
+    common: { listen: '🔊 सुनें', hint: '💡 50:50 संकेत', hintUsed: '💡 दो गलत उत्तर हटाए गए (आधे अंक)' },
+    home: { cont: 'खेल जारी रखें', suggest: 'आज का सुझाव' },
+    settings: { readAloud: 'सवाल अपने आप पढ़कर सुनाएँ' },
+    games: {
+      pairs: { name: 'जोड़ी मिलाओ', desc: 'पत्ते पलटें और एक जैसी जोड़ियाँ ढूँढें।' },
+      lamps: { name: 'दीयों का क्रम', desc: 'दीयों को जलते देखें, फिर वही क्रम दोहराएँ।' },
+      oddone: { name: 'अलग कौन?', desc: 'वह चीज़ पहचानें जो बाकी से मेल नहीं खाती।' },
+      clock: { name: 'घड़ी पढ़ें', desc: 'घड़ी देखकर समय बताएँ।' },
+      sudoku: { name: 'छोटा सुडोकू', desc: 'आसान अंकों की पहेली — गणित की ज़रूरत नहीं।' },
+      kirana: { name: 'किराना दुकान का हिसाब', desc: 'बिल, बचे पैसे, सस्ता सौदा और छूट।' }
+    },
+    pairs: {
+      intro: 'दो पत्तों पर टैप करके उन्हें पलटें। सारी एक जैसी जोड़ियाँ ढूँढें। आराम से खेलें!',
+      turns: 'बारी: {n}', found: 'मिली जोड़ियाँ: {t} में से {f}', match: '✓ जोड़ी मिल गई!', nomatch: 'जोड़ी नहीं बनी — याद रखें वे कहाँ हैं।',
+      card: 'पत्ता {n}', hidden: 'उल्टा रखा'
+    },
+    lamps: {
+      intro: 'दीयों को एक-एक करके जलते देखें। फिर उसी क्रम में उन पर टैप करें।',
+      watch: '👀 दीयों को देखें…', your: '👉 आपकी बारी — उसी क्रम में दीयों पर टैप करें',
+      good: '✓ बहुत अच्छा! अगला क्रम एक दीया लंबा है।', retry: 'थोड़ा चूक गए — चलिए वही क्रम एक बार फिर देखते हैं।',
+      length: '{n} दीयों का क्रम', lamp: 'दीया {n}', best: 'सबसे लंबा याद रखा क्रम: {n}',
+      colors: ['लाल', 'हरा', 'नीला', 'पीला']
+    },
+    oddone: { q: 'इनमें से कौन बाकी सबसे मेल नहीं खाता?', e: 'बाकी सब {cat} हैं। {item} {other} में आता है।' },
+    clock: {
+      q: 'घड़ी में कितने बजे हैं?', qAfter: 'अभी यह समय है। {n} मिनट बाद कितने बजेंगे?',
+      e: 'छोटी सुई घंटा और बड़ी सुई मिनट बताती है: {ans}।', eAfter: '{a} + {n} मिनट = {ans}।',
+      aria: 'घड़ी'
+    },
+    sudoku: {
+      intro: 'ख़ाने ऐसे भरें कि हर पंक्ति, हर कॉलम और हर डिब्बे में हर अंक ठीक एक बार आए।',
+      pick: 'किसी ख़ाली ख़ाने पर टैप करें, फिर नीचे कोई अंक चुनें।', check: '✓ जाँचें', hint: '💡 संकेत', erase: '⌫ मिटाएँ', skip: 'यह पहेली छोड़ें',
+      solved: '✓ हल हो गई! बहुत सुंदर।', conflicts: 'किसी पंक्ति, कॉलम या डिब्बे में अंक दोहराए गए हैं (✗ से चिह्नित)।',
+      incomplete: 'अब तक ठीक है — {n} ख़ाने अभी ख़ाली हैं।', puzzle: 'पहेली {n} / {t}', hintsUsed: 'लिए गए संकेत: {n}',
+      cell: 'पंक्ति {r}, कॉलम {c}', empty: 'ख़ाली', given: 'पहले से भरा'
+    },
+    kirana: {
+      shop: 'किराना दुकान', bill: 'बिल', paid: 'आपने दिए',
+      qTotal: 'कुल बिल कितना हुआ?', qChange: 'आपको कितने पैसे वापस मिलने चाहिए?',
+      qUnit: 'कौन-सा सौदा बेहतर है (उतनी ही मात्रा के लिए सस्ता)?', same: 'दोनों बराबर हैं',
+      qDiscount: 'एक {item} की कीमत {a} है। दुकान {p}% छूट देती है। आप कितना देंगे?',
+      qSplit: '{n} दोस्त {a} का बिल बराबर बाँटते हैं। हर एक कितना देगा?',
+      eUnit: 'छोटा पैक: {a} प्रति {u}। बड़ा पैक: {b} ÷ {q} = {per} प्रति {u}।',
+      eDiscount: '{a} का {p}% = {d}। {a} − {d} = {ans}।',
+      unit: { kg: 'किलो', litre: 'लीटर', packet: 'पैकेट', piece: 'नग', dozen: 'दर्जन' }
+    }
+  });
+})();
+
 </script>
   <script>
 /* SMART 50+ — local storage, scoring, levels, streaks and achievements.
@@ -1447,7 +1630,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     return {
       version: 1,
       onboarded: false,
-      settings: { lang: 'en', fontSize: 'normal', contrast: false, reduceMotion: false, sound: true, mode: 'relaxed', theme: 'light' },
+      settings: { lang: 'en', fontSize: 'normal', contrast: false, reduceMotion: false, sound: true, mode: 'relaxed', theme: 'light', readAloud: false },
       stats: { totalPoints: 0, gamesPlayed: 0, questions: 0, correct: 0, bestScore: 0, perGame: {}, perCat: {} },
       counters: { scamsSpotted: 0 },
       days: {},
@@ -1457,6 +1640,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       mylife: {},
       familyQuiz: [],
       levels: {},
+      lastGame: '',
       recent: {}
     };
   }
@@ -1630,6 +1814,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       g.correct = U.num(g.correct) + U.num(r.correct);
       g.questions = U.num(g.questions) + U.num(r.total);
       data.stats.perGame[r.gameId] = g;
+      if (S50.Games && S50.Games.get(r.gameId)) data.lastGame = r.gameId;
       data.stats.gamesPlayed += 1;
       data.stats.totalPoints += score;
       data.stats.bestScore = Math.max(data.stats.bestScore, score);
@@ -1722,6 +1907,13 @@ body.no-nav #view { padding-bottom: 2rem; }
   };
 
   S50.Sound = {
+    /* A single soft note (used by Follow the Lamps). */
+    note: function (freq, dur) {
+      if (!(S50.Store && S50.Store.settings.sound)) return;
+      var c = getCtx();
+      if (!c) return;
+      try { if (c.state === 'suspended') c.resume(); tone(c, freq, 0, Math.max(0.15, dur || 0.4), 0.08, 'sine'); } catch (e) { /* optional */ }
+    },
     play: function (name, force) {
       if (!force && !(S50.Store && S50.Store.settings.sound)) return;
       var c = getCtx();
@@ -1752,7 +1944,18 @@ body.no-nav #view { padding-bottom: 2rem; }
   function add(cat, items) {
     raw[cat] = (raw[cat] || []).concat(items.map(function (it) { it.cat = it.cat || cat; return it; }));
   }
-  function addGenerator(cat, fn) { (generators[cat] = generators[cat] || []).push(fn); }
+  var named = {};        // 'cat:name' -> generator, for games that use one specific generator
+  function addGenerator(cat, fn, name) { (generators[cat] = generators[cat] || []).push(fn); if (name) named[cat + ':' + name] = fn; }
+  /* n fresh items from one named generator, easiest first. */
+  function freshFrom(cat, name, n, rnd) {
+    var fn = named[cat + ':' + name];
+    if (!fn) return [];
+    rnd = rnd || Math.random;
+    var out = [];
+    for (var i = 0; i < n; i++) { var it = fn(rnd, i); it.id = 'X-' + name + '-' + i; it.cat = cat; out.push(it); }
+    out.sort(function (a, b) { return (a.d || 1) - (b.d || 1); });
+    return out.map(normalize);
+  }
 
   /* Build the static generated bank once (fixed seed so ids stay stable). */
   function buildGenerated(perGenerator) {
@@ -1796,6 +1999,8 @@ body.no-nav #view { padding-bottom: 2rem; }
     if (L.disp || E.disp) base.display = L.disp || E.disp;
     if (r.s) base.scores = r.s.slice();
     if (r.big) base.bigOptions = true;
+    if (L.rc || E.rc) base.receipt = L.rc || E.rc;
+    if (r.clock) base.clock = r.clock;
     return base;
   }
 
@@ -1841,7 +2046,7 @@ body.no-nav #view { padding-bottom: 2rem; }
 
   S50.Bank = {
     add: add, addGenerator: addGenerator, buildGenerated: buildGenerated, normalize: normalize,
-    draw: draw, fresh: fresh, count: count,
+    draw: draw, fresh: fresh, freshFrom: freshFrom, count: count,
     all: function (cat) { return (raw[cat] || []).slice(); },
     categories: function () { return Object.keys(raw); }
   };
@@ -1859,7 +2064,54 @@ body.no-nav #view { padding-bottom: 2rem; }
   function later(fn, ms) { var id = setTimeout(fn, ms); timers.push(id); return id; }
   function every(fn, ms) { var id = setInterval(fn, ms); timers.push(id); return id; }
   /* Stop every pending timer — called on each navigation so nothing runs in the background. */
-  function stopTimers() { timers.forEach(function (id) { clearTimeout(id); clearInterval(id); }); timers = []; }
+  function stopTimers() { timers.forEach(function (id) { clearTimeout(id); clearInterval(id); }); timers = []; Speech.stop(); }
+
+  /* Read-aloud using the device's built-in speech voices (works offline on most phones). */
+  var Speech = {
+    available: function () { return !!(window.speechSynthesis && window.SpeechSynthesisUtterance); },
+    say: function (text) {
+      if (!Speech.available()) return;
+      try {
+        window.speechSynthesis.cancel();
+        var u = new SpeechSynthesisUtterance(String(text).replace(/[\u{1F300}-\u{1FAFF}\u2600-\u27BF]/gu, ''));
+        var want = S50.lang === 'hi' ? 'hi' : 'en';
+        u.lang = want === 'hi' ? 'hi-IN' : 'en-IN';
+        var v = (window.speechSynthesis.getVoices() || []).filter(function (x) { return x.lang && x.lang.toLowerCase().indexOf(want) === 0; })[0];
+        if (v) u.voice = v;
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      } catch (e) { /* speech is optional */ }
+    },
+    stop: function () { try { if (Speech.available()) window.speechSynthesis.cancel(); } catch (e) { /* ignore */ } }
+  };
+
+  function receiptView(lines) {
+    return h('div', { class: 'receipt' }, h('div', { class: 'receipt-head', text: '🧾 ' + t('kirana.shop') }),
+      lines.map(function (l) { return h('div', { class: 'receipt-line' }, h('span', { text: l[0] }), h('strong', { text: l[1] || '' })); }));
+  }
+
+  /* Analogue clock face as inline SVG. */
+  function clockSvg(hh, mm) {
+    var ns = 'http://www.w3.org/2000/svg';
+    function el(tag, a) { var e = document.createElementNS(ns, tag); Object.keys(a).forEach(function (k) { e.setAttribute(k, a[k]); }); return e; }
+    var svg = el('svg', { viewBox: '0 0 200 200', class: 'clock-svg', role: 'img', 'aria-label': t('clock.aria') });
+    svg.appendChild(el('circle', { cx: 100, cy: 100, r: 94, class: 'clock-face' }));
+    for (var i = 0; i < 60; i++) {
+      var a = i * Math.PI / 30, r1 = i % 5 ? 86 : 80;
+      svg.appendChild(el('line', { x1: 100 + r1 * Math.sin(a), y1: 100 - r1 * Math.cos(a), x2: 100 + 90 * Math.sin(a), y2: 100 - 90 * Math.cos(a), class: i % 5 ? 'clock-tick' : 'clock-tick5' }));
+    }
+    for (var n = 1; n <= 12; n++) {
+      var an = n * Math.PI / 6;
+      var tx = el('text', { x: 100 + 66 * Math.sin(an), y: 100 - 66 * Math.cos(an) + 7, 'text-anchor': 'middle', class: 'clock-num' });
+      tx.textContent = String(n);
+      svg.appendChild(tx);
+    }
+    var ha = ((hh % 12) + mm / 60) * Math.PI / 6, ma = mm * Math.PI / 30;
+    svg.appendChild(el('line', { x1: 100, y1: 100, x2: 100 + 44 * Math.sin(ha), y2: 100 - 44 * Math.cos(ha), class: 'clock-hour' }));
+    svg.appendChild(el('line', { x1: 100, y1: 100, x2: 100 + 70 * Math.sin(ma), y2: 100 - 70 * Math.cos(ma), class: 'clock-min' }));
+    svg.appendChild(el('circle', { cx: 100, cy: 100, r: 6, class: 'clock-pin' }));
+    return svg;
+  }
 
   function root() { return document.getElementById('view'); }
 
@@ -2003,6 +2255,8 @@ body.no-nav #view { padding-bottom: 2rem; }
       if (item.intro) card.appendChild(h('p', { class: 'qintro', text: item.intro }));
       if (item.message) card.appendChild(scamBubble(item.message));
       if (item.display) card.appendChild(h('div', { class: 'qdisplay', attrs: { 'aria-label': item.display }, text: item.display }));
+      if (item.receipt) card.appendChild(receiptView(item.receipt));
+      if (item.clock) card.appendChild(h('div', { class: 'qclock' }, clockSvg(item.clock.h, item.clock.m)));
       card.appendChild(h('h2', { class: 'qtext', text: item.question }));
       var order = item.options.map(function (o, i) { return i; });
       if (!cfg.noShuffle && item.kind !== 'scam' && !item.noShuffle) order = U.shuffle(order);
@@ -2025,7 +2279,28 @@ body.no-nav #view { padding-bottom: 2rem; }
         opts.appendChild(ns);
       }
       card.appendChild(opts);
+      // Helper tools: read aloud and a 50:50 hint (half points).
+      var tools = h('div', { class: 'qtools' });
+      if (Speech.available()) {
+        tools.appendChild(h('button', { class: 'btn btn-ghost btn-small', type: 'button', text: t('common.listen'),
+          on: { click: function () { Speech.say(item.question + '. ' + order.map(function (oi) { return item.options[oi]; }).join('. ')); } } }));
+      }
+      var wrongIdx = item.options.map(function (o, i) { return i; }).filter(function (i) { return i !== item.correctAnswer; });
+      if (!item.scores && item.kind !== 'scam' && wrongIdx.length >= 3 && !cfg.noHint) {
+        var hb = h('button', { class: 'btn btn-ghost btn-small btn-hint', type: 'button', text: t('common.hint'), on: { click: function () {
+          if (state.answered === state.i) return;
+          state.hinted = state.i;
+          U.shuffle(wrongIdx).slice(0, 2).forEach(function (wi) {
+            buttons.forEach(function (b) { if (+b.dataset.idx === wi) { b.disabled = true; b.classList.add('is-removed'); } });
+          });
+          hb.disabled = true;
+          hb.textContent = t('common.hintUsed');
+        } } });
+        tools.appendChild(hb);
+      }
+      if (tools.childNodes.length) card.insertBefore(tools, opts);
       wrap.appendChild(card);
+      if (S50.Store.settings.readAloud && Speech.available()) Speech.say(item.question + '. ' + order.map(function (oi) { return item.options[oi]; }).join('. '));
       state.askedAt = Date.now();
       state.timeLimit = 0;
       if (mode === 'challenge' && !cfg.noTimer) {
@@ -2059,6 +2334,9 @@ body.no-nav #view { padding-bottom: 2rem; }
       if (state.timeLimit && isCorrect) speedFrac = Math.max(0, 1 - (Date.now() - state.askedAt) / (state.timeLimit * 1000));
       var pts = S50.Store.Score.question({ correct: isCorrect, partial: isCorrect ? undefined : partial, difficulty: item.difficulty, streak: state.streak, speedFrac: speedFrac });
       if (cfg.flatScoring) pts = isCorrect ? 100 : 0;
+      if (state.hinted === state.i) pts = Math.round(pts / 2);
+      Array.prototype.forEach.call(card.querySelectorAll('.btn-hint'), function (b) { b.disabled = true; });
+      Speech.stop();
       state.score += pts;
       if (isCorrect) state.correct += 1;
       state.results.push({ id: item.id, correct: isCorrect, chosen: chosen });
@@ -2162,7 +2440,7 @@ body.no-nav #view { padding-bottom: 2rem; }
   S50.UI = {
     screen: screen, toast: toast, confirm: confirmBox, errorScreen: errorScreen, progressBar: progressBar,
     memorise: memorise, memoContent: memoContent, runQuiz: runQuiz, complete: complete, tile: tile,
-    scamBubble: scamBubble, later: later, every: every, stopTimers: stopTimers
+    scamBubble: scamBubble, later: later, every: every, stopTimers: stopTimers, Speech: Speech, clockSvg: clockSvg
   };
 })();
 
@@ -2175,7 +2453,7 @@ body.no-nav #view { padding-bottom: 2rem; }
   var U = S50.U, h = U.h, t = S50.t;
 
   /* ---------- Game registry ---------- */
-  var ORDER = ['wherekept', 'trip', 'changed', 'missing', 'familytree', 'lifeexp', 'household', 'grandmaster', 'scam', 'thennow', 'finish', 'words'];
+  var ORDER = ['wherekept', 'trip', 'pairs', 'changed', 'oddone', 'clock', 'lamps', 'missing', 'familytree', 'sudoku', 'lifeexp', 'household', 'grandmaster', 'kirana', 'scam', 'thennow', 'finish', 'words'];
   var games = {};
   S50.Games = {
     ORDER: ORDER,
@@ -2272,7 +2550,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); S50.App.installPrompt = e; });
   }
 
-  S50.App = { go: go, render: render, route: route, applySettings: applySettings, current: current, installPrompt: null, VERSION: '1.0.0' };
+  S50.App = { go: go, render: render, route: route, applySettings: applySettings, current: current, installPrompt: null, VERSION: '1.1.0' };
   document.addEventListener('DOMContentLoaded', init);
 })();
 
@@ -2515,6 +2793,170 @@ body.no-nav #view { padding-bottom: 2rem; }
         e: T(l, 'gen.eAge', { a: a, b: b, c: c }) };
     });
   });
+})();
+
+</script>
+  <script>
+/* SMART 50+ — more procedural generators: Odd One Out, Clock Reader, Kirana Shop Maths.
+ * Correct answer at index 0; options are shuffled when shown. */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  var U = S50.U;
+  var B = S50.Bank;
+  var LANGS = ['en', 'hi'];
+
+  function T(lang, key, p) {
+    var parts = key.split('.'), cur = S50.STR[lang];
+    for (var i = 0; i < parts.length && cur; i++) cur = cur[parts[i]];
+    if (cur === undefined) { cur = S50.STR.en; for (var j = 0; j < parts.length && cur; j++) cur = cur[parts[j]]; }
+    return typeof cur === 'string' ? U.fmt(cur, p) : cur;
+  }
+  function L(pair, lang) { return lang === 'hi' ? pair[1] : pair[0]; }
+  function pick(a, r) { return a[Math.floor(r() * a.length)]; }
+  function sample(a, n, r) { return U.shuffle(a, r).slice(0, n); }
+  function ri(a, b, r) { return a + Math.floor(r() * (b - a + 1)); }
+  function item(d, tags, fn, extra) {
+    var it = { d: d, t: tags, a: 0 };
+    LANGS.forEach(function (l) { it[l] = fn(l); });
+    Object.keys(extra || {}).forEach(function (k) { it[k] = extra[k]; });
+    return it;
+  }
+  function nums(correct, cands) {
+    var out = [correct];
+    cands.forEach(function (c) { if (out.length < 4 && c > 0 && out.indexOf(c) < 0) out.push(c); });
+    return out;
+  }
+
+  /* ---------------- ODD ONE OUT ---------------- */
+  var GROUPS = {
+    fruits: { n: ['fruits', 'फल'], items: [['🍎', 'Apple', 'सेब'], ['🍌', 'Banana', 'केला'], ['🍇', 'Grapes', 'अंगूर'], ['🥭', 'Mango', 'आम'], ['🍉', 'Watermelon', 'तरबूज़'], ['🍍', 'Pineapple', 'अनानास'], ['🍒', 'Cherries', 'चेरी']] },
+    veg: { n: ['vegetables', 'सब्ज़ियाँ'], items: [['🥕', 'Carrot', 'गाजर'], ['🍆', 'Brinjal', 'बैंगन'], ['🥔', 'Potato', 'आलू'], ['🧅', 'Onion', 'प्याज़'], ['🌽', 'Corn', 'भुट्टा'], ['🥒', 'Cucumber', 'खीरा'], ['🥦', 'Broccoli', 'ब्रोकली']] },
+    vehicles: { n: ['vehicles', 'वाहन'], items: [['🚗', 'Car', 'कार'], ['🚌', 'Bus', 'बस'], ['🚲', 'Bicycle', 'साइकिल'], ['🛺', 'Auto-rickshaw', 'ऑटो-रिक्शा'], ['🚂', 'Train', 'रेलगाड़ी'], ['🛵', 'Scooter', 'स्कूटर'], ['🚜', 'Tractor', 'ट्रैक्टर']] },
+    animals: { n: ['animals', 'जानवर'], items: [['🐘', 'Elephant', 'हाथी'], ['🐄', 'Cow', 'गाय'], ['🐅', 'Tiger', 'बाघ'], ['🐒', 'Monkey', 'बंदर'], ['🐕', 'Dog', 'कुत्ता'], ['🐐', 'Goat', 'बकरी'], ['🐎', 'Horse', 'घोड़ा']] },
+    birds: { n: ['birds', 'पक्षी'], items: [['🦚', 'Peacock', 'मोर'], ['🦜', 'Parrot', 'तोता'], ['🦆', 'Duck', 'बत्तख़'], ['🦉', 'Owl', 'उल्लू'], ['🕊️', 'Dove', 'कबूतर'], ['🐓', 'Rooster', 'मुर्गा'], ['🦅', 'Eagle', 'चील']] },
+    music: { n: ['musical instruments', 'वाद्य यंत्र'], items: [['🎻', 'Violin', 'वायलिन'], ['🥁', 'Drum', 'ढोल'], ['🎺', 'Trumpet', 'तुरही'], ['🎸', 'Guitar', 'गिटार'], ['🎹', 'Piano', 'पियानो'], ['🪘', 'Tabla', 'तबला'], ['🎷', 'Saxophone', 'सैक्सोफ़ोन']] },
+    clothes: { n: ['clothes', 'कपड़े'], items: [['👕', 'Shirt', 'कमीज़'], ['👗', 'Dress', 'फ़्रॉक'], ['🧣', 'Scarf', 'मफ़लर'], ['🧦', 'Socks', 'मोज़े'], ['👖', 'Trousers', 'पतलून'], ['🥻', 'Sari', 'साड़ी'], ['🧥', 'Coat', 'कोट']] },
+    sports: { n: ['sports items', 'खेल का सामान'], items: [['⚽', 'Football', 'फ़ुटबॉल'], ['🏏', 'Cricket bat', 'क्रिकेट बल्ला'], ['🏸', 'Badminton', 'बैडमिंटन'], ['🏑', 'Hockey stick', 'हॉकी स्टिक'], ['🏀', 'Basketball', 'बास्केटबॉल'], ['🎾', 'Tennis ball', 'टेनिस गेंद'], ['🏓', 'Table tennis', 'टेबल टेनिस']] },
+    weather: { n: ['kinds of weather', 'मौसम'], items: [['☀️', 'Sunny', 'धूप'], ['🌧️', 'Rain', 'बारिश'], ['⛈️', 'Storm', 'आँधी-तूफ़ान'], ['❄️', 'Snow', 'बर्फ़'], ['🌫️', 'Fog', 'कोहरा'], ['🌈', 'Rainbow', 'इंद्रधनुष']] },
+    kitchen: { n: ['kitchen things', 'रसोई की चीज़ें'], items: [['🍳', 'Frying pan', 'कड़ाही'], ['🔪', 'Knife', 'चाकू'], ['🥄', 'Spoon', 'चम्मच'], ['🍴', 'Fork', 'काँटा'], ['🥣', 'Bowl', 'कटोरी'], ['🫖', 'Kettle', 'केतली']] },
+    stationery: { n: ['stationery', 'लिखने-पढ़ने का सामान'], items: [['✏️', 'Pencil', 'पेंसिल'], ['🖊️', 'Pen', 'पेन'], ['📏', 'Ruler', 'स्केल'], ['📎', 'Paper clip', 'पेपर क्लिप'], ['📒', 'Notebook', 'कॉपी'], ['✂️', 'Scissors', 'कैंची']] },
+    flowers: { n: ['flowers', 'फूल'], items: [['🌹', 'Rose', 'गुलाब'], ['🌻', 'Sunflower', 'सूरजमुखी'], ['🌷', 'Tulip', 'ट्यूलिप'], ['🌺', 'Hibiscus', 'गुड़हल'], ['🪷', 'Lotus', 'कमल'], ['🌼', 'Marigold', 'गेंदा']] }
+  };
+  /* Pairs of groups that look alike — used for harder questions. */
+  var CLOSE = [['fruits', 'veg'], ['animals', 'birds'], ['music', 'sports'], ['kitchen', 'stationery'], ['clothes', 'sports'], ['flowers', 'fruits'], ['vehicles', 'sports']];
+  var KEYS = Object.keys(GROUPS);
+  B.addGenerator('attention', function (r, i) {
+    var hard = r() < 0.4;
+    var a, b;
+    if (hard) { var c = pick(CLOSE, r); if (r() < 0.5) { a = c[0]; b = c[1]; } else { a = c[1]; b = c[0]; } }
+    else { var two = sample(KEYS, 2, r); a = two[0]; b = two[1]; }
+    var same = sample(GROUPS[a].items, 3, r);
+    var odd = pick(GROUPS[b].items, r);
+    var it = item(hard ? 2 : 1, ['oddone'], function (l) {
+      var lab = function (x) { return x[0] + ' ' + (l === 'hi' ? x[2] : x[1]); };
+      return { q: T(l, 'oddone.q'), o: [lab(odd)].concat(same.map(lab)),
+        e: T(l, 'oddone.e', { cat: L(GROUPS[a].n, l), item: l === 'hi' ? odd[2] : odd[1], other: L(GROUPS[b].n, l) }) };
+    });
+    return it;
+  }, 'oddone');
+
+  /* ---------------- CLOCK READER ---------------- */
+  function fmtTime(hh, mm) {
+    hh = ((hh % 12) + 12) % 12; if (hh === 0) hh = 12;
+    return hh + ':' + (mm < 10 ? '0' : '') + mm;
+  }
+  B.addGenerator('attention', function (r) {
+    var level = r();
+    var hh = ri(1, 12, r);
+    var mm = level < 0.3 ? pick([0, 30], r) : level < 0.7 ? ri(0, 11, r) * 5 : ri(0, 11, r) * 5;
+    var after = level >= 0.7;
+    var add = after ? pick([15, 20, 30, 40, 45, 50, 90], r) : 0;
+    var total = hh * 60 + mm + add;
+    var ah = Math.floor(total / 60), am = total % 60;
+    var ans = fmtTime(ah, am);
+    var opts = [ans];
+    // Typical mix-ups: swapped hands, an hour off, a quarter off.
+    var swapped = mm % 5 === 0 ? fmtTime(Math.round(mm / 5) || 12, ((hh % 12) * 5) % 60) : '';
+    [swapped, fmtTime(ah + 1, am), fmtTime(ah - 1, am), fmtTime(ah, (am + 15) % 60), fmtTime(ah, (am + 45) % 60), fmtTime(ah + 2, am)]
+      .forEach(function (c) { if (c && opts.length < 4 && opts.indexOf(c) < 0) opts.push(c); });
+    return item(after ? 3 : mm % 30 === 0 ? 1 : 2, ['clock'], function (l) {
+      return after
+        ? { q: T(l, 'clock.qAfter', { n: add }), o: opts, e: T(l, 'clock.eAfter', { a: fmtTime(hh, mm), n: add, ans: ans }) }
+        : { q: T(l, 'clock.q'), o: opts, e: T(l, 'clock.e', { ans: ans }) };
+    }, { clock: { h: hh, m: mm }, big: true });
+  }, 'clock');
+
+  /* ---------------- KIRANA SHOP MATHS ---------------- */
+  var GOODS = [
+    { n: ['Rice', 'चावल'], u: 'kg', p: [40, 90] }, { n: ['Dal', 'दाल'], u: 'kg', p: [90, 160] }, { n: ['Sugar', 'चीनी'], u: 'kg', p: [40, 55] },
+    { n: ['Atta', 'आटा'], u: 'kg', p: [35, 50] }, { n: ['Milk', 'दूध'], u: 'litre', p: [54, 68] }, { n: ['Cooking oil', 'खाने का तेल'], u: 'litre', p: [120, 190] },
+    { n: ['Tea leaves', 'चायपत्ती'], u: 'packet', p: [110, 160] }, { n: ['Soap', 'साबुन'], u: 'piece', p: [30, 60] }, { n: ['Biscuits', 'बिस्कुट'], u: 'packet', p: [10, 40] },
+    { n: ['Eggs', 'अंडे'], u: 'dozen', p: [70, 100] }, { n: ['Onions', 'प्याज़'], u: 'kg', p: [25, 60] }, { n: ['Tomatoes', 'टमाटर'], u: 'kg', p: [20, 60] }
+  ];
+  function unit(u, l) { return T(l, 'kirana.unit.' + u); }
+  function m(n) { return U.money(n); }
+  var KIRANA = [
+    function total(r) {
+      var goods = sample(GOODS, ri(2, 3, r), r);
+      var lines = goods.map(function (g) { var q = ri(1, 3, r); var p = ri(g.p[0] / 5, g.p[1] / 5, r) * 5; return { g: g, q: q, p: p }; });
+      var sum = lines.reduce(function (a, x) { return a + x.q * x.p; }, 0);
+      var opts = nums(sum, [sum + 10, sum - 10, sum + 50, sum - 50, sum + 100]);
+      return item(lines.length > 2 ? 2 : 1, ['kirana'], function (l) {
+        return { rc: lines.map(function (x) { return [x.q + ' ' + unit(x.g.u, l) + ' ' + L(x.g.n, l) + ' × ' + m(x.p), m(x.q * x.p)]; }),
+          q: T(l, 'kirana.qTotal'), o: opts.map(m),
+          e: lines.map(function (x) { return x.q + ' × ' + m(x.p); }).join(' + ') + ' = ' + m(sum) };
+      });
+    },
+    function change(r) {
+      var bill = ri(23, 390, r) * 5;
+      var note = [100, 200, 500, 1000, 2000].filter(function (n) { return n > bill; })[0];
+      var ans = note - bill;
+      var opts = nums(ans, [ans + 10, ans - 10, ans + 100, ans - 5, ans + 50]);
+      return item(ans % 10 ? 2 : 1, ['kirana'], function (l) {
+        return { rc: [[T(l, 'kirana.bill'), m(bill)], [T(l, 'kirana.paid'), m(note)]], q: T(l, 'kirana.qChange'), o: opts.map(m), e: m(note) + ' − ' + m(bill) + ' = ' + m(ans) };
+      });
+    },
+    function unitPrice(r) {
+      var g = pick(GOODS.filter(function (x) { return x.u === 'kg' || x.u === 'litre'; }), r);
+      var small = ri(g.p[0] / 5, g.p[1] / 5, r) * 5;
+      var bigQ = pick([2, 5], r);
+      var cheaperBig = r() < 0.6;
+      var bigPrice = bigQ * small + (cheaperBig ? -ri(2, 6, r) * 5 * bigQ / 2 : ri(2, 6, r) * 5);
+      bigPrice = Math.round(bigPrice / 5) * 5;
+      if (bigPrice === bigQ * small) bigPrice -= 5;
+      var perBig = bigPrice / bigQ;
+      var bigBetter = perBig < small;
+      return item(2, ['kirana'], function (l) {
+        var A = '1 ' + unit(g.u, l) + ' ' + L(g.n, l) + ' — ' + m(small);
+        var Bp = bigQ + ' ' + unit(g.u, l) + ' ' + L(g.n, l) + ' — ' + m(bigPrice);
+        var o = bigBetter ? [Bp, A] : [A, Bp];
+        o.push(T(l, 'kirana.same'));
+        return { q: T(l, 'kirana.qUnit'), o: o,
+          e: T(l, 'kirana.eUnit', { a: m(small), b: m(bigPrice), q: bigQ, per: m(Math.round(perBig * 100) / 100), u: unit(g.u, l) }) };
+      });
+    },
+    function discount(r) {
+      var g = pick([['Pressure cooker', 'प्रेशर कुकर'], ['Bedsheet', 'चादर'], ['Ceiling fan', 'छत का पंखा'], ['Umbrella', 'छाता'], ['Shawl', 'शॉल'], ['Wall clock', 'दीवार घड़ी']], r);
+      var price = ri(4, 40, r) * 100;
+      var pct = pick([10, 20, 25, 50], r);
+      var d = price * pct / 100, ans = price - d;
+      var opts = nums(ans, [price - pct * 10, ans + 100, ans - 100, price - d / 2, d]);
+      return item(pct === 25 ? 3 : 2, ['kirana'], function (l) {
+        return { q: T(l, 'kirana.qDiscount', { item: L(g, l), a: m(price), p: pct }), o: opts.map(m), e: T(l, 'kirana.eDiscount', { p: pct, a: m(price), d: m(d), ans: m(ans) }) };
+      });
+    },
+    function split(r) {
+      var n = ri(2, 6, r);
+      var each = ri(8, 80, r) * 10;
+      var bill = each * n;
+      var opts = nums(each, [each + 10, each - 10, each + 50, Math.round(bill / (n + 1) / 10) * 10]);
+      return item(2, ['kirana'], function (l) {
+        return { q: T(l, 'kirana.qSplit', { n: n, a: m(bill) }), o: opts.map(m), e: m(bill) + ' ÷ ' + n + ' = ' + m(each) };
+      });
+    }
+  ];
+  B.addGenerator('life', function (r) { return pick(KIRANA, r)(r); }, 'kirana');
 })();
 
 </script>
@@ -3376,7 +3818,8 @@ body.no-nav #view { padding-bottom: 2rem; }
   var CATS = ['memory', 'attention', 'reasoning', 'life', 'safety', 'nostalgia'];
   var GAME_ICON = {
     wherekept: '🔑', trip: '🧳', changed: '🔍', missing: '🧐', familytree: '🌳', lifeexp: '🌟',
-    household: '🏠', grandmaster: '♟️', scam: '🛡️', thennow: '📻', finish: '🎬', words: '✉️'
+    household: '🏠', grandmaster: '♟️', scam: '🛡️', thennow: '📻', finish: '🎬', words: '✉️',
+    pairs: '🃏', lamps: '🪔', oddone: '🔎', clock: '🕰️', sudoku: '🔢', kirana: '🛒'
   };
   S50.GAME_ICON = GAME_ICON;
 
@@ -3495,6 +3938,17 @@ body.no-nav #view { padding-bottom: 2rem; }
         h('span', { text: lvl.next ? t('level.next', { n: U.fmtNum(lvl.toNext), name: lvl.nextName }) : t('level.max') })),
       h('div', { class: 'bar' }, h('div', { class: 'bar-fill', style: { width: Math.round(lvl.frac * 100) + '%' } }))));
 
+    var quick = h('section', { class: 'feat-grid quick' });
+    var last = Store.data.lastGame && S50.Games.get(Store.data.lastGame) ? Store.data.lastGame : null;
+    var all = S50.Games.ORDER;
+    var sug = all[U.hashStr('sug-' + U.todayKey()) % all.length];
+    if (sug === last) sug = all[(all.indexOf(sug) + 1) % all.length];
+    [[last, 'home.cont', '↻'], [sug, 'home.suggest', '✨']].forEach(function (q) {
+      if (!q[0]) return;
+      quick.appendChild(link('game/' + q[0], 'feat-card', [h('span', { class: 'feat-icon', attrs: { 'aria-hidden': 'true' }, text: GAME_ICON[q[0]] }),
+        h('span', { class: 'feat-text' }, h('span', { text: q[2] + ' ' + t(q[1]) }), h('strong', { text: t('games.' + q[0] + '.name') }))]));
+    });
+    if (quick.childNodes.length) v.appendChild(quick);
     v.appendChild(h('h2', { class: 'section-title', text: t('home.categories') }));
     v.appendChild(h('section', { class: 'cat-grid' }, CATS.map(function (c) {
       return link('games/' + c, 'cat-card cat-' + c, [
@@ -3712,6 +4166,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       toggleBtn('◐ ' + t('settings.contrast'), Store.settings.contrast, function (v) { set('contrast', v); }),
       toggleBtn('🐢 ' + t('settings.motion'), Store.settings.reduceMotion, function (v) { set('reduceMotion', v); }),
       toggleBtn('🔔 ' + t('settings.sound'), Store.settings.sound, function (v) { set('sound', v); if (v) S50.Sound.play('correct', true); }),
+      UI.Speech.available() ? toggleBtn('🔊 ' + t('settings.readAloud'), Store.settings.readAloud, function (v) { set('readAloud', v); }) : null,
       Store.settings.sound ? h('button', { class: 'btn btn-ghost', type: 'button', text: '🎵 ' + t('settings.soundTest'), on: { click: function () { S50.Sound.play('complete', true); } } }) : null));
     if (App.installPrompt) {
       body.appendChild(h('button', { class: 'btn btn-secondary btn-wide', type: 'button', text: '📲 ' + t('settings.install'), on: { click: function () {
@@ -5113,6 +5568,323 @@ body.no-nav #view { padding-bottom: 2rem; }
         } });
     }
   });
+})();
+
+</script>
+  <script>
+/* SMART 50+ — Memory Pairs, Follow the Lamps, Mini Sudoku (custom boards)
+ * and Odd One Out, Clock Reader, Kirana Shop Maths (quiz based). */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  var U = S50.U, h = U.h, t = S50.t, UI = S50.UI, Store = S50.Store, Bank = S50.Bank;
+
+  function title(id) { return t('games.' + id + '.name'); }
+  function finishGame(id, cat, st, extra) {
+    UI.complete({ gameId: id, title: title(id), cat: cat, score: st.score, correct: st.correct, total: st.total }, { back: 'games/' + cat, extra: extra || null });
+  }
+
+  /* ---------------- Quiz-based new games ---------------- */
+  [['oddone', 'attention'], ['clock', 'attention'], ['kirana', 'life']].forEach(function (g) {
+    S50.Games.register({
+      id: g[0], cat: g[1],
+      start: function () {
+        UI.runQuiz({ gameId: g[0], title: title(g[0]), icon: S50.GAME_ICON[g[0]], cat: g[1], items: Bank.freshFrom(g[1], g[0], 10), back: 'games/' + g[1] });
+      }
+    });
+  });
+
+  /* ---------------- Memory Pairs ---------------- */
+  var FACES = [['🪔', 'Diya', 'दीया'], ['🥭', 'Mango', 'आम'], ['🐘', 'Elephant', 'हाथी'], ['🦚', 'Peacock', 'मोर'], ['🏏', 'Cricket bat', 'बल्ला'],
+    ['🪁', 'Kite', 'पतंग'], ['🌺', 'Hibiscus', 'गुड़हल'], ['🛺', 'Auto-rickshaw', 'ऑटो'], ['🍵', 'Chai', 'चाय'], ['🥥', 'Coconut', 'नारियल'],
+    ['🚂', 'Train', 'रेलगाड़ी'], ['🐄', 'Cow', 'गाय'], ['🌶️', 'Chilli', 'मिर्च'], ['☂️', 'Umbrella', 'छाता'], ['📻', 'Radio', 'रेडियो'], ['🌙', 'Moon', 'चाँद']];
+  function startPairs() {
+    var level = Store.gameLevel('pairs');
+    var nPairs = level <= 1 ? 6 : level === 2 ? 8 : 10;
+    var faces = U.sample(FACES, nPairs);
+    var deck = U.shuffle(faces.concat(faces).map(function (f, i) { return { f: f, id: i }; }));
+    var st = { score: 0, correct: 0, total: 0, open: [], matched: 0, busy: false };
+    var body = UI.screen({ title: title('pairs'), icon: S50.GAME_ICON.pairs, cat: 'memory', back: 'games/memory' });
+    var status = h('p', { class: 'pairs-status', attrs: { 'aria-live': 'polite' } });
+    var note = h('p', { class: 'hint pairs-note', attrs: { 'aria-live': 'polite' } });
+    function upd() { status.textContent = t('pairs.found', { f: st.matched, t: nPairs }) + '  ·  ' + t('pairs.turns', { n: st.total }); }
+    body.appendChild(h('p', { class: 'lead', text: t('pairs.intro') }));
+    body.appendChild(status);
+    var grid = h('div', { class: 'pairs-grid cols-' + (nPairs === 6 ? 3 : 4) });
+    var buttons = deck.map(function (c, i) {
+      var b = h('button', { class: 'pcard', type: 'button', attrs: { 'aria-label': t('pairs.card', { n: i + 1 }) + ', ' + t('pairs.hidden') } },
+        h('span', { class: 'pcard-back', attrs: { 'aria-hidden': 'true' }, text: '❀' }));
+      b.addEventListener('click', function () { flip(i); });
+      grid.appendChild(b);
+      return b;
+    });
+    body.appendChild(grid);
+    body.appendChild(note);
+    upd();
+    function face(i) {
+      var c = deck[i], b = buttons[i];
+      U.clear(b);
+      b.appendChild(h('span', { class: 'pcard-emoji', attrs: { 'aria-hidden': 'true' }, text: c.f[0] }));
+      b.appendChild(h('span', { class: 'pcard-name', text: S50.lang === 'hi' ? c.f[2] : c.f[1] }));
+      b.classList.add('up');
+      b.setAttribute('aria-label', t('pairs.card', { n: i + 1 }) + ', ' + (S50.lang === 'hi' ? c.f[2] : c.f[1]));
+    }
+    function hide(i) {
+      var b = buttons[i];
+      U.clear(b);
+      b.appendChild(h('span', { class: 'pcard-back', attrs: { 'aria-hidden': 'true' }, text: '❀' }));
+      b.classList.remove('up');
+      b.setAttribute('aria-label', t('pairs.card', { n: i + 1 }) + ', ' + t('pairs.hidden'));
+    }
+    function flip(i) {
+      if (st.busy || buttons[i].classList.contains('up') || buttons[i].disabled) return;
+      S50.Sound.play('tap');
+      face(i);
+      st.open.push(i);
+      if (st.open.length < 2) return;
+      var a = st.open[0], b = st.open[1];
+      st.open = [];
+      st.total += 1;
+      var ok = deck[a].f === deck[b].f;
+      Store.recordAnswer('memory', ok);
+      if (ok) {
+        st.matched += 1; st.correct += 1;
+        buttons[a].disabled = buttons[b].disabled = true;
+        buttons[a].classList.add('matched'); buttons[b].classList.add('matched');
+        note.textContent = t('pairs.match');
+        S50.Sound.play('correct');
+        upd();
+        if (st.matched === nPairs) {
+          // 100 per pair, minus a little for extra turns, never below 40 per pair.
+          st.score = Math.max(nPairs * 40, nPairs * 100 + (level - 1) * 60 - (st.total - nPairs) * 15);
+          if (st.total <= nPairs * 1.6 && level < 3) Store.setGameLevel('pairs', level + 1);
+          UI.later(function () { finishGame('pairs', 'memory', st); }, 900);
+        }
+      } else {
+        note.textContent = t('pairs.nomatch');
+        st.busy = true;
+        upd();
+        UI.later(function () { hide(a); hide(b); st.busy = false; }, 1400);
+      }
+    }
+  }
+  S50.Games.register({ id: 'pairs', cat: 'memory', start: startPairs });
+
+  /* ---------------- Follow the Lamps ---------------- */
+  var LAMP_TONES = [392, 523, 659, 784];
+  function startLamps() {
+    var colors = t('lamps.colors');
+    var st = { score: 0, correct: 0, total: 0, seq: [], pos: 0, input: false, retried: false, best: 0 };
+    var MAX_ROUNDS = 8;
+    var body = UI.screen({ title: title('lamps'), icon: S50.GAME_ICON.lamps, cat: 'attention', back: 'games/attention' });
+    body.appendChild(h('p', { class: 'lead', text: t('lamps.intro') }));
+    var info = h('p', { class: 'lamps-info', attrs: { 'aria-live': 'polite' } });
+    var lenEl = h('p', { class: 'hint' });
+    var grid = h('div', { class: 'lamps-grid' });
+    var lamps = [0, 1, 2, 3].map(function (i) {
+      var b = h('button', { class: 'lamp lamp-' + i, type: 'button', attrs: { 'aria-label': t('lamps.lamp', { n: i + 1 }) + ' — ' + colors[i] }, disabled: true },
+        h('span', { class: 'lamp-diya', attrs: { 'aria-hidden': 'true' }, text: '🪔' }),
+        h('span', { class: 'lamp-label', text: (i + 1) + ' · ' + colors[i] }));
+      b.addEventListener('click', function () { press(i); });
+      grid.appendChild(b);
+      return b;
+    });
+    var startBtn = h('button', { class: 'btn btn-primary btn-wide btn-big', type: 'button', text: '▶ ' + t('common.start'), on: { click: function () { startBtn.style.display = 'none'; nextRound(); } } });
+    body.appendChild(info); body.appendChild(lenEl); body.appendChild(grid); body.appendChild(startBtn);
+    var slow = Store.settings.mode === 'relaxed' ? 1 : 0.75;
+
+    function light(i, ms) {
+      lamps[i].classList.add('lit');
+      S50.Sound.note(LAMP_TONES[i], ms / 1000);
+      UI.later(function () { lamps[i].classList.remove('lit'); }, ms);
+    }
+    function setInput(on) { st.input = on; lamps.forEach(function (b) { b.disabled = !on; }); }
+    function nextRound() {
+      if (st.total >= MAX_ROUNDS) return finishGame('lamps', 'attention', st, h('p', { class: 'complete-bonus', text: t('lamps.best', { n: st.best }) }));
+      st.seq.push(Math.floor(Math.random() * 4));
+      if (st.seq.length < 3) { st.seq.push(Math.floor(Math.random() * 4)); st.seq.push(Math.floor(Math.random() * 4)); }
+      st.retried = false;
+      show();
+    }
+    function show() {
+      setInput(false);
+      st.pos = 0;
+      info.textContent = t('lamps.watch');
+      lenEl.textContent = t('lamps.length', { n: st.seq.length });
+      var step = Math.round(950 * slow);
+      st.seq.forEach(function (lampIdx, k) { UI.later(function () { light(lampIdx, Math.round(650 * slow)); }, 700 + k * step); });
+      UI.later(function () { info.textContent = t('lamps.your'); setInput(true); lamps[0].focus({ preventScroll: true }); }, 700 + st.seq.length * step);
+    }
+    function press(i) {
+      if (!st.input) return;
+      light(i, 300);
+      if (i === st.seq[st.pos]) {
+        st.pos += 1;
+        if (st.pos < st.seq.length) return;
+        setInput(false);
+        st.total += 1; st.correct += 1;
+        st.best = Math.max(st.best, st.seq.length);
+        st.score += Store.Score.question({ correct: true, difficulty: Math.min(3, Math.ceil((st.seq.length - 2) / 2)), streak: st.correct });
+        Store.recordAnswer('attention', true);
+        info.textContent = t('lamps.good');
+        S50.Sound.play('correct');
+        UI.later(nextRound, 1300);
+      } else {
+        setInput(false);
+        S50.Sound.play('wrong');
+        if (!st.retried) {
+          st.retried = true;
+          info.textContent = t('lamps.retry');
+          UI.later(show, 1600);
+        } else {
+          // Second slip on the same pattern: count it, then continue with a fresh, shorter pattern.
+          st.total += 1;
+          Store.recordAnswer('attention', false);
+          st.seq = st.seq.slice(0, Math.max(2, st.seq.length - 2));
+          info.textContent = t('lamps.retry');
+          UI.later(nextRound, 1600);
+        }
+      }
+    }
+  }
+  S50.Games.register({ id: 'lamps', cat: 'attention', start: startLamps });
+
+  /* ---------------- Mini Sudoku ---------------- */
+  function makeSudoku(n) {
+    var br = n === 4 ? 2 : 2, bc = n === 4 ? 2 : 3; // box rows × box cols
+    var grid = [];
+    for (var r = 0; r < n; r++) { grid.push([]); for (var c = 0; c < n; c++) grid[r].push((bc * (r % br) + Math.floor(r / br) + c) % n + 1); }
+    var digits = U.shuffle(Array.apply(null, { length: n }).map(function (x, i) { return i + 1; }));
+    function shuffleGroups(count, size) {
+      var order = [];
+      U.shuffle(Array.apply(null, { length: count }).map(function (x, i) { return i; })).forEach(function (g) {
+        U.shuffle(Array.apply(null, { length: size }).map(function (x, i) { return i; })).forEach(function (k) { order.push(g * size + k); });
+      });
+      return order;
+    }
+    var rows = shuffleGroups(n / br, br), cols = shuffleGroups(n / bc, bc);
+    var sol = rows.map(function (r) { return cols.map(function (c) { return digits[grid[r][c] - 1]; }); });
+    return { n: n, br: br, bc: bc, sol: sol };
+  }
+  function boxOf(p, r, c) { return Math.floor(r / p.br) * (p.n / p.bc) + Math.floor(c / p.bc); }
+  function conflicts(p, g) {
+    var bad = {};
+    for (var r = 0; r < p.n; r++) for (var c = 0; c < p.n; c++) {
+      var v = g[r][c]; if (!v) continue;
+      for (var r2 = 0; r2 < p.n; r2++) for (var c2 = 0; c2 < p.n; c2++) {
+        if ((r2 !== r || c2 !== c) && g[r2][c2] === v && (r2 === r || c2 === c || boxOf(p, r2, c2) === boxOf(p, r, c))) bad[r + ',' + c] = true;
+      }
+    }
+    return bad;
+  }
+  function startSudoku() {
+    var level = Store.gameLevel('sudoku');
+    var PUZZLES = 3;
+    var st = { score: 0, correct: 0, total: 0, k: 0 };
+    var body = UI.screen({ title: title('sudoku'), icon: S50.GAME_ICON.sudoku, cat: 'reasoning', back: 'games/reasoning' });
+    var wrap = h('div', {});
+    body.appendChild(wrap);
+    function next() {
+      if (st.k >= PUZZLES) {
+        if (st.correct === PUZZLES && level < 4) Store.setGameLevel('sudoku', level + 1);
+        return finishGame('sudoku', 'reasoning', st);
+      }
+      var effective = level + st.k; // each puzzle a little harder
+      var n = effective <= 2 ? 4 : 6;
+      var blanks = n === 4 ? (effective <= 1 ? 6 : 8) : Math.min(22, 10 + (effective - 3) * 4);
+      play(makeSudoku(n), blanks);
+    }
+    function play(p, blanks) {
+      var n = p.n;
+      var given = {}, g = [];
+      var cells = U.shuffle(Array.apply(null, { length: n * n }).map(function (x, i) { return i; }));
+      var holes = {}; cells.slice(0, blanks).forEach(function (i) { holes[i] = true; });
+      for (var r = 0; r < n; r++) { g.push([]); for (var c = 0; c < n; c++) { var empty = holes[r * n + c]; g[r].push(empty ? 0 : p.sol[r][c]); if (!empty) given[r + ',' + c] = true; } }
+      var sel = null, hints = 0, marks = {};
+      U.clear(wrap);
+      wrap.appendChild(UI.progressBar(st.k + 1, PUZZLES, t('sudoku.puzzle', { n: st.k + 1, t: PUZZLES })));
+      wrap.appendChild(h('p', { class: 'lead', text: t('sudoku.intro') }));
+      var msg = h('p', { class: 'sudoku-msg', attrs: { role: 'status', 'aria-live': 'polite' }, text: t('sudoku.pick') });
+      var board = h('div', { class: 'sudoku n' + n, attrs: { role: 'grid' } });
+      var btns = [];
+      function draw() {
+        U.clear(board);
+        btns = [];
+        for (var r = 0; r < n; r++) {
+          var row = h('div', { class: 'sk-row', attrs: { role: 'row' } });
+          for (var c = 0; c < n; c++) (function (r, c) {
+            var key = r + ',' + c;
+            var cls = 'sk-cell' + (given[key] ? ' given' : '') + (sel === key ? ' sel' : '') + (marks[key] ? ' bad' : '') +
+              ((c + 1) % p.bc === 0 && c < n - 1 ? ' bR' : '') + ((r + 1) % p.br === 0 && r < n - 1 ? ' bB' : '');
+            var v = g[r][c];
+            var b = h('button', { class: cls, type: 'button', attrs: { role: 'gridcell', 'aria-label': t('sudoku.cell', { r: r + 1, c: c + 1 }) + ': ' + (v || t('sudoku.empty')) + (given[key] ? ' (' + t('sudoku.given') + ')' : '') } },
+              v ? String(v) : '', marks[key] ? h('span', { class: 'sk-x', attrs: { 'aria-hidden': 'true' }, text: '✗' }) : null);
+            b.addEventListener('click', function () { if (given[key]) return; sel = key; draw(); var f = board.querySelector('.sel'); if (f) f.focus(); });
+            row.appendChild(b);
+          })(r, c);
+          board.appendChild(row);
+        }
+      }
+      function setVal(v) {
+        if (!sel) { msg.textContent = t('sudoku.pick'); return; }
+        var rc = sel.split(',');
+        g[+rc[0]][+rc[1]] = v;
+        marks = {};
+        S50.Sound.play('tap');
+        draw();
+        var empty = 0; g.forEach(function (row) { row.forEach(function (x) { if (!x) empty++; }); });
+        if (!empty) check();
+      }
+      function check() {
+        marks = conflicts(p, g);
+        var empty = 0; g.forEach(function (row) { row.forEach(function (x) { if (!x) empty++; }); });
+        if (Object.keys(marks).length) { msg.textContent = t('sudoku.conflicts'); S50.Sound.play('wrong'); }
+        else if (empty) msg.textContent = t('sudoku.incomplete', { n: empty });
+        else return solved();
+        draw();
+      }
+      function solved() {
+        st.total += 1; st.correct += 1;
+        var pts = Math.max(60, (n === 4 ? 150 : 250) - hints * 30);
+        st.score += pts;
+        Store.recordAnswer('reasoning', true);
+        S50.Sound.play('correct');
+        U.clear(wrap);
+        var nb = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: st.k + 1 >= PUZZLES ? t('common.finish') : t('common.next'), on: { click: function () { st.k += 1; next(); } } });
+        wrap.appendChild(h('div', { class: 'card' }, h('div', { class: 'feedback fb-good' },
+          h('div', { class: 'fb-head' }, h('strong', { text: t('sudoku.solved') }), h('span', { class: 'fb-points', text: t('common.points', { n: pts }) })),
+          hints ? h('p', { text: t('sudoku.hintsUsed', { n: hints }) }) : null), board, nb));
+        board.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
+        nb.focus();
+      }
+      var pad = h('div', { class: 'sk-pad' });
+      for (var d = 1; d <= n; d++) (function (d) { pad.appendChild(h('button', { class: 'sk-num', type: 'button', text: String(d), on: { click: function () { setVal(d); } } })); })(d);
+      pad.appendChild(h('button', { class: 'sk-num sk-erase', type: 'button', text: t('sudoku.erase'), on: { click: function () { setVal(0); } } }));
+      var tools = h('div', { class: 'sk-tools' },
+        h('button', { class: 'btn btn-secondary', type: 'button', text: t('sudoku.check'), on: { click: check } }),
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('sudoku.hint'), on: { click: function () {
+          // Fill the selected square (or the first empty or wrong one) with the solution.
+          var target = sel && !given[sel] && g[+sel.split(',')[0]][+sel.split(',')[1]] !== p.sol[+sel.split(',')[0]][+sel.split(',')[1]] ? sel : null;
+          for (var r = 0; r < n && !target; r++) for (var c = 0; c < n && !target; c++) if (!given[r + ',' + c] && g[r][c] !== p.sol[r][c]) target = r + ',' + c;
+          if (!target) return check();
+          var rc = target.split(',');
+          g[+rc[0]][+rc[1]] = p.sol[+rc[0]][+rc[1]];
+          given[target] = true; hints += 1; sel = null; marks = {};
+          draw();
+          msg.textContent = t('sudoku.hintsUsed', { n: hints });
+          var empty = 0; g.forEach(function (row) { row.forEach(function (x) { if (!x) empty++; }); });
+          if (!empty) check();
+        } } }));
+      var skip = h('button', { class: 'btn btn-ghost btn-wide', type: 'button', text: t('sudoku.skip'), on: { click: function () {
+        st.total += 1; Store.recordAnswer('reasoning', false); st.k += 1; next();
+      } } });
+      wrap.appendChild(h('div', { class: 'card sudoku-card' }, msg, board, pad, tools, skip));
+      draw();
+    }
+    next();
+  }
+  S50.Games.register({ id: 'sudoku', cat: 'reasoning', start: startSudoku });
+  S50.Sudoku = { make: makeSudoku, conflicts: conflicts };
 })();
 
 </script>
