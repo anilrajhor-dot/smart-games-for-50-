@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SMART 50+ — Mind • Memory • Wisdom • Fun</title>
+  <meta name="author" content="Anil Sharma, Former General Manager, Central Bank of India">
   <meta name="description" content="SMART 50+: memory practice, brain stimulation and entertainment through real-life wisdom, nostalgia and everyday decisions. Works offline.">
   <meta name="theme-color" content="#fff7ee">
   <meta name="color-scheme" content="light dark">
@@ -769,6 +770,36 @@ body.no-nav #view { padding-bottom: 2rem; }
 .reduce-motion .tray-piece, .reduce-motion .sh-cell { transition: none; }
 .theme-dark .esc-map-cell { border-color: rgba(255, 255, 255, .25); }
 .high-contrast .esc-map-cell { background: var(--surface); border: 2px solid var(--border); }
+.credit { text-align: center; font-weight: 700; color: var(--secondary); font-size: .95rem; margin: 1rem 0 .25rem; }
+
+/* ---------- Help, guide and practice ---------- */
+.btn-help { min-height: 48px; min-width: 48px; padding: .4rem .9rem; border-radius: 12px; cursor: pointer; border: 2px solid var(--secondary); background: var(--surface); color: var(--secondary); font-weight: 800; font-size: 1rem; margin-left: auto; }
+.game-row { display: flex; align-items: stretch; gap: .5rem; margin-bottom: .6rem; }
+.game-row .game-card { flex: 1; margin-bottom: 0; min-width: 0; }
+.help-link { flex: 0 0 56px; display: flex; align-items: center; justify-content: center; border-radius: 16px; border: 2px solid var(--secondary); background: var(--surface); text-decoration: none; font-size: 1.4rem; }
+.help-content .help-head { display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem; }
+.help-icon { font-size: 2.4rem; }
+.help-name { margin: 0; font-size: 1.35rem; }
+.help-aim { font-size: 1.1rem; }
+.help-sub { font-size: 1.1rem; margin: 1rem 0 .4rem; }
+.help-steps { margin: 0 0 .9rem; padding-left: 1.6rem; }
+.help-steps li { margin-bottom: .55rem; font-size: 1.08rem; padding-left: .2rem; }
+.help-steps li::marker { font-weight: 900; color: var(--primary); }
+.help-tip { background: var(--mid-bg); border-left: 5px solid var(--mid); border-radius: 10px; padding: .7rem .9rem; margin-bottom: .75rem; }
+.help-points { color: var(--muted); font-size: .98rem; margin-bottom: .4rem; }
+.help-first { background: var(--good-bg); color: var(--good); border-radius: 12px; padding: .7rem .9rem; font-weight: 700; }
+.help-actions { margin-top: 1rem; }
+.help-basics { margin: 0; padding-left: 1.3rem; }
+.help-basics li { margin-bottom: .5rem; }
+.help-modal { max-height: 88vh; overflow-y: auto; max-width: 560px; }
+.coach { display: flex; flex-direction: column; gap: .25rem; background: var(--good-bg); border: 3px solid var(--good); border-radius: 14px; padding: .75rem 1rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
+.coach-badge { font-weight: 900; color: var(--good); }
+.coach-text { font-size: 1.1rem; font-weight: 700; }
+.practice-note { background: var(--surface-2); border-radius: 10px; padding: .5rem .8rem; font-weight: 650; color: var(--muted); }
+.practice-done { text-align: center; margin-top: 1rem; border: 3px solid var(--good); }
+.sh-cell.star, .sk-cell.star { background: #fff3b0; color: #7a4f00; font-size: 1.4rem; border-color: var(--mid); border-style: solid; }
+.theme-dark .sh-cell.star, .theme-dark .sk-cell.star { background: #5a4a10; color: #ffe08a; }
+.high-contrast .sh-cell.star, .high-contrast .sk-cell.star { background: var(--surface); color: var(--text); border: 4px solid var(--focus); }
 
 </style>
 </head>
@@ -1798,6 +1829,138 @@ body.no-nav #view { padding-bottom: 2rem; }
   });
 })();
 
+/* ---------- Credit ---------- */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  S50.STR.en.about.credit = 'Developed by Anil Sharma, Former General Manager, Central Bank of India';
+  S50.STR.hi.about.credit = 'विकसितकर्ता: अनिल शर्मा, पूर्व महाप्रबंधक, सेंट्रल बैंक ऑफ़ इंडिया';
+})();
+
+/* ---------- Help, guide and practice rounds ---------- */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  function merge(dst, src) {
+    Object.keys(src).forEach(function (k) {
+      if (src[k] && typeof src[k] === 'object' && !Array.isArray(src[k])) { dst[k] = dst[k] || {}; merge(dst[k], src[k]); }
+      else dst[k] = src[k];
+    });
+  }
+  merge(S50.STR.en, {
+    menu: { help: 'Help & Guide' }, menuDesc: { help: 'How to play every game' },
+    help: {
+      title: 'How to play', guide: 'Help & Guide', aim: 'Aim', steps: 'How to play', tip: 'Tip',
+      points: 'Correct answers earn points. Mistakes never take points away — just keep going.',
+      relaxed: 'In Relaxed mode there is no timer. Take as long as you like.',
+      start: '▶ Start playing', practice: '🎓 Try a practice round', hasPractice: 'Practice round available',
+      btn: '❓ Help', btnLabel: 'How to play this game', back: 'Back to the game',
+      firstTime: 'First time playing this game? Here is a quick guide.',
+      guideIntro: 'Tap any game to read how to play it. Games marked 🎓 also have a guided practice round.',
+      basics: 'Getting started',
+      basicsList: [
+        '← Back always takes you to the previous screen. You are never stuck inside a game.',
+        '❓ Help, at the top of every game, shows how to play without stopping your game.',
+        '🔊 Listen reads the question aloud. 💡 50:50 removes two wrong answers (half points).',
+        'Text size, language, sound, dark theme and Relaxed or Challenge mode are in ⚙️ Settings.',
+        'Your progress is saved on this phone automatically. Nothing is sent anywhere.',
+        'There is no pass or fail. Mistakes never take points away.'
+      ],
+      practiceTitle: 'Practice', practiceNote: 'Practice round — nothing is scored or saved. Follow the 🎓 steps.',
+      stepN: 'Step {n}', practiceDone: 'Practice complete!', practiceDone2: 'You are ready to play the real game.',
+      playReal: '▶ Play the real game', practiceAgain: '↻ Practise again', readAgain: '❓ Read the help again'
+    },
+    practice: {
+      det: {
+        t: 'The Missing Umbrella', s: 'Papa’s umbrella is missing.',
+        c: ['It was raining this morning when Papa went to the bank.', 'He came home by auto in bright sunshine.', 'The bank phoned: “Someone left a black umbrella at our counter.”'],
+        q: 'Where is the umbrella most likely?', o: ['At the bank counter', 'In the auto', 'At home', 'At the vegetable shop'],
+        e: 'He took it to the bank in the rain, did not need it in the sunshine, and the bank found one at its counter.',
+        s1: 'Tap each 🔍 clue card to read it.', s2: 'All clues read! Now tap the answer that fits EVERY clue.', s3: 'See the explanation — it shows how the clues connect.'
+      },
+      sud: {
+        s1: 'Tap the empty square marked ★ in the top row.', s2: 'The top row already has 1, 2 and 3. Which number is missing? Tap it below.',
+        s3: 'Now tap the other ★ square, in the first column.', s4: 'That column already has 1, 3 and 4. Tap the missing number.',
+        wrong: 'Not quite — that number is already in the row or column. Tap another number.'
+      },
+      esc: {
+        t: 'The Garden Shed', st1: 'A note on the shed says: “The key is under the pot with the most flowers.” Which pot?',
+        disp: 'Pot A: 🌼 🌼     Pot B: 🌼 🌼 🌼 🌼     Pot C: 🌼', o: ['Pot B', 'Pot A', 'Pot C'],
+        r1: 'Under pot B is the key and a slip: “Lock code = the number of flowers on pot B, typed twice.”',
+        st2: 'The shed lock needs a 2-digit code. Use your clue.', code: '44',
+        h1: 'Count the flowers on each pot.', h2: 'Pot B has 4 flowers. Type 4 twice: 4 4.',
+        s1: 'Read the note and count the flowers, then tap your answer. Stuck? Tap 💡 Hint.',
+        s2: 'Solved! Your new clue is saved in “Clues you have found”. Tap “Next stage”.',
+        s3: 'Read your clue above, type the code on the keypad, then tap ✓ Check.'
+      },
+      shp: {
+        s1: 'Tap piece {l} in “Your pieces” below.', s2: 'Piece {l} is lying the wrong way. Tap ↻ Turn until it matches the outline.',
+        s3: 'Now tap the ★ square on the board. The ● square of the piece goes there.'
+      },
+      hh: {
+        s1: 'The repair put you over budget. Tap − next to Entertainment or Gifts.', s2: 'Keep going until you see “✓ Budget is balanced”.',
+        s3: 'Balanced! Now tap “Confirm this month’s plan”.', s4: 'Read the feedback — it explains what was good about your choices.'
+      }
+    }
+  });
+  merge(S50.STR.hi, {
+    menu: { help: 'सहायता और मार्गदर्शिका' }, menuDesc: { help: 'हर खेल कैसे खेलें' },
+    help: {
+      title: 'कैसे खेलें', guide: 'सहायता और मार्गदर्शिका', aim: 'लक्ष्य', steps: 'कैसे खेलें', tip: 'सुझाव',
+      points: 'सही उत्तर पर अंक मिलते हैं। गलती पर अंक कभी नहीं कटते — बस खेलते रहिए।',
+      relaxed: 'आराम मोड में कोई टाइमर नहीं है। जितना चाहें समय लें।',
+      start: '▶ खेलना शुरू करें', practice: '🎓 अभ्यास राउंड आज़माएँ', hasPractice: 'अभ्यास राउंड उपलब्ध',
+      btn: '❓ सहायता', btnLabel: 'यह खेल कैसे खेलें', back: 'खेल पर वापस जाएँ',
+      firstTime: 'पहली बार यह खेल खेल रहे हैं? यह रही छोटी-सी मार्गदर्शिका।',
+      guideIntro: 'किसी भी खेल पर टैप करके पढ़ें कि उसे कैसे खेलें। 🎓 वाले खेलों में अभ्यास राउंड भी है।',
+      basics: 'शुरुआत',
+      basicsList: [
+        '← वापस हमेशा पिछली स्क्रीन पर ले जाता है। आप कभी किसी खेल में अटकते नहीं।',
+        'हर खेल के ऊपर ❓ सहायता बटन खेल रोके बिना बताता है कि कैसे खेलें।',
+        '🔊 सुनें सवाल पढ़कर सुनाता है। 💡 50:50 दो गलत उत्तर हटा देता है (आधे अंक)।',
+        'अक्षर का आकार, भाषा, आवाज़, गहरी थीम और आराम या चुनौती मोड ⚙️ सेटिंग्स में हैं।',
+        'आपकी प्रगति इसी फ़ोन पर अपने आप सहेजी जाती है। कुछ भी कहीं नहीं भेजा जाता।',
+        'यहाँ कोई पास या फ़ेल नहीं। गलती पर अंक कभी नहीं कटते।'
+      ],
+      practiceTitle: 'अभ्यास', practiceNote: 'अभ्यास राउंड — कोई अंक या प्रगति सहेजी नहीं जाती। 🎓 कदमों का पालन करें।',
+      stepN: 'कदम {n}', practiceDone: 'अभ्यास पूरा!', practiceDone2: 'अब आप असली खेल खेलने के लिए तैयार हैं।',
+      playReal: '▶ असली खेल खेलें', practiceAgain: '↻ फिर से अभ्यास करें', readAgain: '❓ सहायता फिर से पढ़ें'
+    },
+    practice: {
+      det: {
+        t: 'ग़ायब छाता', s: 'पापा का छाता ग़ायब है।',
+        c: ['आज सुबह पापा बैंक गए, तब बारिश हो रही थी।', 'वे तेज़ धूप में ऑटो से घर लौटे।', 'बैंक से फ़ोन आया: “कोई हमारे काउंटर पर काला छाता छोड़ गया है।”'],
+        q: 'छाता सबसे संभावना कहाँ है?', o: ['बैंक के काउंटर पर', 'ऑटो में', 'घर पर', 'सब्ज़ी की दुकान पर'],
+        e: 'वे बारिश में छाता बैंक ले गए, धूप में उसकी ज़रूरत नहीं पड़ी, और बैंक को काउंटर पर एक छाता मिला।',
+        s1: 'हर 🔍 सुराग़ कार्ड पर टैप करके उसे पढ़ें।', s2: 'सारे सुराग़ पढ़ लिए! अब वह उत्तर चुनें जो हर सुराग़ से मेल खाता हो।', s3: 'स्पष्टीकरण देखें — इसमें बताया है कि सुराग़ कैसे जुड़ते हैं।'
+      },
+      sud: {
+        s1: 'ऊपर की पंक्ति में ★ वाले ख़ाली ख़ाने पर टैप करें।', s2: 'ऊपर की पंक्ति में 1, 2 और 3 पहले से हैं। कौन-सा अंक नहीं है? नीचे उस पर टैप करें।',
+        s3: 'अब पहले कॉलम के दूसरे ★ ख़ाने पर टैप करें।', s4: 'उस कॉलम में 1, 3 और 4 पहले से हैं। जो अंक नहीं है उस पर टैप करें।',
+        wrong: 'थोड़ा चूक गए — यह अंक पंक्ति या कॉलम में पहले से है। कोई दूसरा अंक टैप करें।'
+      },
+      esc: {
+        t: 'बगीचे का कमरा', st1: 'कमरे पर एक पर्ची है: “चाबी उस गमले के नीचे है जिसमें सबसे ज़्यादा फूल हैं।” कौन-सा गमला?',
+        disp: 'गमला A: 🌼 🌼     गमला B: 🌼 🌼 🌼 🌼     गमला C: 🌼', o: ['गमला B', 'गमला A', 'गमला C'],
+        r1: 'गमले B के नीचे चाबी और पर्ची है: “ताले का कोड = गमले B के फूलों की संख्या, दो बार टाइप करें।”',
+        st2: 'कमरे के ताले को 2 अंकों का कोड चाहिए। अपने सुराग़ का उपयोग करें।', code: '44',
+        h1: 'हर गमले के फूल गिनें।', h2: 'गमले B में 4 फूल हैं। 4 दो बार टाइप करें: 4 4।',
+        s1: 'पर्ची पढ़ें और फूल गिनें, फिर उत्तर पर टैप करें। अटक जाएँ? 💡 संकेत दबाएँ।',
+        s2: 'हल हो गया! आपका नया सुराग़ “आपको मिले सुराग़” में सहेजा गया है। “अगला चरण” दबाएँ।',
+        s3: 'ऊपर अपना सुराग़ पढ़ें, कीपैड पर कोड टाइप करें, फिर ✓ जाँचें दबाएँ।'
+      },
+      shp: {
+        s1: 'नीचे “आपके टुकड़े” में टुकड़ा {l} पर टैप करें।', s2: 'टुकड़ा {l} ग़लत दिशा में है। रेखा से मेल खाने तक ↻ घुमाएँ दबाएँ।',
+        s3: 'अब बोर्ड पर ★ वाले ख़ाने पर टैप करें। टुकड़े का ● वाला ख़ाना वहीं आएगा।'
+      },
+      hh: {
+        s1: 'मरम्मत से आप बजट से ऊपर चले गए। मनोरंजन या उपहार के आगे − पर टैप करें।', s2: '“✓ बजट संतुलित है” दिखने तक दबाते रहें।',
+        s3: 'संतुलित हो गया! अब “इस महीने की योजना पक्की करें” दबाएँ।', s4: 'प्रतिक्रिया पढ़ें — इसमें बताया है कि आपके फ़ैसलों में क्या अच्छा था।'
+      }
+    }
+  });
+})();
+
 </script>
   <script>
 /* SMART 50+ — local storage, scoring, levels, streaks and achievements.
@@ -1825,6 +1988,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       levels: {},
       lastGame: '',
       escape: null,
+      helpSeen: {},
       escapeDone: [],
       recent: {}
     };
@@ -2313,7 +2477,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       h('div', { class: 'screen-title' },
         opts.icon ? h('span', { class: 'screen-icon', attrs: { 'aria-hidden': 'true' }, text: opts.icon }) : null,
         h('h1', { text: opts.title || '' })),
-      opts.right || null);
+      opts.noHelp ? null : (opts.right || helpButton()));
     var body = h('div', { class: 'screen-body' });
     v.appendChild(header);
     v.appendChild(body);
@@ -2321,6 +2485,14 @@ body.no-nav #view { padding-bottom: 2rem; }
     var h1 = header.querySelector('h1');
     if (h1) { h1.setAttribute('tabindex', '-1'); try { h1.focus({ preventScroll: true }); } catch (e) { /* old browsers */ } }
     return body;
+  }
+
+  /* Every game screen gets a ❓ Help button that opens the how-to-play panel without leaving the game. */
+  function helpButton() {
+    var m = /^game\/([a-z]+)/.exec(S50.App && S50.App.current ? S50.App.current() : '');
+    if (!m || !S50.Help || !S50.Help.has(m[1])) return null;
+    var id = m[1];
+    return h('button', { class: 'btn-help', type: 'button', text: t('help.btn'), attrs: { 'aria-label': t('help.btnLabel') }, on: { click: function () { S50.Help.panel(id); } } });
   }
 
   function toast(msg, ms) {
@@ -2701,7 +2873,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     var path = current();
     var parts = path.split('/');
     if (!S50.Store.data.onboarded && parts[0] !== 'onboarding') { path = 'onboarding'; parts = ['onboarding']; }
-    var navKey = { home: 'home', games: 'games', game: 'games', daily: 'daily', progress: 'progress', achievements: 'progress', settings: 'settings', about: 'settings' }[parts[0]] || '';
+    var navKey = { home: 'home', games: 'games', game: 'games', help: 'settings', practice: 'games', daily: 'daily', progress: 'progress', achievements: 'progress', settings: 'settings', about: 'settings' }[parts[0]] || '';
     document.body.classList.toggle('no-nav', parts[0] === 'onboarding');
     buildNav(navKey);
     try {
@@ -2709,6 +2881,8 @@ body.no-nav #view { padding-bottom: 2rem; }
       if (parts[0] === 'game') {
         var g = S50.Games.get(parts[1]);
         if (!g) { go('games'); return; }
+        // First time a game is opened, show its "How to play" guide before starting.
+        if (parts.length === 2 && S50.Help && S50.Help.has(g.id) && !S50.Help.seen(g.id)) { S50.Help.page(g.id, true); return; }
         g.start(parts.slice(2));
       } else fn(parts.slice(1));
     } catch (e) {
@@ -2735,7 +2909,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); S50.App.installPrompt = e; });
   }
 
-  S50.App = { go: go, render: render, route: route, applySettings: applySettings, current: current, installPrompt: null, VERSION: '1.2.0' };
+  S50.App = { go: go, render: render, route: route, applySettings: applySettings, current: current, installPrompt: null, VERSION: '1.3.0' };
   document.addEventListener('DOMContentLoaded', init);
 })();
 
@@ -4438,6 +4612,161 @@ body.no-nav #view { padding-bottom: 2rem; }
 })();
 
 </script>
+  <script>
+/* SMART 50+ — "How to play" content for every game and mode (English + Hindi).
+ * a = aim (one sentence), s = steps, p = a helpful tip. */
+(function () {
+  'use strict';
+  function H(en, hi) { return { en: { a: en[0], s: en[1], p: en[2] }, hi: { a: hi[0], s: hi[1], p: hi[2] } }; }
+  window.S50.HELP = {
+    wherekept: H(['Remember where everyday things were kept in a room.',
+      ['Look at the room. Each square shows a place, such as the sofa or the bed, and some things kept there.', 'When you have remembered them, tap “I’m Ready”. The things are hidden.', 'Answer: “Where did you keep the keys?” — tap the right place.', 'At higher levels a thing may be moved, or you may be asked about two things at once.'],
+      'Say it softly to yourself: “keys on the sofa, spectacles on the bed”. Saying it helps you remember.'],
+      ['याद रखें कि कमरे में रोज़ की चीज़ें कहाँ रखी थीं।',
+      ['कमरा देखें। हर ख़ाने में एक जगह है, जैसे सोफ़ा या पलंग, और वहाँ रखी चीज़ें।', 'याद हो जाए तो “मैं तैयार हूँ” दबाएँ। चीज़ें छिप जाएँगी।', 'सवाल का उत्तर दें: “चाबियाँ कहाँ रखी थीं?” — सही जगह पर टैप करें।', 'ऊँचे स्तर पर कोई चीज़ हटाई जा सकती है, या दो चीज़ों के बारे में एक साथ पूछा जा सकता है।'],
+      'मन में धीरे से बोलें: “चाबी सोफ़े पर, चश्मा पलंग पर”। बोलने से याद रहता है।']),
+    trip: H(['Travel across India and remember what you saw and spent.',
+      ['Tap “Start”. Each stop shows a city, its state, what it is famous for, and three costs.', 'Read each stop carefully, then tap “I’m Ready” to go to the next city.', 'After the journey, answer questions such as “What was the hotel cost in Jaipur?”', 'Some questions need a little adding, such as the total lunch cost.'],
+      'Picture yourself in each city — it makes the details easier to remember.'],
+      ['भारत की सैर करें और याद रखें कि क्या देखा और कितना ख़र्च किया।',
+      ['“शुरू करें” दबाएँ। हर पड़ाव पर शहर, राज्य, किस लिए प्रसिद्ध है और तीन ख़र्च दिखेंगे।', 'हर पड़ाव ध्यान से पढ़ें, फिर अगले शहर के लिए “मैं तैयार हूँ” दबाएँ।', 'सफ़र के बाद सवालों के उत्तर दें, जैसे “जयपुर में होटल कितने का था?”', 'कुछ सवालों में थोड़ा जोड़ना पड़ता है, जैसे भोजन का कुल ख़र्च।'],
+      'ख़ुद को हर शहर में सोचिए — इससे बातें याद रखना आसान होता है।']),
+    pairs: H(['Find all the matching pairs of picture cards.',
+      ['All the cards start face down.', 'Tap any two cards to turn them over.', 'If they match, they stay open with a ✓. If not, they turn back after a moment.', 'Remember where each picture was, and keep going until all pairs are found.'],
+      'Try to remember positions in rows: “mango — top row, second card”.'],
+      ['एक जैसे चित्रों वाले सारे पत्तों की जोड़ियाँ ढूँढें।',
+      ['शुरू में सारे पत्ते उल्टे रखे होते हैं।', 'किसी भी दो पत्तों पर टैप करके उन्हें पलटें।', 'अगर दोनों एक जैसे हैं तो ✓ के साथ खुले रहेंगे। नहीं तो थोड़ी देर बाद वापस पलट जाएँगे।', 'याद रखें कौन-सा चित्र कहाँ था, और सारी जोड़ियाँ मिलने तक खेलते रहें।'],
+      'पंक्ति के हिसाब से याद रखें: “आम — ऊपर की पंक्ति, दूसरा पत्ता”।']),
+    changed: H(['Spot the things that changed in a picture.',
+      ['Look carefully at the scene — a room, kitchen, market and so on.', 'Tap “I’m Ready”. After a short pause, the scene comes back with some changes.', 'Tap every square that is different: something moved, removed, added or replaced. Tap again to undo.', 'Tap “Done” to see what you found.'],
+      'Scan the scene row by row, from left to right, like reading a page.'],
+      ['चित्र में बदली हुई चीज़ें पहचानें।',
+      ['दृश्य को ध्यान से देखें — बैठक, रसोई, बाज़ार आदि।', '“मैं तैयार हूँ” दबाएँ। थोड़ी देर बाद दृश्य कुछ बदलावों के साथ लौटेगा।', 'हर उस ख़ाने पर टैप करें जो बदला है: कोई चीज़ हटी, जुड़ी, जगह बदली या बदल दी गई। हटाने के लिए फिर टैप करें।', 'आपने क्या ढूँढा, यह देखने के लिए “हो गया” दबाएँ।'],
+      'दृश्य को पंक्ति-दर-पंक्ति, बाएँ से दाएँ देखें, जैसे पन्ना पढ़ते हैं।']),
+    oddone: H(['Find the one picture that does not belong with the others.',
+      ['You will see four pictures with names.', 'Three of them belong to the same group, such as fruits or vehicles.', 'Tap the one that does not fit.', 'Read the explanation to see which group the others belong to.'],
+      'First name the group out loud: “These are all birds…”, then look for the odd one.'],
+      ['वह एक चित्र ढूँढें जो बाकी से मेल नहीं खाता।',
+      ['नाम के साथ चार चित्र दिखेंगे।', 'उनमें से तीन एक ही समूह के हैं, जैसे फल या वाहन।', 'जो मेल नहीं खाता उस पर टैप करें।', 'स्पष्टीकरण पढ़कर देखें कि बाकी किस समूह के हैं।'],
+      'पहले समूह का नाम बोलें: “ये सब पक्षी हैं…”, फिर अलग वाला ढूँढें।']),
+    clock: H(['Read the time on a clock face.',
+      ['Look at the clock. The short hand shows the hour; the long hand shows the minutes.', 'Each number on the clock is 5 minutes for the long hand: 3 means 15 minutes, 6 means 30.', 'Tap the time that the clock shows.', 'Some questions ask what time it will be after some minutes — add them on.'],
+      'If the long hand points at 9, it is “quarter to” the next hour, so 4:45 is quarter to five.'],
+      ['घड़ी देखकर समय बताएँ।',
+      ['घड़ी देखें। छोटी सुई घंटा बताती है, बड़ी सुई मिनट।', 'बड़ी सुई के लिए घड़ी का हर अंक 5 मिनट है: 3 यानी 15 मिनट, 6 यानी 30।', 'घड़ी जो समय दिखा रही है उस पर टैप करें।', 'कुछ सवालों में पूछा जाता है कि कुछ मिनट बाद कितने बजेंगे — मिनट जोड़ लें।'],
+      'अगर बड़ी सुई 9 पर है, तो अगले घंटे में “पौना” है, जैसे 4:45 यानी पौने पाँच।']),
+    lamps: H(['Watch the lamps light up, then repeat the same order.',
+      ['Tap “Start”. There are four lamps, each with a number and colour.', 'Watch: the lamps glow one after another.', 'When you see “Your turn”, tap the lamps in the same order.', 'Each time you succeed, the pattern gets one lamp longer.'],
+      'Say the numbers to yourself as they light: “2 – 4 – 1”. Numbers are easier to remember than colours.'],
+      ['दीयों को जलते देखें, फिर वही क्रम दोहराएँ।',
+      ['“शुरू करें” दबाएँ। चार दीये हैं, हर एक पर नंबर और रंग है।', 'देखें: दीये एक के बाद एक जलते हैं।', '“आपकी बारी” दिखे तो उसी क्रम में दीयों पर टैप करें।', 'हर बार सही करने पर क्रम एक दीया लंबा हो जाता है।'],
+      'जलते समय नंबर मन में बोलें: “2 – 4 – 1”। रंगों से ज़्यादा नंबर याद रहते हैं।']),
+    shapes: H(['Fit all the pieces into the outlined shape.',
+      ['Tap a piece in “Your pieces” to select it.', 'Use ↻ Turn (and ⇋ Flip, when shown) until the piece faces the right way.', 'Tap a square on the board. The ● square of the piece lands exactly where you tap.', 'Fill every outlined square. Tap a placed piece to pick it up again. 💡 Hint places one piece for you.'],
+      'Start with the biggest piece, or the one that fits only one corner.'],
+      ['सारे टुकड़ों को रेखा वाली आकृति में फ़िट करें।',
+      ['“आपके टुकड़े” में किसी टुकड़े पर टैप करके उसे चुनें।', 'टुकड़ा सही दिशा में आने तक ↻ घुमाएँ (और दिखे तो ⇋ पलटें) दबाएँ।', 'बोर्ड के किसी ख़ाने पर टैप करें। टुकड़े का ● वाला ख़ाना ठीक वहीं आएगा।', 'रेखा वाला हर ख़ाना भरें। रखे हुए टुकड़े को उठाने के लिए उस पर टैप करें। 💡 संकेत एक टुकड़ा ख़ुद रख देता है।'],
+      'सबसे बड़े टुकड़े से, या उस टुकड़े से शुरू करें जो सिर्फ़ एक कोने में फ़िट होता है।']),
+    missing: H(['Find what information is missing, or what does not make sense.',
+      ['Read the short story or statement.', 'Some questions ask what we still need to know.', 'Others contain a contradiction — two facts that cannot both be true.', 'Choose your answer and read the explanation.'],
+      'Ask yourself: “Is there anything here that cannot be true at the same time?”'],
+      ['पता करें कि कौन-सी जानकारी गायब है, या क्या तर्कसंगत नहीं है।',
+      ['छोटी कहानी या कथन पढ़ें।', 'कुछ सवाल पूछते हैं कि हमें और क्या जानना चाहिए।', 'कुछ में विरोधाभास होता है — दो बातें जो एक साथ सच नहीं हो सकतीं।', 'उत्तर चुनें और स्पष्टीकरण पढ़ें।'],
+      'ख़ुद से पूछें: “क्या यहाँ कोई ऐसी बात है जो एक साथ सच नहीं हो सकती?”']),
+    familytree: H(['Work out how family members are related.',
+      ['Read the family facts: who is married to whom and whose children they are. The facts stay on screen.', 'Read the question, such as “Who is Priya to Neha?”', 'Trace the path through the family: Priya is Amit’s wife, Amit is Neha’s brother…', 'Tap the right relationship.'],
+      'Draw it in your mind like a family tree — parents on top, children below.'],
+      ['पता करें कि परिवार के सदस्य आपस में क्या लगते हैं।',
+      ['परिवार के तथ्य पढ़ें: किसकी शादी किससे हुई और कौन किसकी संतान है। तथ्य स्क्रीन पर बने रहते हैं।', 'सवाल पढ़ें, जैसे “प्रिया, नेहा की क्या लगती हैं?”', 'परिवार में रास्ता खोजें: प्रिया अमित की पत्नी हैं, अमित नेहा का भाई है…', 'सही रिश्ते पर टैप करें।'],
+      'मन में परिवार का वृक्ष बनाइए — ऊपर माता-पिता, नीचे बच्चे।']),
+    sudoku: H(['Fill the grid so each number appears once in every row, column and box.',
+      ['Tap an empty square.', 'Tap a number at the bottom to put it in that square.', 'Each row, each column and each thick-bordered box must have every number exactly once.', '✓ Check shows any repeats with ✗. 💡 Hint fills a square for you. You can also skip a puzzle.'],
+      'Look for a row or box that has only one empty square — its number is easy to find.'],
+      ['ख़ाने ऐसे भरें कि हर पंक्ति, कॉलम और डिब्बे में हर अंक एक बार आए।',
+      ['किसी ख़ाली ख़ाने पर टैप करें।', 'नीचे किसी अंक पर टैप करके उसे उस ख़ाने में रखें।', 'हर पंक्ति, हर कॉलम और मोटी रेखा वाले हर डिब्बे में हर अंक ठीक एक बार आना चाहिए।', '✓ जाँचें दोहराए अंक ✗ से दिखाता है। 💡 संकेत एक ख़ाना भर देता है। आप पहेली छोड़ भी सकते हैं।'],
+      'ऐसी पंक्ति या डिब्बा ढूँढें जिसमें सिर्फ़ एक ख़ाली ख़ाना हो — उसका अंक आसानी से मिलता है।']),
+    detective: H(['Solve short everyday mysteries by reasoning from the clues.',
+      ['Read “What happened”.', 'Tap each 🔍 clue card to examine it. The answers unlock when all clues are read.', 'Choose the conclusion that fits ALL the clues.', 'Read why it is right. Sometimes a bonus asks which clue mattered most.'],
+      'Look for times, places and statements that do not fit together — they usually point to the answer.'],
+      ['सुराग़ों से तर्क करके रोज़मर्रा के छोटे रहस्य सुलझाएँ।',
+      ['“क्या हुआ” पढ़ें।', 'हर 🔍 सुराग़ कार्ड पर टैप करके उसे देखें। सारे सुराग़ पढ़ने पर उत्तर खुलते हैं।', 'वह निष्कर्ष चुनें जो सभी सुराग़ों से मेल खाता हो।', 'पढ़ें कि वह सही क्यों है। कभी-कभी बोनस सवाल पूछता है कि कौन-सा सुराग़ सबसे ज़रूरी था।'],
+      'समय, जगह और ऐसी बातें देखें जो आपस में मेल नहीं खातीं — अक्सर वही उत्तर की ओर इशारा करती हैं।']),
+    escape: H(['Solve a chain of puzzles to escape — each answer gives the clue for the next.',
+      ['Choose an adventure.', 'Each stage is a puzzle: choose an answer, enter a code on the keypad, or tap items in order.', 'When you solve a stage you get a new clue. All your clues are kept in “Clues you have found”.', 'Use 💡 Hint if stuck — the second hint says more, and the third shows the answer.'],
+      'Your progress is saved. You can leave at any time and tap “Continue” later.'],
+      ['पहेलियों की कड़ी हल करके बाहर निकलें — हर उत्तर अगले का सुराग़ देता है।',
+      ['कोई रोमांच चुनें।', 'हर चरण एक पहेली है: उत्तर चुनें, कीपैड पर कोड डालें, या चीज़ों को क्रम से टैप करें।', 'चरण हल होने पर नया सुराग़ मिलता है। सारे सुराग़ “आपको मिले सुराग़” में रहते हैं।', 'अटक जाएँ तो 💡 संकेत लें — दूसरा संकेत ज़्यादा बताता है, तीसरा उत्तर दिखाता है।'],
+      'आपकी प्रगति सहेजी जाती है। कभी भी छोड़ें और बाद में “जारी रखें” दबाएँ।']),
+    lifeexp: H(['Make sensible choices in real-life situations.',
+      ['Read the situation — money, family, travel, shopping and more.', 'Tap the choice you think is wisest.', 'Read the explanation — it shares the reasoning behind the best choice.', 'Questions become a little trickier as you go.'],
+      'There is often more than one reasonable answer — pick the one that is safest and thinks ahead.'],
+      ['असली ज़िंदगी की स्थितियों में समझदार फ़ैसले लें।',
+      ['स्थिति पढ़ें — पैसा, परिवार, यात्रा, ख़रीदारी आदि।', 'जो विकल्प सबसे समझदारी भरा लगे उस पर टैप करें।', 'स्पष्टीकरण पढ़ें — उसमें सबसे अच्छे विकल्प का कारण बताया गया है।', 'आगे सवाल थोड़े पेचीदा होते जाते हैं।'],
+      'अक्सर एक से ज़्यादा ठीक उत्तर होते हैं — वह चुनें जो सबसे सुरक्षित हो और आगे की सोचे।']),
+    household: H(['Run a family’s monthly budget and handle surprises.',
+      ['Read the event, such as a fridge repair or a fall in income.', 'If you are over budget, use − and + to change the amounts.', 'Keep food, electricity and medicine (marked •) safe, and try to keep some savings.', 'For a real emergency you may pay from the emergency fund. Tap “Confirm” when the budget is balanced.'],
+      'Cut flexible things first — entertainment and gifts — before essentials.'],
+      ['परिवार का महीने का बजट चलाएँ और अचानक ख़र्च सँभालें।',
+      ['घटना पढ़ें, जैसे फ़्रिज की मरम्मत या आय में कमी।', 'बजट से ज़्यादा हो तो − और + से रकम बदलें।', 'भोजन, बिजली और दवाइयाँ (• निशान) सुरक्षित रखें, और कुछ बचत रखने की कोशिश करें।', 'सच्ची आपात स्थिति में आपात निधि से भुगतान कर सकते हैं। बजट संतुलित हो तो “पक्की करें” दबाएँ।'],
+      'पहले लचीले ख़र्च घटाएँ — मनोरंजन और उपहार — ज़रूरी चीज़ें बाद में।']),
+    grandmaster: H(['Make the wisest move in everyday situations.',
+      ['Read the situation.', 'Choose what you would do.', 'The best choice earns full points; a sensible second-best choice earns some points.', 'Read the short explanation after each decision.'],
+      'Ask: “Is this safe? Have I checked? Am I being rushed?”'],
+      ['रोज़ की स्थितियों में सबसे समझदार कदम उठाएँ।',
+      ['स्थिति पढ़ें।', 'चुनें कि आप क्या करेंगे।', 'सबसे अच्छे विकल्प पर पूरे अंक, और ठीक-ठाक विकल्प पर कुछ अंक मिलते हैं।', 'हर फ़ैसले के बाद छोटा स्पष्टीकरण पढ़ें।'],
+      'ख़ुद से पूछें: “क्या यह सुरक्षित है? क्या मैंने जाँच लिया? क्या मुझ पर जल्दी का दबाव है?”']),
+    kirana: H(['Practise shop maths: bills, change, better buys and discounts.',
+      ['Read the receipt or the question.', 'Work it out in your head or on paper — there is no hurry.', 'Tap your answer.', 'The explanation shows the working step by step.'],
+      'For “better buy”, work out the price of 1 kg or 1 litre in each pack.'],
+      ['दुकान का हिसाब: बिल, बचे पैसे, सस्ता सौदा और छूट।',
+      ['रसीद या सवाल पढ़ें।', 'मन में या काग़ज़ पर हिसाब लगाएँ — कोई जल्दी नहीं।', 'अपने उत्तर पर टैप करें।', 'स्पष्टीकरण में हिसाब कदम-दर-कदम दिखता है।'],
+      '“बेहतर सौदे” के लिए हर पैक में 1 किलो या 1 लीटर का दाम निकालें।']),
+    scam: H(['Decide if a message or call is safe or a scam.',
+      ['Read the SMS, WhatsApp message, email or call shown on the phone.', 'Tap SCAM, SAFE, or NOT SURE.', 'Read the clues — urgency, strange links, requests for OTP or money.', 'Remember the safety rule shown after each message.'],
+      'Never share OTP, PIN, password or UPI PIN — with anyone, ever.'],
+      ['तय करें कि संदेश या कॉल सुरक्षित है या धोखा।',
+      ['फ़ोन पर दिखा SMS, WhatsApp संदेश, ईमेल या कॉल पढ़ें।', 'धोखा, सुरक्षित, या पक्का नहीं पर टैप करें।', 'संकेत पढ़ें — जल्दबाज़ी, अजीब लिंक, OTP या पैसे की माँग।', 'हर संदेश के बाद दिखाया गया सुरक्षा नियम याद रखें।'],
+      'OTP, PIN, पासवर्ड या UPI PIN कभी किसी को न बताएँ।']),
+    thennow: H(['Compare life in earlier decades with life today.',
+      ['Choose a decade — 1960s to Today — or “All decades”.', 'Read each question about how things were done.', 'Tap your answer and enjoy the little story in the explanation.'],
+      'Think about your own family at that time — memories often bring the answer.'],
+      ['पहले के दशकों और आज की ज़िंदगी की तुलना करें।',
+      ['कोई दशक चुनें — 1960 से आज तक — या “सभी दशक”।', 'हर सवाल पढ़ें कि तब काम कैसे होते थे।', 'उत्तर पर टैप करें और स्पष्टीकरण की छोटी कहानी का आनंद लें।'],
+      'उस समय के अपने परिवार के बारे में सोचिए — यादों से अक्सर उत्तर मिल जाता है।']),
+    finish: H(['Complete proverbs and sayings, and recall films, singers and old adverts.',
+      ['Read the start of a proverb, or a question about films and music.', 'Tap the answer that completes it.', 'Read the meaning or the story behind it.'],
+      'Say the proverb aloud — the ending often comes naturally.'],
+      ['कहावतें पूरी करें, और फ़िल्में, गायक व पुराने विज्ञापन याद करें।',
+      ['कहावत की शुरुआत, या फ़िल्मों और संगीत पर सवाल पढ़ें।', 'उसे पूरा करने वाले उत्तर पर टैप करें।', 'उसका अर्थ या पीछे की कहानी पढ़ें।'],
+      'कहावत ज़ोर से बोलें — अंत अक्सर अपने आप याद आ जाता है।']),
+    words: H(['Remember old words and objects, and learn regional ones.',
+      ['Choose everyday objects of the past, or regional words from a language.', 'Read “What was…?” or “What is…?”', 'Tap your answer and read the explanation.'],
+      'Nobody knows every regional word — a guess is fine, and you will learn something new.'],
+      ['पुराने शब्द और चीज़ें याद करें, और क्षेत्रीय शब्द सीखें।',
+      ['बीते ज़माने की चीज़ें, या किसी भाषा के क्षेत्रीय शब्द चुनें।', '“… क्या था?” या “… क्या है?” पढ़ें।', 'उत्तर पर टैप करें और स्पष्टीकरण पढ़ें।'],
+      'हर क्षेत्रीय शब्द कोई नहीं जानता — अंदाज़ा लगाना ठीक है, कुछ नया सीखेंगे।']),
+    daily: H(['A 10-question mix from every part of the app, once a day.',
+      ['Tap “Start today’s challenge”.', 'Answer 10 questions — memory, attention, reasoning, life skills, safety and nostalgia.', 'Each correct answer is 100 points, so the best score is 1,000.', 'You can play again for practice; your first score of the day is kept.'],
+      'Missed a day? No problem. Every day is a fresh start.'],
+      ['रोज़ एक बार, ऐप के हर हिस्से से 10 सवालों का मिश्रण।',
+      ['“आज की चुनौती शुरू करें” दबाएँ।', '10 सवालों के उत्तर दें — स्मृति, ध्यान, तर्क, जीवन कौशल, सुरक्षा और पुरानी यादें।', 'हर सही उत्तर के 100 अंक, इसलिए सबसे अच्छा स्कोर 1,000 है।', 'अभ्यास के लिए फिर खेल सकते हैं; दिन का पहला स्कोर सहेजा रहता है।'],
+      'कोई दिन छूट गया? कोई बात नहीं। हर दिन एक नई शुरुआत है।']),
+    mylife: H(['Turn your own life story into a personal memory quiz.',
+      ['Open My Life and answer a few questions — your city, first job, first vehicle and so on. Skip any you like.', 'Tap “Save”. Your answers stay only on this device.', 'After 3 or more answers, tap “Play My Life Quiz”.'],
+      'You can edit or clear your answers at any time.'],
+      ['अपनी जीवन कहानी को निजी स्मृति क्विज़ में बदलें।',
+      ['“मेरी ज़िंदगी” खोलें और कुछ सवालों के उत्तर दें — आपका शहर, पहली नौकरी, पहला वाहन आदि। जो चाहें छोड़ दें।', '“सहेजें” दबाएँ। आपके उत्तर सिर्फ़ इसी डिवाइस पर रहते हैं।', '3 या ज़्यादा उत्तर देने के बाद “मेरी ज़िंदगी क्विज़ खेलें” दबाएँ।'],
+      'आप कभी भी अपने उत्तर बदल या मिटा सकते हैं।']),
+    family: H(['Play together with grandchildren and family on one phone.',
+      ['Grandchild Mode: enter two names (optional) and tap “Start playing”.', 'Take turns — the grandparent gets a question about the past, the child a question about today. Pass the phone at each turn.', 'Family Quiz: write your own questions about your family, then let family members play them.'],
+      'It is about sharing memories, not winning — enjoy the stories each answer brings up.'],
+      ['नाती-पोतों और परिवार के साथ एक फ़ोन पर मिलकर खेलें।',
+      ['नाती-पोते मोड: दो नाम लिखें (वैकल्पिक) और “खेलना शुरू करें” दबाएँ।', 'बारी-बारी खेलें — बड़ों को बीते ज़माने का सवाल, बच्चे को आज का। हर बारी पर फ़ोन आगे दें।', 'परिवार क्विज़: अपने परिवार के बारे में अपने सवाल लिखें, फिर परिवार वालों को खेलने दें।'],
+      'यह जीतने के बारे में नहीं, यादें बाँटने के बारे में है — हर उत्तर से निकली कहानियों का आनंद लें।'])
+  };
+})();
+
+</script>
   <!-- Screens and games -->
   <script>
 /* SMART 50+ — main screens: onboarding, home, games list, daily challenge, progress, achievements, settings, about. */
@@ -4514,6 +4843,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       card.appendChild(h('p', { class: 'lead', text: t('onboard.s1b') }));
       card.appendChild(h('h2', { class: 'ob-sub', text: t('onboard.lang') }));
       card.appendChild(langChoices(function (l) { Store.setSetting('lang', l); App.applySettings(); App.render(); }));
+      card.appendChild(h('p', { class: 'credit', text: t('about.credit') }));
     } else if (step === 2) {
       card.appendChild(h('div', { class: 'big-emoji', attrs: { 'aria-hidden': 'true' }, text: '🌼' }));
       card.appendChild(h('h1', { text: t('onboard.s2t') }));
@@ -4611,7 +4941,8 @@ body.no-nav #view { padding-bottom: 2rem; }
     var more = [
       { r: 'daily', icon: '🎯', k: 'daily' }, { r: 'progress', icon: '🏆', k: 'progress' },
       { r: 'mylife', icon: '👤', k: 'mylife' }, { r: 'settings', icon: '⚙️', k: 'settings' },
-      { r: 'family', icon: '👨‍👩‍👧', k: 'family' }, { r: 'achievements', icon: '🏅', k: 'achievements' }
+      { r: 'family', icon: '👨‍👩‍👧', k: 'family' }, { r: 'achievements', icon: '🏅', k: 'achievements' },
+      { r: 'help', icon: '📘', k: 'help' }
     ];
     v.appendChild(h('section', { class: 'more-grid' }, more.map(function (m) {
       return link(m.r, 'more-card', [h('span', { class: 'more-icon', attrs: { 'aria-hidden': 'true' }, text: m.icon }),
@@ -4620,6 +4951,7 @@ body.no-nav #view { padding-bottom: 2rem; }
 
     v.appendChild(h('div', { class: 'quote card' }, h('span', { class: 'quote-title', text: '💭 ' + t('home.quoteTitle') }), h('p', { text: '“' + quoteOfDay() + '”' })));
     v.appendChild(h('p', { class: 'footer-links' }, h('a', { href: '#/about', text: 'ℹ️ ' + t('menu.about') })));
+    v.appendChild(h('p', { class: 'credit', text: t('about.credit') }));
     v.appendChild(h('p', { class: 'disclaimer', text: t('progress.disclaimer') }));
     window.scrollTo(0, 0);
   });
@@ -4634,13 +4966,16 @@ body.no-nav #view { padding-bottom: 2rem; }
       if (!only) sec.appendChild(h('h2', { class: 'section-title cat-title cat-' + c }, h('span', { attrs: { 'aria-hidden': 'true' }, text: S50.CAT_ICON[c] + ' ' }), t('cat.' + c)));
       S50.Games.byCat(c).forEach(function (g) {
         var st = Store.gameStats(g.id);
-        sec.appendChild(link('game/' + g.id, 'game-card cat-' + c, [
+        var row = h('div', { class: 'game-row' });
+        sec.appendChild(row);
+        row.appendChild(h('a', { class: 'help-link', href: '#/help/' + g.id, text: '❓', attrs: { 'aria-label': t('help.btnLabel') + ': ' + t('games.' + g.id + '.name') } }));
+        row.insertBefore(link('game/' + g.id, 'game-card cat-' + c, [
           h('span', { class: 'game-icon', attrs: { 'aria-hidden': 'true' }, text: GAME_ICON[g.id] }),
           h('span', { class: 'game-text' },
             h('strong', { text: t('games.' + g.id + '.name') }),
             h('span', { text: t('games.' + g.id + '.desc') }),
             h('span', { class: 'game-best', text: st ? t('common.best', { n: U.fmtNum(st.best) }) : t('common.notPlayed') })),
-          h('span', { class: 'game-play', attrs: { 'aria-hidden': 'true' }, text: '▶' })]));
+          h('span', { class: 'game-play', attrs: { 'aria-hidden': 'true' }, text: '▶' })]), row.firstChild);
       });
       body.appendChild(sec);
     });
@@ -4817,6 +5152,7 @@ body.no-nav #view { padding-bottom: 2rem; }
           App.go('home');
         });
       } } }))));
+    body.appendChild(h('a', { class: 'btn btn-secondary btn-wide', href: '#/help', text: '📘 ' + t('menu.help') }));
     body.appendChild(h('a', { class: 'btn btn-ghost btn-wide', href: '#/about', text: 'ℹ️ ' + t('settings.about') }));
   });
 
@@ -4831,6 +5167,7 @@ body.no-nav #view { padding-bottom: 2rem; }
       h('p', { text: t('about.p3') }),
       h('p', { text: '📴 ' + t('about.offline') }),
       h('p', { class: 'disclaimer', text: t('about.disclaimer') }),
+      h('p', { class: 'credit', text: t('about.credit') }),
       h('p', { class: 'hint', text: t('about.version', { v: App.VERSION }) })));
   });
 })();
@@ -5092,6 +5429,164 @@ body.no-nav #view { padding-bottom: 2rem; }
     if (p[0] === 'quiz') return p[1] === 'play' ? fqPlay() : fqManage();
     hub();
   });
+})();
+
+</script>
+  <script>
+/* SMART 50+ — "How to play" help: per-game help page, in-game help panel, first-play guide,
+ * Help & Guide page, and the shared pieces used by practice rounds. */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  var U = S50.U, h = U.h, t = S50.t, UI = S50.UI, Store = S50.Store, App = S50.App;
+
+  /* Help entries that are modes rather than games: where "Start playing" should go. */
+  var MODE_ROUTE = { daily: 'daily', mylife: 'mylife', family: 'family' };
+  var MODE_ICON = { daily: '🎯', mylife: '👤', family: '👨‍👩‍👧' };
+  var MODE_NAME = { daily: 'menu.daily', mylife: 'menu.mylife', family: 'menu.family' };
+
+  function seen(id) { var m = Store.data.helpSeen; return !!(m && m[id]); }
+  function markSeen(id) {
+    if (!Store.data.helpSeen || typeof Store.data.helpSeen !== 'object') Store.data.helpSeen = {};
+    Store.data.helpSeen[id] = true;
+    Store.save();
+  }
+  function nameOf(id) { return MODE_NAME[id] ? t(MODE_NAME[id]) : t('games.' + id + '.name'); }
+  function iconOf(id) { return MODE_ICON[id] || S50.GAME_ICON[id] || '❓'; }
+  function hasPractice(id) { var g = S50.Games.get(id); return !!(g && g.practice); }
+  function speakText(id) {
+    var c = S50.L((S50.HELP || {})[id] || {});
+    return [nameOf(id), c.a].concat((c.s || []).map(function (x, i) { return (i + 1) + '. ' + x; }), [t('help.tip') + ': ' + c.p]).join('. ');
+  }
+
+  /* The help card content used by the help page and the in-game panel. */
+  function content(id, opts) {
+    opts = opts || {};
+    var c = S50.L((S50.HELP || {})[id] || {});
+    if (!c.a) return h('p', { text: t('common.error') });
+    var box = h('div', { class: 'help-content' },
+      h('div', { class: 'help-head' }, h('span', { class: 'help-icon', attrs: { 'aria-hidden': 'true' }, text: iconOf(id) }), h('h2', { class: 'help-name', text: nameOf(id) })),
+      h('p', { class: 'help-aim' }, h('strong', { text: '🎯 ' + t('help.aim') + ': ' }), c.a),
+      h('h3', { class: 'help-sub', text: '👣 ' + t('help.steps') }),
+      h('ol', { class: 'help-steps' }, c.s.map(function (s) { return h('li', { text: s }); })),
+      h('div', { class: 'help-tip' }, h('strong', { text: '💡 ' + t('help.tip') + ': ' }), c.p),
+      MODE_ROUTE[id] ? null : h('p', { class: 'help-points', text: '⭐ ' + t('help.points') }),
+      h('p', { class: 'help-points', text: '🌿 ' + t('help.relaxed') }));
+    if (UI.Speech.available()) {
+      box.insertBefore(h('button', { class: 'btn btn-ghost btn-small', type: 'button', text: t('common.listen'), on: { click: function () { UI.Speech.say(speakText(id)); } } }), box.children[2]);
+    }
+    return box;
+  }
+
+  function startRoute(id) { return MODE_ROUTE[id] || 'game/' + id; }
+
+  /* Full help page: #/help/<id>. Also used automatically the first time a game is opened. */
+  function page(id, first) {
+    var g = S50.Games.get(id);
+    var back = first ? (g ? 'games/' + g.cat : 'games') : 'help';
+    var body = UI.screen({ title: t('help.title'), icon: '❓', cat: g ? g.cat : null, back: back, noHelp: true });
+    if (first) body.appendChild(h('p', { class: 'lead help-first', text: '👋 ' + t('help.firstTime') }));
+    var card = h('div', { class: 'card help-card' }, content(id));
+    var actions = h('div', { class: 'help-actions' },
+      h('button', { class: 'btn btn-primary btn-big btn-wide', type: 'button', text: t('help.start'), on: { click: function () { markSeen(id); App.go(startRoute(id), true); } } }),
+      hasPractice(id) ? h('button', { class: 'btn btn-secondary btn-wide', type: 'button', text: t('help.practice'), on: { click: function () { markSeen(id); App.go('practice/' + id); } } }) : null,
+      h('a', { class: 'btn btn-ghost btn-wide', href: '#/help', text: '📘 ' + t('help.guide') }));
+    card.appendChild(actions);
+    body.appendChild(card);
+  }
+
+  /* In-game panel: opens over the game so the round is not lost. */
+  function panel(id) {
+    var prev = document.activeElement;
+    var overlay = h('div', { class: 'modal-overlay', attrs: { role: 'dialog', 'aria-modal': 'true', 'aria-label': t('help.title') } });
+    function close() {
+      UI.Speech.stop();
+      document.removeEventListener('keydown', onKey);
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      if (prev && prev.focus) try { prev.focus(); } catch (e) { /* ignore */ }
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    var closeBtn = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: '✓ ' + t('help.back'), on: { click: close } });
+    var box = h('div', { class: 'modal help-modal' }, content(id), closeBtn);
+    overlay.appendChild(box);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    document.body.appendChild(overlay);
+    document.addEventListener('keydown', onKey);
+    closeBtn.focus();
+    markSeen(id);
+  }
+
+  /* Help & Guide page: #/help */
+  function guide() {
+    var body = UI.screen({ title: t('help.guide'), icon: '📘', back: 'settings' });
+    body.appendChild(h('p', { class: 'lead', text: t('help.guideIntro') }));
+    body.appendChild(h('section', { class: 'card' }, h('h2', { class: 'card-title', text: '🌟 ' + t('help.basics') }),
+      h('ul', { class: 'help-basics' }, t('help.basicsList').map(function (x) { return h('li', { text: x }); }))));
+    var CATS = ['memory', 'attention', 'reasoning', 'life', 'safety', 'nostalgia'];
+    CATS.forEach(function (c) {
+      var sec = h('section', { class: 'game-section' }, h('h2', { class: 'section-title cat-title cat-' + c, text: S50.CAT_ICON[c] + ' ' + t('cat.' + c) }));
+      S50.Games.byCat(c).forEach(function (g) { sec.appendChild(guideRow(g.id, 'cat-' + c)); });
+      body.appendChild(sec);
+    });
+    var more = h('section', { class: 'game-section' }, h('h2', { class: 'section-title', text: '✨ ' + t('home.more') }));
+    ['daily', 'mylife', 'family'].forEach(function (id) { more.appendChild(guideRow(id, 'cat-family')); });
+    body.appendChild(more);
+    body.appendChild(h('p', { class: 'credit', text: t('about.credit') }));
+  }
+  function guideRow(id, cls) {
+    return h('a', { class: 'game-card ' + cls, href: '#/help/' + id },
+      h('span', { class: 'game-icon', attrs: { 'aria-hidden': 'true' }, text: iconOf(id) }),
+      h('span', { class: 'game-text' }, h('strong', { text: nameOf(id) }), h('span', { text: S50.L(S50.HELP[id]).a }),
+        hasPractice(id) ? h('span', { class: 'game-best', text: '🎓 ' + t('help.hasPractice') }) : null),
+      h('span', { class: 'game-play', attrs: { 'aria-hidden': 'true' }, text: '❓' }));
+  }
+
+  App.route('help', function (p) {
+    if (p[0] && (S50.HELP || {})[p[0]]) return page(p[0], false);
+    guide();
+  });
+
+  /* ---------- Practice rounds: shared helpers ---------- */
+  var Practice = {
+    /* Coach banner shown during practice rounds. */
+    coach: function () {
+      var el = h('div', { class: 'coach', attrs: { role: 'status', 'aria-live': 'polite' } });
+      el.set = function (n, text) {
+        U.clear(el);
+        el.appendChild(h('span', { class: 'coach-badge', text: '🎓 ' + t('help.stepN', { n: n }) }));
+        el.appendChild(h('span', { class: 'coach-text', text: text }));
+      };
+      return el;
+    },
+    note: function () { return h('p', { class: 'practice-note', text: '🎓 ' + t('help.practiceNote') }); },
+    /* Shown when a practice round is finished. Nothing is recorded. */
+    done: function (id, container) {
+      S50.Sound.play('complete');
+      var box = h('div', { class: 'card practice-done' },
+        h('div', { class: 'big-emoji', attrs: { 'aria-hidden': 'true' }, text: '🎓' }),
+        h('h2', { class: 'complete-head', text: t('help.practiceDone') }),
+        h('p', { class: 'lead', text: t('help.practiceDone2') }),
+        h('button', { class: 'btn btn-primary btn-big btn-wide', type: 'button', text: t('help.playReal'), on: { click: function () { markSeen(id); App.go('game/' + id, true); } } }),
+        h('button', { class: 'btn btn-ghost btn-wide', type: 'button', text: t('help.practiceAgain'), on: { click: function () { App.go('practice/' + id, true); } } }),
+        h('a', { class: 'btn btn-ghost btn-wide', href: '#/help/' + id, text: t('help.readAgain') }));
+      (container || document.getElementById('view')).appendChild(box);
+      var b = box.querySelector('button'); if (b) try { b.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+      box.scrollIntoView({ block: 'nearest' });
+    },
+    screen: function (id) {
+      var g = S50.Games.get(id);
+      return UI.screen({ title: t('help.practiceTitle') + ': ' + nameOf(id), icon: '🎓', cat: g ? g.cat : null, back: 'help/' + id });
+    }
+  };
+
+  App.route('practice', function (p) {
+    var g = S50.Games.get(p[0]);
+    if (!g || !g.practice) return App.go('help');
+    g.practice();
+  });
+
+  S50.Help = { page: page, panel: panel, guide: guide, seen: seen, markSeen: markSeen, has: function (id) { return !!(S50.HELP || {})[id]; } };
+  S50.Practice = Practice;
 })();
 
 </script>
@@ -5949,12 +6444,14 @@ body.no-nav #view { padding-bottom: 2rem; }
     { k: 'evPower', type: 'power', min: 500, max: 1500 },
     { k: 'evIncome', type: 'income', min: 3000, max: 8000 }
   ];
-  var STEP = 500, MONTHS = 4;
+  var STEP = 500, MONTHS_GAME = 4;
 
   function r500(n) { return Math.max(0, Math.round(n / STEP) * STEP); }
 
-  function start() {
-    var income = U.randInt(8, 24) * 5000;
+  /* practice = guided one-month round with a fixed situation; nothing is recorded. */
+  function start(practice) {
+    var MONTHS = practice ? 1 : MONTHS_GAME;
+    var income = practice ? 50000 : U.randInt(8, 24) * 5000;
     var plan = {};
     var base = {};
     var sum = 0;
@@ -5965,12 +6462,14 @@ body.no-nav #view { padding-bottom: 2rem; }
     var st = { month: 0, reserve: reserve0, total: 0, good: 0, savingsKept: 0 };
     function ofType(type) { return EVENTS.filter(function (e) { return e.type === type; }); }
     // Two surprise costs and a bill increase in random order; the income drop is always the final, hardest month.
-    var events = U.shuffle(U.sample(ofType('cost'), MONTHS - 2).concat(ofType('power'))).concat(ofType('income'));
+    var events = practice ? [EVENTS[0]] : U.shuffle(U.sample(ofType('cost'), MONTHS - 2).concat(ofType('power'))).concat(ofType('income'));
 
-    var body = UI.screen({ title: t('games.household.name'), icon: S50.GAME_ICON.household, cat: 'life', back: 'games/life' });
+    var body = practice ? S50.Practice.screen('household') : UI.screen({ title: t('games.household.name'), icon: S50.GAME_ICON.household, cat: 'life', back: 'games/life' });
+    var coach = practice ? S50.Practice.coach() : null;
+    if (practice) { body.appendChild(S50.Practice.note()); body.appendChild(coach); }
     var wrap = h('div', { class: 'quiz' });
     body.appendChild(wrap);
-    wrap.appendChild(h('div', { class: 'card' },
+    if (!practice) wrap.appendChild(h('div', { class: 'card' },
       h('div', { class: 'big-emoji', attrs: { 'aria-hidden': 'true' }, text: '🏠💰' }),
       h('p', { class: 'lead', text: t('household.intro') }),
       h('p', { class: 'stop-meta', text: t('household.income') + ': ' + U.money(income) }),
@@ -5978,10 +6477,11 @@ body.no-nav #view { padding-bottom: 2rem; }
       h('p', { class: 'disclaimer', text: t('household.disclaimer') }),
       h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: '▶ ' + t('common.start'), on: { click: function () { month(); } } })));
 
+    if (practice) setTimeout(function () { month(); }, 0);
     function month() {
       if (st.month >= MONTHS) return finish();
       var ev = events[st.month];
-      var amt = r500(U.randInt(ev.min, ev.max));
+      var amt = practice ? 3000 : r500(U.randInt(ev.min, ev.max));
       var monthIncome = ev.type === 'income' ? income - amt : income;
       var cur = {};
       CATS.forEach(function (c) { cur[c.k] = plan[c.k]; });
@@ -6034,6 +6534,7 @@ body.no-nav #view { padding-bottom: 2rem; }
         summary.appendChild(h('div', { class: 'sum-line' }, h('span', { text: '🛟 ' + t('household.reserve') }), h('strong', { text: U.money(st.reserve - (useReserve ? surprise : 0)) })));
         if (left >= 0) summary.appendChild(h('p', { class: 'balanced', text: t('household.balanced') }));
         confirm.disabled = left < 0;
+        if (coach) { if (left >= 0) coach.set(3, t('practice.hh.s3')); else if (s < monthIncome + surprise) coach.set(2, t('practice.hh.s2')); else coach.set(1, t('practice.hh.s1')); }
         if (reserveBtn) {
           reserveBtn.classList.toggle('on', useReserve);
           reserveBtn.setAttribute('aria-pressed', useReserve ? 'true' : 'false');
@@ -6079,12 +6580,13 @@ body.no-nav #view { padding-bottom: 2rem; }
       st.total += score;
       var good = score >= 70;
       if (good) st.good += 1;
-      Store.recordAnswer('life', good);
+      if (!practice) Store.recordAnswer('life', good);
+      if (coach) coach.set(4, t('practice.hh.s4'));
       S50.Sound.play(good ? 'correct' : 'wrong');
       CATS.forEach(function (c) { if (c.k !== 'electricity') plan[c.k] = cur[c.k]; });
       U.clear(wrap);
       wrap.appendChild(UI.progressBar(st.month + 1, MONTHS, t('household.event', { n: st.month + 1, total: MONTHS })));
-      var nb = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: st.month + 1 >= MONTHS ? t('common.finish') : t('common.next'), on: { click: function () { st.month += 1; month(); } } });
+      var nb = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: st.month + 1 >= MONTHS ? t('common.finish') : t('common.next'), on: { click: function () { if (practice) { nb.disabled = true; return S50.Practice.done('household', wrap); } st.month += 1; month(); } } });
       wrap.appendChild(h('div', { class: 'card' }, h('div', { class: 'feedback ' + (good ? 'fb-good' : 'fb-soft') },
         h('div', { class: 'fb-head' }, h('strong', { text: (good ? '✓ ' : '◐ ') + score + ' / 100' }), h('span', { class: 'fb-points', text: t('common.points', { n: Math.round(score * 2.5) }) })),
         h('ul', { class: 'clues' }, msgs.map(function (m) { return h('li', { text: m }); })),
@@ -6101,7 +6603,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     }
   }
 
-  S50.Games.register({ id: 'household', cat: 'life', start: start });
+  S50.Games.register({ id: 'household', cat: 'life', start: function () { start(false); }, practice: function () { start(true); } });
 })();
 
 </script>
@@ -6990,15 +7492,22 @@ body.no-nav #view { padding-bottom: 2rem; }
     body.appendChild(grid);
   }
 
-  function shapesPlay(startLevel) {
-    var PER_ROUND = 3;
+  /* opts.P = a ready-made practice puzzle; opts.coach(P, sel) returns { n, text, star } for the guided practice round. */
+  function shapesPlay(startLevel, opts) {
+    opts = opts || {};
+    var practice = !!opts.P;
+    var PER_ROUND = practice ? 1 : 3;
     var st = { k: 0, score: 0, correct: 0, total: 0 };
     var level = startLevel;
-    var body = UI.screen({ title: title('shapes'), icon: S50.GAME_ICON.shapes, cat: 'attention', back: 'game/shapes' });
+    var body = practice ? S50.Practice.screen('shapes') : UI.screen({ title: title('shapes'), icon: S50.GAME_ICON.shapes, cat: 'attention', back: 'game/shapes' });
     var wrap = h('div', {});
+    if (practice) body.appendChild(S50.Practice.note());
+    var coachEl = practice ? S50.Practice.coach() : null;
+    if (coachEl) body.appendChild(coachEl);
     body.appendChild(wrap);
 
     function next() {
+      if (practice) return play(opts.P);
       if (st.k >= PER_ROUND || level > LEVELS) {
         return UI.complete({ gameId: 'shapes', title: title('shapes'), cat: 'attention', score: st.score, correct: st.correct, total: st.total },
           { back: 'game/shapes', again: function () { App.go('game/shapes', true); } });
@@ -7007,9 +7516,9 @@ body.no-nav #view { padding-bottom: 2rem; }
     }
 
     function play(P) {
-      var cfg = P.cfg, sel = null, hints = 0, flashBad = {};
+      var cfg = P.cfg, sel = null, hints = 0, flashBad = {}, starKey = null;
       U.clear(wrap);
-      wrap.appendChild(UI.progressBar(st.k + 1, PER_ROUND, t('shapes.puzzle', { n: st.k + 1, t: PER_ROUND }) + ' · ' + t('shapes.level', { n: cfg.L, t: LEVELS })));
+      if (!practice) wrap.appendChild(UI.progressBar(st.k + 1, PER_ROUND, t('shapes.puzzle', { n: st.k + 1, t: PER_ROUND }) + ' · ' + t('shapes.level', { n: cfg.L, t: LEVELS })));
       wrap.appendChild(h('div', { class: 'shape-mode' }, h('strong', { text: (cfg.mode === 'mirror' ? '⇋ ' : cfg.mode === 'pattern' ? '◩ ' : '▦ ') + t('shapes.mode.' + cfg.mode) }), h('span', { text: ' — ' + t('shapes.modeDesc.' + cfg.mode) })));
       var msg = h('p', { class: 'shape-msg', attrs: { role: 'status', 'aria-live': 'polite' }, text: t('shapes.pick') });
       var board = h('div', { class: 'shape-board', attrs: { role: 'grid', 'aria-label': t('shapes.board') }, style: { gridTemplateColumns: 'repeat(' + cfg.cols + ', minmax(0, 1fr))' } });
@@ -7040,9 +7549,10 @@ body.no-nav #view { padding-bottom: 2rem; }
           if (P.fixed[k]) { board.appendChild(h('div', { class: 'sh-cell fixed' + mirrorEdge, attrs: { role: 'gridcell', 'aria-label': t('shapes.cell', { r: r + 1, c: c + 1 }) + ', ' + t('shapes.cellFixed') } })); return; }
           if (!P.target[k]) { board.appendChild(h('div', { class: 'sh-cell off' + mirrorEdge, attrs: { 'aria-hidden': 'true' } })); return; }
           var o = owner(r, c);
-          var b = h('button', { class: 'sh-cell target' + (o ? ' pc pc-' + o.id : '') + (flashBad[k] ? ' bad' : ''), type: 'button',
-            attrs: { role: 'gridcell', 'aria-label': t('shapes.cell', { r: r + 1, c: c + 1 }) + ', ' + (o ? t('shapes.cellPiece', { l: o.letter }) : t('shapes.cellTarget')) } },
-            o ? o.letter : '', flashBad[k] ? h('span', { class: 'sh-x', attrs: { 'aria-hidden': 'true' }, text: '✗' }) : null);
+          var star = !o && starKey === k;
+          var b = h('button', { class: 'sh-cell target' + (o ? ' pc pc-' + o.id : '') + (flashBad[k] ? ' bad' : '') + (star ? ' star' : ''), type: 'button',
+            attrs: { role: 'gridcell', 'aria-label': t('shapes.cell', { r: r + 1, c: c + 1 }) + ', ' + (o ? t('shapes.cellPiece', { l: o.letter }) : t('shapes.cellTarget')) + (star ? ' ★' : '') } },
+            o ? o.letter : star ? '★' : '', flashBad[k] ? h('span', { class: 'sh-x', attrs: { 'aria-hidden': 'true' }, text: '✗' }) : null);
           b.addEventListener('click', function () { tapCell(r, c); });
           board.appendChild(b);
         })(r, c);
@@ -7071,7 +7581,10 @@ body.no-nav #view { padding-bottom: 2rem; }
           tray.appendChild(b);
         });
       }
-      function draw() { drawBoard(); drawTray(); }
+      function draw() {
+        if (opts.coach) { var cs = opts.coach(P, sel); starKey = cs.star || null; coachEl.set(cs.n, cs.text); }
+        drawBoard(); drawTray();
+      }
       function turn(isFlip) {
         if (!sel) { msg.textContent = t('shapes.pick'); return; }
         if (sel.placed) sel.placed = null;
@@ -7134,6 +7647,12 @@ body.no-nav #view { padding-bottom: 2rem; }
       function checkDone() {
         var all = Object.keys(P.target).every(function (k) { var rc = k.split(','); return !!owner(+rc[0], +rc[1]); });
         if (!all) return;
+        if (practice) {
+          Array.prototype.forEach.call(card.querySelectorAll('button'), function (b) { b.disabled = true; });
+          if (coachEl) coachEl.style.display = 'none';
+          card.appendChild(feedbackBox(true, t('shapes.solved'), 0));
+          return S50.Practice.done('shapes', wrap);
+        }
         var pts = Math.max(30, 100 + 15 * P.pieces.length - 30 * hints);
         st.score += pts; st.total += 1;
         if (!hints) st.correct += 1;
@@ -7157,7 +7676,235 @@ body.no-nav #view { padding-bottom: 2rem; }
     var n = U.num(p[0]);
     if (n >= 1 && n <= Math.min(LEVELS, Store.gameLevel('shapes'))) shapesPlay(n); else shapesMenu();
   } });
+  /* Guided practice: one small puzzle where piece A must be turned once. */
+  S50.Games.get('shapes').practice = function () {
+    var P = {
+      cfg: { L: 0, mode: 'fill', n: 2, rows: 3, cols: 3, rotate: true, flip: false },
+      target: {}, fixed: {},
+      pieces: [
+        { id: 0, letter: 'A', sol: [[0, 0], [1, 0], [2, 0]], cur: [[0, 0], [0, 1], [0, 2]], placed: null },
+        { id: 1, letter: 'B', sol: [[2, 1], [2, 2]], cur: [[0, 0], [0, 1]], placed: null }
+      ]
+    };
+    P.pieces.forEach(function (p) { p.sol.forEach(function (c) { P.target[key(c[0], c[1])] = true; }); });
+    shapesPlay(0, { P: P, coach: function (P, sel) {
+      var next = P.pieces.filter(function (p) { return !p.placed; })[0];
+      if (!next) return { n: 4, text: t('shapes.solved') };
+      var base = (next.id === 0 ? 0 : 3);
+      if (sel !== next) return { n: base + 1, text: t('practice.shp.s1', { l: next.letter }) };
+      if (JSON.stringify(next.cur) !== JSON.stringify(norm(next.sol))) return { n: base + 2, text: t('practice.shp.s2', { l: next.letter }) };
+      var hd = norm(next.sol)[0], mr = Math.min.apply(null, next.sol.map(function (c) { return c[0]; })), mc = Math.min.apply(null, next.sol.map(function (c) { return c[1]; }));
+      return { n: base + (next.id === 0 ? 3 : 2), text: t('practice.shp.s3'), star: key(hd[0] + mr, hd[1] + mc) };
+    } });
+  };
   S50.Shapes = { build: buildLevel, levels: LEVELS, cfg: levelCfg, rot: rot, flip: flip, norm: norm };
+})();
+
+</script>
+  <script>
+/* SMART 50+ — guided practice rounds for Mystery Detective, Mini Sudoku and Escape Room.
+ * (Shape Shifter and Household Manager practice live in their own game files.)
+ * Practice rounds are never scored or saved. */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  var U = S50.U, h = U.h, t = S50.t, UI = S50.UI, P = S50.Practice;
+
+  function attach(id, fn) { var g = S50.Games.get(id); if (g) g.practice = fn; }
+  function markOpt(b, ok) { b.classList.add(ok ? 'is-correct' : 'is-wrong'); b.appendChild(h('span', { class: 'opt-mark', text: ok ? '✓' : '✗' })); }
+
+  /* ---------- Mystery Detective ---------- */
+  attach('detective', function () {
+    var body = P.screen('detective');
+    var coach = P.coach();
+    body.appendChild(P.note());
+    body.appendChild(coach);
+    var clues = t('practice.det.c'), opts = t('practice.det.o');
+    var opened = clues.map(function () { return false; });
+    var card = h('div', { class: 'card case-card' },
+      h('h2', { class: 'case-title', text: '🕵️ ' + t('practice.det.t') }),
+      h('p', { class: 'case-label', text: t('detective.situation') }),
+      h('p', { class: 'case-story', text: t('practice.det.s') }),
+      h('p', { class: 'case-label', text: '🔍 ' + t('detective.clues') }));
+    var list = h('ol', { class: 'clue-list' });
+    clues.forEach(function (c, i) {
+      var li = h('li', { class: 'clue' });
+      li.appendChild(h('button', { class: 'clue-btn', type: 'button', text: t('detective.examine', { n: i + 1 }), on: { click: function () {
+        opened[i] = true;
+        U.clear(li); li.className = 'clue open';
+        li.appendChild(h('span', { class: 'clue-num', text: t('detective.clue', { n: i + 1 }) }));
+        li.appendChild(h('span', { class: 'clue-text', text: c }));
+        S50.Sound.play('tap');
+        if (opened.every(Boolean)) { buttons.forEach(function (b) { b.disabled = false; }); coach.set(2, t('practice.det.s2')); }
+      } } }));
+      list.appendChild(li);
+    });
+    card.appendChild(list);
+    card.appendChild(h('h2', { class: 'qtext', text: t('practice.det.q') }));
+    var box = h('div', { class: 'options' });
+    var buttons = U.shuffle(opts.map(function (o, i) { return i; })).map(function (oi) {
+      var b = h('button', { class: 'opt', type: 'button', disabled: true, on: { click: function () {
+        buttons.forEach(function (x) { x.disabled = true; });
+        var ok = oi === 0;
+        markOpt(b, ok);
+        if (!ok) buttons.forEach(function (x) { if (x.dataset.idx === '0') markOpt(x, true); });
+        S50.Sound.play(ok ? 'correct' : 'wrong');
+        var fb = h('div', { class: 'feedback ' + (ok ? 'fb-good' : 'fb-soft') },
+          h('div', { class: 'fb-head' }, h('strong', { text: ok ? t('common.correct') : t('common.wrong') })),
+          h('p', { class: 'fb-explain', text: t('practice.det.e') }));
+        card.appendChild(fb);
+        coach.set(3, t('practice.det.s3'));
+        P.done('detective', body);
+      } } }, h('span', { class: 'opt-text', text: opts[oi] }));
+      b.dataset.idx = String(oi);
+      box.appendChild(b);
+      return b;
+    });
+    card.appendChild(box);
+    body.appendChild(card);
+    coach.set(1, t('practice.det.s1'));
+  });
+
+  /* ---------- Mini Sudoku ---------- */
+  attach('sudoku', function () {
+    var body = P.screen('sudoku');
+    var coach = P.coach();
+    body.appendChild(P.note());
+    body.appendChild(coach);
+    var sol = [[1, 2, 3, 4], [3, 4, 1, 2], [2, 1, 4, 3], [4, 3, 2, 1]];
+    var holes = [[0, 3], [2, 0]];
+    var g = sol.map(function (row) { return row.slice(); });
+    holes.forEach(function (x) { g[x[0]][x[1]] = 0; });
+    var step = 0, sel = null;
+    var board = h('div', { class: 'sudoku n4', attrs: { role: 'grid' } });
+    var pad = h('div', { class: 'sk-pad' });
+    var card = h('div', { class: 'card sudoku-card' }, h('p', { class: 'lead', text: t('sudoku.intro') }), board, pad);
+    body.appendChild(card);
+    function isHole(r, c) { return holes.some(function (x) { return x[0] === r && x[1] === c; }); }
+    function draw() {
+      U.clear(board);
+      var target = holes[Math.min(1, Math.floor(step / 2))];
+      for (var r = 0; r < 4; r++) {
+        var row = h('div', { class: 'sk-row', attrs: { role: 'row' } });
+        for (var c = 0; c < 4; c++) (function (r, c) {
+          var hole = isHole(r, c);
+          var star = hole && !g[r][c] && target[0] === r && target[1] === c;
+          var cls = 'sk-cell' + (hole ? '' : ' given') + (sel && sel[0] === r && sel[1] === c ? ' sel' : '') + (star ? ' star' : '') + (c === 1 ? ' bR' : '') + (r === 1 ? ' bB' : '');
+          var b = h('button', { class: cls, type: 'button', attrs: { role: 'gridcell', 'aria-label': t('sudoku.cell', { r: r + 1, c: c + 1 }) + ': ' + (g[r][c] || t('sudoku.empty')) + (star ? ' ★' : '') } },
+            g[r][c] ? String(g[r][c]) : star ? '★' : '');
+          b.addEventListener('click', function () {
+            if (!hole || g[r][c]) return;
+            if (target[0] !== r || target[1] !== c) return;
+            sel = [r, c]; step = step % 2 === 0 ? step + 1 : step;
+            S50.Sound.play('tap'); draw();
+          });
+          row.appendChild(b);
+        })(r, c);
+        board.appendChild(row);
+      }
+      if (step < 4) coach.set(step + 1, t('practice.sud.s' + (step + 1)));
+    }
+    for (var d = 1; d <= 4; d++) (function (d) {
+      pad.appendChild(h('button', { class: 'sk-num', type: 'button', text: String(d), on: { click: function () {
+        if (!sel) { coach.set(step + 1, t('practice.sud.s' + (step + 1))); return; }
+        if (sol[sel[0]][sel[1]] !== d) { S50.Sound.play('wrong'); coach.set(step + 1, t('practice.sud.wrong')); return; }
+        g[sel[0]][sel[1]] = d; sel = null; step += 1;
+        S50.Sound.play('correct');
+        if (step >= 4) {
+          draw();
+          Array.prototype.forEach.call(card.querySelectorAll('button'), function (b) { b.disabled = true; });
+          coach.style.display = 'none';
+          card.appendChild(h('div', { class: 'feedback fb-good' }, h('div', { class: 'fb-head' }, h('strong', { text: t('sudoku.solved') }))));
+          return P.done('sudoku', body);
+        }
+        draw();
+      } } }));
+    })(d);
+    draw();
+  });
+
+  /* ---------- Escape Room ---------- */
+  attach('escape', function () {
+    var body = P.screen('escape');
+    var coach = P.coach();
+    body.appendChild(P.note());
+    body.appendChild(coach);
+    var wrap = h('div', {});
+    body.appendChild(wrap);
+    var hints = 0;
+    function inventory(found) {
+      return h('div', { class: 'card inventory' }, h('h2', { class: 'card-title', text: t('escape.inventory') }),
+        found ? h('ol', { class: 'inv-list' }, h('li', { text: t('practice.esc.r1') })) : h('p', { class: 'hint', text: t('escape.none') }));
+    }
+    function hintArea(card) {
+      var hb = h('button', { class: 'btn btn-ghost', type: 'button', text: t('escape.hint1') });
+      var box = h('div', { class: 'esc-hints' });
+      hb.addEventListener('click', function () {
+        hints += 1;
+        box.appendChild(h('p', { class: 'esc-hint' }, h('strong', { text: t('escape.hintLabel') + ' ' }), hints === 1 ? t('practice.esc.h1') : t('practice.esc.h2')));
+        if (hints >= 2) hb.style.display = 'none'; else hb.textContent = t('escape.hint2');
+      });
+      card.appendChild(box); card.appendChild(hb);
+    }
+    function stage1() {
+      U.clear(wrap);
+      wrap.appendChild(UI.progressBar(1, 2, '🌼 ' + t('practice.esc.t') + ' · ' + t('escape.stage', { n: 1, m: 2 })));
+      wrap.appendChild(inventory(false));
+      var card = h('div', { class: 'card esc-stage' }, h('div', { class: 'qdisplay', text: t('practice.esc.disp') }), h('h2', { class: 'qtext', text: t('practice.esc.st1') }));
+      var msg = h('p', { class: 'esc-msg', attrs: { role: 'status' } });
+      var opts = t('practice.esc.o');
+      var box = h('div', { class: 'options options-big' });
+      U.shuffle([0, 1, 2]).forEach(function (oi) {
+        var b = h('button', { class: 'opt', type: 'button', on: { click: function () {
+          if (oi !== 0) { b.disabled = true; markOpt(b, false); msg.textContent = '✗ ' + t('escape.wrong'); S50.Sound.play('wrong'); return; }
+          markOpt(b, true); S50.Sound.play('correct');
+          Array.prototype.forEach.call(box.querySelectorAll('button'), function (x) { x.disabled = true; });
+          card.appendChild(h('div', { class: 'feedback fb-good' }, h('div', { class: 'fb-head' }, h('strong', { text: t('escape.right') })),
+            h('div', { class: 'new-clue' }, h('strong', { text: t('escape.newClue') }), h('p', { text: t('practice.esc.r1') })),
+            h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: t('escape.next'), on: { click: stage2 } })));
+          coach.set(2, t('practice.esc.s2'));
+        } } }, h('span', { class: 'opt-text', text: opts[oi] }));
+        box.appendChild(b);
+      });
+      card.appendChild(box); card.appendChild(msg);
+      hintArea(card);
+      wrap.appendChild(card);
+      coach.set(1, t('practice.esc.s1'));
+    }
+    function stage2() {
+      hints = 0;
+      U.clear(wrap);
+      wrap.appendChild(UI.progressBar(2, 2, '🌼 ' + t('practice.esc.t') + ' · ' + t('escape.stage', { n: 2, m: 2 })));
+      wrap.appendChild(inventory(true));
+      var code = t('practice.esc.code'), entered = '';
+      var card = h('div', { class: 'card esc-stage' }, h('h2', { class: 'qtext', text: t('practice.esc.st2') }));
+      var slots = h('div', { class: 'code-slots', attrs: { 'aria-live': 'polite' } });
+      var msg = h('p', { class: 'esc-msg', attrs: { role: 'status' } });
+      function drawSlots() { U.clear(slots); for (var i = 0; i < code.length; i++) slots.appendChild(h('span', { class: 'code-slot' + (entered[i] ? ' filled' : ''), text: entered[i] || '' })); }
+      var pad = h('div', { class: 'code-pad' });
+      '1234567890'.split('').forEach(function (d) {
+        pad.appendChild(h('button', { class: 'sk-num', type: 'button', text: d, on: { click: function () { if (entered.length < code.length) { entered += d; msg.textContent = ''; drawSlots(); } } } }));
+      });
+      pad.appendChild(h('button', { class: 'sk-num sk-erase', type: 'button', text: t('escape.del'), on: { click: function () { entered = entered.slice(0, -1); drawSlots(); } } }));
+      card.appendChild(slots); card.appendChild(pad);
+      card.appendChild(h('div', { class: 'sk-tools' },
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('escape.clear'), on: { click: function () { entered = ''; drawSlots(); } } }),
+        h('button', { class: 'btn btn-secondary', type: 'button', text: t('escape.check'), on: { click: function () {
+          if (entered !== code) { msg.textContent = '✗ ' + t('escape.wrong'); S50.Sound.play('wrong'); entered = ''; drawSlots(); return; }
+          S50.Sound.play('correct');
+          Array.prototype.forEach.call(card.querySelectorAll('button'), function (b) { b.disabled = true; });
+          card.appendChild(h('div', { class: 'feedback fb-good' }, h('div', { class: 'fb-head' }, h('strong', { text: t('escape.right') }))));
+          coach.style.display = 'none';
+          P.done('escape', wrap);
+        } } })));
+      card.appendChild(msg);
+      hintArea(card);
+      wrap.appendChild(card);
+      drawSlots();
+      coach.set(3, t('practice.esc.s3'));
+    }
+    stage1();
+  });
 })();
 
 </script>
