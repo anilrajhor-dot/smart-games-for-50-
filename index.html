@@ -689,6 +689,87 @@ body.no-nav #view { padding-bottom: 2rem; }
 .sk-tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
 .quick { margin-bottom: .5rem; }
 
+/* ---------- Mystery Detective ---------- */
+.case-title { font-size: 1.3rem; color: var(--primary); }
+.case-label { font-weight: 800; color: var(--muted); margin: .75rem 0 .3rem; text-transform: uppercase; letter-spacing: .5px; font-size: .85rem; }
+.case-story { font-size: 1.12rem; font-weight: 600; }
+.clue-list { list-style: none; padding: 0; margin: 0 0 .5rem; display: grid; gap: .5rem; }
+.clue-btn { width: 100%; min-height: 56px; border-radius: 12px; border: 2px dashed var(--secondary); background: var(--surface-2); font-weight: 750; cursor: pointer; text-align: left; padding: .6rem .9rem; }
+.clue.open { display: flex; flex-direction: column; gap: .15rem; background: var(--surface-2); border-left: 5px solid var(--secondary); border-radius: 10px; padding: .6rem .9rem; }
+.clue-num { font-size: .8rem; font-weight: 800; color: var(--secondary); }
+.clue-text { font-size: 1.05rem; }
+.key-q { margin-top: .75rem; border-top: 2px dashed var(--border); padding-top: .75rem; }
+.opt-small { min-height: 52px; font-size: .98rem; }
+
+/* ---------- Escape Room ---------- */
+.esc-card { display: flex; align-items: center; gap: 1rem; width: 100%; padding: 1rem; margin-bottom: .6rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); border-left: 7px solid var(--c-reasoning); text-align: left; cursor: pointer; color: var(--text); min-height: 84px; }
+.esc-continue { border: 3px solid var(--primary); }
+.inventory { background: var(--surface-2); }
+.inv-list { margin: 0; padding-left: 1.3rem; }
+.inv-list li { margin-bottom: .4rem; }
+.esc-msg { font-weight: 750; color: var(--bad); min-height: 1.4em; }
+.esc-hints .esc-hint { background: var(--mid-bg); border-radius: 10px; padding: .55rem .8rem; margin: .4rem 0; }
+.new-clue { background: var(--surface); border: 2px dashed var(--primary); border-radius: 12px; padding: .6rem .9rem; margin: .6rem 0; }
+.new-clue p { margin: .3rem 0 0; }
+.code-slots { display: flex; justify-content: center; gap: .5rem; margin: .5rem 0 .9rem; }
+.code-slot { width: 52px; height: 60px; border-radius: 12px; border: 3px solid var(--border); background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 850; }
+.code-slot.filled { border-color: var(--secondary); }
+.code-pad { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .45rem; margin-bottom: .75rem; }
+.code-pad .sk-num { min-width: 0; }
+.code-pad .sk-erase { grid-column: span 5; }
+.order-tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; margin-bottom: .75rem; }
+.order-tile.used { opacity: .35; }
+.order-row { margin: 0 0 .75rem; padding-left: 1.6rem; display: grid; gap: .3rem; }
+.order-slot { padding: .35rem .6rem; border-radius: 8px; background: var(--surface-2); min-height: 2rem; font-weight: 650; }
+.order-slot.filled { background: var(--primary-soft); }
+.esc-map { display: inline-flex; flex-direction: column; gap: 4px; padding: .6rem; border-radius: 12px; background: #e9f3dc; margin: 0 auto .8rem; position: relative; }
+.theme-dark .esc-map, .high-contrast .esc-map { background: var(--surface-2); border: 2px solid var(--border); }
+.esc-stage .esc-map { display: flex; width: max-content; max-width: 100%; }
+.esc-north { text-align: center; font-weight: 850; color: var(--secondary); }
+.esc-map-row { display: flex; gap: 4px; }
+.esc-map-cell { width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: rgba(255, 255, 255, .7); border-radius: 8px; border: 1px solid rgba(0, 0, 0, .1); }
+.theme-dark .esc-map-cell { background: rgba(0, 0, 0, .3); }
+
+/* ---------- Shape Shifter ---------- */
+.shape-mode { background: var(--surface-2); border-radius: 12px; padding: .6rem .9rem; margin-bottom: .75rem; }
+.shape-msg { font-weight: 750; text-align: center; min-height: 3em; }
+.shape-board { display: grid; gap: 3px; width: min(100%, 440px); margin: .25rem auto 1rem; }
+.sh-cell { aspect-ratio: 1 / 1; min-height: 44px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; position: relative; padding: 0; }
+.sh-cell.off { background: transparent; }
+.sh-cell.target { background: var(--surface); border: 3px dashed var(--secondary); cursor: pointer; color: #fff; }
+.sh-cell.fixed { background: repeating-linear-gradient(45deg, #8d8072, #8d8072 6px, #a69a8c 6px, #a69a8c 12px); border: 2px solid var(--text); }
+.sh-cell.mirror-edge { box-shadow: 4px 0 0 0 var(--primary); }
+.sh-cell.bad { background: var(--bad-bg); border: 3px solid var(--bad); }
+.sh-x { position: absolute; color: var(--bad); font-size: 1.2rem; }
+.sh-cell.pc { border-style: solid; border-color: rgba(0, 0, 0, .55); text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
+.pc-0.pc, .pc-0 .mini-cell.on { background: #a63d17; }
+.pc-1.pc, .pc-1 .mini-cell.on { background: repeating-linear-gradient(45deg, #1d5c68, #1d5c68 6px, #2a7a88 6px, #2a7a88 12px); }
+.pc-2.pc, .pc-2 .mini-cell.on { background: radial-gradient(circle, #7d5ab0 25%, #64399a 26%) 0 0 / 12px 12px; }
+.pc-3.pc, .pc-3 .mini-cell.on { background: repeating-linear-gradient(0deg, #2a7349, #2a7349 6px, #3a9160 6px, #3a9160 12px); }
+.pc-4.pc, .pc-4 .mini-cell.on { background: repeating-linear-gradient(90deg, #9b3263, #9b3263 6px, #b84f80 6px, #b84f80 12px); }
+.pc-5.pc, .pc-5 .mini-cell.on { background: repeating-linear-gradient(-45deg, #7a4f00, #7a4f00 6px, #9a6a00 6px, #9a6a00 12px); }
+.shape-tray { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: .5rem; margin-bottom: .9rem; }
+.tray-piece { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .5rem; min-height: 96px; border-radius: 14px; border: 2px solid var(--border); background: var(--surface); cursor: pointer; }
+.tray-piece.selected { border: 4px solid var(--primary); background: var(--primary-soft); }
+.tray-piece.placed { opacity: .55; }
+.tray-letter { font-weight: 900; font-size: 1.1rem; }
+.tray-state { font-size: .78rem; font-weight: 750; color: var(--good); }
+.mini { display: grid; gap: 2px; }
+.mini-cell { width: 16px; height: 16px; border-radius: 3px; font-size: 10px; line-height: 16px; text-align: center; color: #fff; }
+.mini-cell.on { border: 1px solid rgba(0, 0, 0, .5); }
+.shape-tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.mirror-line-note { text-align: center; color: var(--primary); font-weight: 900; margin-top: -.6rem; }
+.level-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; }
+.level-btn { min-height: 60px; border-radius: 12px; border: 2px solid var(--secondary); background: var(--surface); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 850; }
+.level-btn.done { background: var(--good-bg); border-color: var(--good); }
+.level-btn.locked { opacity: .45; cursor: default; border-style: dashed; }
+.lv-num { font-size: 1.15rem; }
+.lv-mode { font-size: .85rem; }
+.high-contrast .sh-cell.target { border-color: var(--text); }
+.reduce-motion .tray-piece, .reduce-motion .sh-cell { transition: none; }
+.theme-dark .esc-map-cell { border-color: rgba(255, 255, 255, .25); }
+.high-contrast .esc-map-cell { background: var(--surface); border: 2px solid var(--border); }
+
 </style>
 </head>
 <body>
@@ -1615,6 +1696,108 @@ body.no-nav #view { padding-bottom: 2rem; }
   });
 })();
 
+/* ---------- Text for Mystery Detective, Escape Room and Shape Shifter ---------- */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  function merge(dst, src) {
+    Object.keys(src).forEach(function (k) {
+      if (src[k] && typeof src[k] === 'object' && !Array.isArray(src[k])) { dst[k] = dst[k] || {}; merge(dst[k], src[k]); }
+      else dst[k] = src[k];
+    });
+  }
+  merge(S50.STR.en, {
+    games: {
+      detective: { name: 'Mystery Detective', desc: 'Examine the clues and solve short everyday mysteries.' },
+      escape: { name: 'Escape Room', desc: 'Connected puzzle adventures — each clue opens the next lock.' },
+      shapes: { name: 'Shape Shifter', desc: 'Turn, flip and fit pieces into the shape.' }
+    },
+    detective: {
+      intro: 'Read the situation, examine every clue, then choose the most logical answer. There is no rush.',
+      caseOf: 'Case {n} of {t}', situation: 'What happened', clues: 'Clues',
+      examine: '🔍 Tap to examine clue {n}', clue: 'Clue {n}', showAll: 'Show all clues',
+      locked: 'Examine all the clues to unlock the answers.', keyQ: 'Bonus question: Which clue was the most important?',
+      keyRight: '✓ Yes — that is the key clue. +{n} points', keyWrong: 'The key clue was clue {n}.',
+      level: ['Simple case', 'Tricky case', 'Hard case']
+    },
+    escape: {
+      intro: 'Solve each stage to win the clue you need for the next one. Your progress is saved — you can leave and continue later.',
+      choose: 'Choose an adventure', cont: 'Continue your adventure', at: '{t} — stage {n} of {m}',
+      resume: '▶ Continue', restart: 'Restart this adventure', replace: 'Start a new adventure? Your unfinished adventure will be closed.',
+      stage: 'Stage {n} of {m}', done: '✓ Completed', stages: '{n} stages', diff: ['Easy', 'Medium', 'Challenging'],
+      inventory: '📜 Clues you have found', none: 'No clues yet — solve the first stage.',
+      hint1: '💡 Hint', hint2: '💡 Another hint', reveal: '👁 Show the answer', hintLabel: 'Hint:',
+      code: 'Enter the code', digits: 'Enter all {n} digits, then tap Check.', clear: 'Clear', del: '⌫ Delete', check: '✓ Check',
+      order: 'Tap the items in the right order.', undo: '↩ Undo', yourOrder: 'Your order:',
+      wrong: 'Not quite — have another look. You can use a hint at any time.', right: '✓ Solved!', revealed: '👁 Here is the answer.',
+      answer: 'Answer: {a}', newClue: '📜 New clue', next: 'Next stage →', finish: '🏁 Finish the adventure', another: 'Another adventure',
+      digitLabel: 'Digit {n}'
+    },
+    shapes: {
+      intro: 'Fit the pieces into the outlined shape. Tap a piece, turn or flip it, then tap the board — the ● square of the piece lands where you tap.',
+      mode: { fill: 'Fill the shape', pattern: 'Complete the pattern', mirror: 'Mirror image' },
+      modeDesc: {
+        fill: 'Cover every outlined square using all the pieces.',
+        pattern: 'Some pieces are already fixed in place (shaded). Fill the rest of the outline.',
+        mirror: 'The left side is fixed. Fill the outlined right side so it becomes a mirror image of the left.'
+      },
+      level: 'Level {n} of {t}', puzzle: 'Puzzle {n} of {t}', pieces: 'Your pieces', piece: 'Piece {l}',
+      rotate: '↻ Turn', flip: '⇋ Flip', hint: '💡 Hint', reset: '⟲ Reset',
+      pick: 'First tap a piece below, then tap the board.', selected: 'Piece {l} selected — tap the board to place it.',
+      noFit: '✗ Piece {l} does not fit there. Try turning it, or a different square.', placed: '✓ Piece {l} placed.',
+      picked: 'Piece {l} picked up.', onBoard: '✓ on board', solved: '✓ Shape complete! Well done.',
+      next: 'Next puzzle →', chooseLevel: 'Choose a level', play: '▶ Play level {n}', locked: 'Locked',
+      hintsUsed: 'Hints used: {n}', cell: 'Row {r}, column {c}', cellTarget: 'empty, part of the shape', cellFixed: 'fixed',
+      cellPiece: 'covered by piece {l}', board: 'Puzzle board'
+    }
+  });
+  merge(S50.STR.hi, {
+    games: {
+      detective: { name: 'रहस्य जासूस', desc: 'सुराग़ जाँचें और रोज़मर्रा के छोटे रहस्य सुलझाएँ।' },
+      escape: { name: 'एस्केप रूम', desc: 'जुड़ी हुई पहेलियों का रोमांच — हर सुराग़ अगला ताला खोलता है।' },
+      shapes: { name: 'आकृति जोड़ो', desc: 'टुकड़ों को घुमाएँ, पलटें और आकृति में फ़िट करें।' }
+    },
+    detective: {
+      intro: 'स्थिति पढ़ें, हर सुराग़ जाँचें, फिर सबसे तर्कसंगत उत्तर चुनें। कोई जल्दी नहीं।',
+      caseOf: 'मामला {n} / {t}', situation: 'क्या हुआ', clues: 'सुराग़',
+      examine: '🔍 सुराग़ {n} देखने के लिए टैप करें', clue: 'सुराग़ {n}', showAll: 'सारे सुराग़ दिखाएँ',
+      locked: 'उत्तर खोलने के लिए सारे सुराग़ जाँचें।', keyQ: 'बोनस सवाल: सबसे ज़रूरी सुराग़ कौन-सा था?',
+      keyRight: '✓ हाँ — यही मुख्य सुराग़ है। +{n} अंक', keyWrong: 'मुख्य सुराग़ था सुराग़ {n}।',
+      level: ['आसान मामला', 'पेचीदा मामला', 'कठिन मामला']
+    },
+    escape: {
+      intro: 'हर चरण हल करें और अगले चरण के लिए ज़रूरी सुराग़ पाएँ। आपकी प्रगति सहेजी जाती है — आप बीच में छोड़कर बाद में जारी रख सकते हैं।',
+      choose: 'कोई रोमांच चुनें', cont: 'अपना रोमांच जारी रखें', at: '{t} — चरण {n} / {m}',
+      resume: '▶ जारी रखें', restart: 'यह रोमांच फिर से शुरू करें', replace: 'नया रोमांच शुरू करें? आपका अधूरा रोमांच बंद हो जाएगा।',
+      stage: 'चरण {n} / {m}', done: '✓ पूरा हुआ', stages: '{n} चरण', diff: ['आसान', 'मध्यम', 'चुनौतीपूर्ण'],
+      inventory: '📜 आपको मिले सुराग़', none: 'अभी कोई सुराग़ नहीं — पहला चरण हल करें।',
+      hint1: '💡 संकेत', hint2: '💡 एक और संकेत', reveal: '👁 उत्तर दिखाएँ', hintLabel: 'संकेत:',
+      code: 'कोड डालें', digits: 'सभी {n} अंक डालें, फिर “जाँचें” दबाएँ।', clear: 'साफ़ करें', del: '⌫ मिटाएँ', check: '✓ जाँचें',
+      order: 'चीज़ों को सही क्रम में टैप करें।', undo: '↩ वापस', yourOrder: 'आपका क्रम:',
+      wrong: 'थोड़ा चूक गए — फिर से देखें। आप कभी भी संकेत ले सकते हैं।', right: '✓ हल हो गया!', revealed: '👁 यह रहा उत्तर।',
+      answer: 'उत्तर: {a}', newClue: '📜 नया सुराग़', next: 'अगला चरण →', finish: '🏁 रोमांच पूरा करें', another: 'दूसरा रोमांच',
+      digitLabel: 'अंक {n}'
+    },
+    shapes: {
+      intro: 'टुकड़ों को रेखा से बनी आकृति में फ़िट करें। किसी टुकड़े पर टैप करें, उसे घुमाएँ या पलटें, फिर बोर्ड पर टैप करें — टुकड़े का ● वाला ख़ाना वहीं आएगा जहाँ आप टैप करेंगे।',
+      mode: { fill: 'आकृति भरें', pattern: 'नमूना पूरा करें', mirror: 'दर्पण छवि' },
+      modeDesc: {
+        fill: 'सारे टुकड़ों से रेखा वाले हर ख़ाने को ढकें।',
+        pattern: 'कुछ टुकड़े पहले से अपनी जगह पर लगे हैं (छायादार)। बाकी आकृति भरें।',
+        mirror: 'बायाँ हिस्सा तय है। दाएँ हिस्से को ऐसे भरें कि वह बाएँ की दर्पण छवि बन जाए।'
+      },
+      level: 'स्तर {n} / {t}', puzzle: 'पहेली {n} / {t}', pieces: 'आपके टुकड़े', piece: 'टुकड़ा {l}',
+      rotate: '↻ घुमाएँ', flip: '⇋ पलटें', hint: '💡 संकेत', reset: '⟲ फिर से',
+      pick: 'पहले नीचे किसी टुकड़े पर टैप करें, फिर बोर्ड पर।', selected: 'टुकड़ा {l} चुना गया — रखने के लिए बोर्ड पर टैप करें।',
+      noFit: '✗ टुकड़ा {l} वहाँ फ़िट नहीं होता। उसे घुमाकर या किसी दूसरे ख़ाने पर आज़माएँ।', placed: '✓ टुकड़ा {l} रख दिया।',
+      picked: 'टुकड़ा {l} उठा लिया।', onBoard: '✓ बोर्ड पर', solved: '✓ आकृति पूरी! बहुत बढ़िया।',
+      next: 'अगली पहेली →', chooseLevel: 'स्तर चुनें', play: '▶ स्तर {n} खेलें', locked: 'बंद',
+      hintsUsed: 'लिए गए संकेत: {n}', cell: 'पंक्ति {r}, कॉलम {c}', cellTarget: 'ख़ाली, आकृति का हिस्सा', cellFixed: 'पहले से लगा',
+      cellPiece: 'टुकड़ा {l} से ढका', board: 'पहेली बोर्ड'
+    }
+  });
+})();
+
 </script>
   <script>
 /* SMART 50+ — local storage, scoring, levels, streaks and achievements.
@@ -1641,6 +1824,8 @@ body.no-nav #view { padding-bottom: 2rem; }
       familyQuiz: [],
       levels: {},
       lastGame: '',
+      escape: null,
+      escapeDone: [],
       recent: {}
     };
   }
@@ -1841,7 +2026,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     gameStats: function (id) { return data.stats.perGame[id] || null; },
 
     gameLevel: function (id) { return Math.max(1, U.num(data.levels[id]) || 1); },
-    setGameLevel: function (id, n) { data.levels[id] = Math.max(1, Math.min(5, U.num(n))); save(); },
+    setGameLevel: function (id, n, max) { data.levels[id] = Math.max(1, Math.min(max || 5, U.num(n))); save(); },
 
     /* Recently seen question ids per category, to avoid repeats across sessions. */
     recent: function (cat) { return Array.isArray(data.recent[cat]) ? data.recent[cat] : []; },
@@ -2453,7 +2638,7 @@ body.no-nav #view { padding-bottom: 2rem; }
   var U = S50.U, h = U.h, t = S50.t;
 
   /* ---------- Game registry ---------- */
-  var ORDER = ['wherekept', 'trip', 'pairs', 'changed', 'oddone', 'clock', 'lamps', 'missing', 'familytree', 'sudoku', 'lifeexp', 'household', 'grandmaster', 'kirana', 'scam', 'thennow', 'finish', 'words'];
+  var ORDER = ['wherekept', 'trip', 'pairs', 'changed', 'oddone', 'clock', 'lamps', 'shapes', 'missing', 'familytree', 'sudoku', 'detective', 'escape', 'lifeexp', 'household', 'grandmaster', 'kirana', 'scam', 'thennow', 'finish', 'words'];
   var games = {};
   S50.Games = {
     ORDER: ORDER,
@@ -2550,7 +2735,7 @@ body.no-nav #view { padding-bottom: 2rem; }
     window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); S50.App.installPrompt = e; });
   }
 
-  S50.App = { go: go, render: render, route: route, applySettings: applySettings, current: current, installPrompt: null, VERSION: '1.1.0' };
+  S50.App = { go: go, render: render, route: route, applySettings: applySettings, current: current, installPrompt: null, VERSION: '1.2.0' };
   document.addEventListener('DOMContentLoaded', init);
 })();
 
@@ -3807,6 +3992,452 @@ body.no-nav #view { padding-bottom: 2rem; }
 })();
 
 </script>
+  <script>
+/* SMART 50+ — Mystery Detective cases (fictional). Answer index 0 is correct; options are shuffled when shown.
+ * k = index of the most important clue (used for the occasional "Which clue mattered most?" follow-up).
+ * Each language block: t (title), s (situation), c (clues), q (question), o (options), e (explanation). */
+(function () {
+  'use strict';
+  function C(id, d, k, en, hi) {
+    function pack(a) { return { t: a[0], s: a[1], c: a[2], q: a[3], o: a[4], e: a[5] }; }
+    var it = { id: id, d: d, t: ['detective'], a: 0, en: pack(en), hi: pack(hi) };
+    if (k !== null) it.k = k;
+    return it;
+  }
+  window.S50.Bank.add('detective', [
+    C('D01', 1, 0, ['The Missing Spectacles', 'Dadaji cannot find his reading spectacles.',
+      ['He read the newspaper on the balcony after breakfast.', 'Then he went for his bath.', 'The newspaper is still lying on the balcony chair.'],
+      'Where should he look first?', ['On the balcony, near the newspaper', 'In the bathroom cupboard', 'In the kitchen', 'At the neighbour’s house'],
+      'He last needed his spectacles to read the newspaper on the balcony — and the newspaper is still there.'],
+    ['ग़ायब चश्मा', 'दादाजी को अपना पढ़ने का चश्मा नहीं मिल रहा।',
+      ['नाश्ते के बाद उन्होंने बालकनी में अख़बार पढ़ा।', 'फिर वे नहाने चले गए।', 'अख़बार अभी भी बालकनी की कुर्सी पर पड़ा है।'],
+      'उन्हें सबसे पहले कहाँ देखना चाहिए?', ['बालकनी में, अख़बार के पास', 'बाथरूम की अलमारी में', 'रसोई में', 'पड़ोसी के घर'],
+      'चश्मे की आख़िरी ज़रूरत बालकनी में अख़बार पढ़ने के लिए थी — और अख़बार अभी भी वहीं है।']),
+    C('D02', 1, 1, ['Who Ate the Laddoos?', 'Four laddoos are missing from the tin.',
+      ['Only Rohan and Meera were at home in the afternoon.', 'Meera was at her music class from 2 pm to 5 pm.', 'The laddoos were in the tin at 3 pm and gone by 4 pm.'],
+      'Who most likely ate them?', ['Rohan', 'Meera', 'Grandma, who was at the temple all day', 'The postman'],
+      'The laddoos vanished between 3 and 4 pm. Meera was away from 2 to 5, so Rohan was the only one at home.'],
+    ['लड्डू किसने खाए?', 'डिब्बे से चार लड्डू ग़ायब हैं।',
+      ['दोपहर में घर पर सिर्फ़ रोहन और मीरा थे।', 'मीरा दोपहर 2 से 5 बजे तक संगीत की कक्षा में थी।', '3 बजे लड्डू डिब्बे में थे और 4 बजे तक ग़ायब हो गए।'],
+      'सबसे संभावना किसने खाए?', ['रोहन ने', 'मीरा ने', 'दादी ने, जो पूरे दिन मंदिर में थीं', 'डाकिए ने'],
+      'लड्डू 3 से 4 बजे के बीच ग़ायब हुए। मीरा 2 से 5 बजे तक बाहर थी, इसलिए घर पर सिर्फ़ रोहन था।']),
+    C('D03', 1, 2, ['Wet Footprints', 'Small wet footprints lead from the front door to the kitchen.',
+      ['It started raining at 6 pm.', 'The footprints are small, like a child’s.', 'Only eight-year-old Arjun came home after 6 pm.'],
+      'Whose footprints are they?', ['Arjun’s', 'Father’s — he came home at 5 pm', 'The milkman’s — he came in the morning', 'A stranger’s'],
+      'The prints are wet, so they were made after the rain began at 6 pm. They are small, and Arjun was the only one who came in after 6.'],
+    ['गीले पैरों के निशान', 'दरवाज़े से रसोई तक छोटे-छोटे गीले पैरों के निशान हैं।',
+      ['शाम 6 बजे बारिश शुरू हुई।', 'निशान छोटे हैं, जैसे किसी बच्चे के।', 'शाम 6 बजे के बाद सिर्फ़ आठ साल का अर्जुन घर आया।'],
+      'ये निशान किसके हैं?', ['अर्जुन के', 'पिताजी के — वे 5 बजे आए थे', 'दूधवाले के — वह सुबह आया था', 'किसी अजनबी के'],
+      'निशान गीले हैं, यानी 6 बजे बारिश शुरू होने के बाद बने। वे छोटे हैं, और 6 के बाद सिर्फ़ अर्जुन आया।']),
+    C('D04', 1, 2, ['The Silent Clock', 'The wall clock shows 10:10, but it is the afternoon.',
+      ['The clock runs on a battery.', 'Its second hand is not moving at all.', 'Last week Ravi took the batteries out of the clock for the TV remote.'],
+      'Why does the clock show the wrong time?', ['It has no battery, so it stopped', 'Someone set it to 10:10 on purpose', 'It shows the time of another country', 'It is a new kind of clock'],
+      'A stopped second hand means the clock is not running, and Ravi removed its batteries.'],
+    ['रुकी हुई घड़ी', 'दीवार घड़ी 10:10 दिखा रही है, जबकि दोपहर है।',
+      ['घड़ी बैटरी से चलती है।', 'सेकंड की सुई बिल्कुल नहीं हिल रही।', 'पिछले हफ़्ते रवि ने टीवी के रिमोट के लिए घड़ी की बैटरी निकाल ली थी।'],
+      'घड़ी ग़लत समय क्यों दिखा रही है?', ['बैटरी नहीं है, इसलिए घड़ी रुक गई', 'किसी ने जानबूझकर 10:10 कर दिया', 'यह किसी दूसरे देश का समय है', 'यह नई तरह की घड़ी है'],
+      'रुकी हुई सेकंड की सुई बताती है कि घड़ी चल नहीं रही, और रवि ने उसकी बैटरी निकाल ली थी।']),
+    C('D05', 1, 0, ['The Closed Dairy', 'Sunita went to buy milk at 9 pm, but the dairy was shut.',
+      ['The board says “Open 6 am to 8 pm”.', 'Today is not a holiday.', 'She reached the dairy at 9 pm.'],
+      'Why was it closed?', ['It closes at 8 pm', 'It was a holiday', 'The owner moved away', 'The milk was not fresh'],
+      'The dairy closes at 8 pm, and she arrived an hour later.'],
+    ['बंद डेयरी', 'सुनीता रात 9 बजे दूध लेने गई, पर डेयरी बंद थी।',
+      ['बोर्ड पर लिखा है “सुबह 6 से रात 8 बजे तक खुला”।', 'आज छुट्टी नहीं है।', 'वह रात 9 बजे पहुँची।'],
+      'डेयरी बंद क्यों थी?', ['यह रात 8 बजे बंद हो जाती है', 'आज छुट्टी थी', 'मालिक कहीं चला गया', 'दूध ताज़ा नहीं था'],
+      'डेयरी 8 बजे बंद होती है, और वह एक घंटे बाद पहुँची।']),
+    C('D06', 1, 2, ['The Drooping Tulsi', 'The tulsi plant in the courtyard is drooping.',
+      ['The family was away for ten days.', 'Nobody was asked to water the plants.', 'The soil in the pot is dry and cracked.'],
+      'What is the most likely reason?', ['It was not watered while the family was away', 'It was given too much water', 'Someone cut its leaves', 'It is getting too much shade'],
+      'Dry, cracked soil and ten days with nobody watering point to thirst.'],
+    ['मुरझाई तुलसी', 'आँगन की तुलसी मुरझाई हुई है।',
+      ['परिवार दस दिन बाहर था।', 'पौधों को पानी देने के लिए किसी से नहीं कहा गया।', 'गमले की मिट्टी सूखी और फटी हुई है।'],
+      'सबसे संभावित कारण क्या है?', ['परिवार की ग़ैरमौजूदगी में पानी नहीं मिला', 'बहुत ज़्यादा पानी दिया गया', 'किसी ने पत्ते काट दिए', 'उसे बहुत ज़्यादा छाया मिल रही है'],
+      'सूखी, फटी मिट्टी और दस दिन तक पानी न मिलना — प्यास ही कारण है।']),
+    C('D07', 1, null, ['Whose Umbrella?', 'A black umbrella was left in the meeting room.',
+      ['Three people attended: Mr Iyer, Ms Kaur and Mr Das.', 'Ms Kaur always carries a red umbrella — and took it home.', 'Mr Das came by car and never carries an umbrella.'],
+      'Whose umbrella is it most likely?', ['Mr Iyer’s', 'Ms Kaur’s', 'Mr Das’s', 'Nobody attended the meeting'],
+      'Ms Kaur’s umbrella is red and she took it; Mr Das never carries one. That leaves Mr Iyer.'],
+    ['छाता किसका?', 'बैठक के कमरे में एक काला छाता छूट गया।',
+      ['बैठक में तीन लोग थे: अय्यर जी, कौर जी और दास जी।', 'कौर जी हमेशा लाल छाता रखती हैं — और वह साथ ले गईं।', 'दास जी कार से आए और कभी छाता नहीं रखते।'],
+      'छाता सबसे संभावना किसका है?', ['अय्यर जी का', 'कौर जी का', 'दास जी का', 'बैठक में कोई नहीं आया'],
+      'कौर जी का छाता लाल है और वे ले गईं; दास जी छाता रखते ही नहीं। बचे अय्यर जी।']),
+    C('D08', 1, null, ['The Missed Train', 'Anil left home at 7:00 but missed his 7:30 train.',
+      ['The walk to the station takes 20 minutes.', 'He stopped for 5 minutes to buy a newspaper.', 'Then he waited 10 minutes in the ticket queue.'],
+      'Why did he miss the train?', ['He reached the platform at about 7:35', 'The train left early', 'He went to the wrong city', 'The station was closed'],
+      '20 + 5 + 10 = 35 minutes after 7:00 is 7:35 — five minutes too late.'],
+    ['छूटी ट्रेन', 'अनिल 7:00 बजे घर से निकले, पर उनकी 7:30 की ट्रेन छूट गई।',
+      ['स्टेशन तक पैदल 20 मिनट लगते हैं।', 'रास्ते में वे अख़बार ख़रीदने के लिए 5 मिनट रुके।', 'फिर टिकट की लाइन में 10 मिनट लगे।'],
+      'ट्रेन क्यों छूटी?', ['वे लगभग 7:35 पर प्लेटफ़ॉर्म पहुँचे', 'ट्रेन जल्दी चली गई', 'वे ग़लत शहर चले गए', 'स्टेशन बंद था'],
+      '7:00 के बाद 20 + 5 + 10 = 35 मिनट यानी 7:35 — पाँच मिनट देर।']),
+    C('D09', 1, 1, ['The Lost TV Remote', 'The TV remote cannot be found.',
+      ['Nani was the last one watching TV.', 'Straight after, she folded the laundry in the bedroom.', 'The laundry basket is now full of neatly folded clothes.'],
+      'Where should the family look first?', ['Among the folded clothes in the bedroom', 'Inside the fridge', 'In the car', 'On the roof'],
+      'Nani had the remote last and went straight to fold clothes — it may have been folded in with them.'],
+    ['खोया टीवी रिमोट', 'टीवी का रिमोट नहीं मिल रहा।',
+      ['आख़िरी बार नानी टीवी देख रही थीं।', 'ठीक उसके बाद उन्होंने बेडरूम में कपड़े तह किए।', 'कपड़ों की टोकरी अब तह किए कपड़ों से भरी है।'],
+      'परिवार को सबसे पहले कहाँ देखना चाहिए?', ['बेडरूम में तह किए कपड़ों के बीच', 'फ़्रिज के अंदर', 'कार में', 'छत पर'],
+      'रिमोट आख़िरी बार नानी के पास था और वे सीधे कपड़े तह करने गईं — हो सकता है वह कपड़ों में तह हो गया हो।']),
+    C('D10', 1, null, ['The Cold Tea', 'Neha’s tea was cold when she finally drank it.',
+      ['She made the tea at 4:00.', 'At 4:01 a courier came, and then a friend phoned and talked for 30 minutes.', 'She drank the tea at 4:35.'],
+      'Why was the tea cold?', ['It stood for over half an hour', 'The milk was sour', 'The cup was cracked', 'She forgot to add sugar'],
+      'From 4:00 to 4:35 the tea stood for 35 minutes and cooled down.'],
+    ['ठंडी चाय', 'नेहा ने जब चाय पी, तब तक वह ठंडी हो चुकी थी।',
+      ['उसने 4:00 बजे चाय बनाई।', '4:01 पर कूरियर आया, फिर एक सहेली का फ़ोन आया और 30 मिनट बात हुई।', 'उसने 4:35 पर चाय पी।'],
+      'चाय ठंडी क्यों थी?', ['वह आधे घंटे से ज़्यादा रखी रही', 'दूध खट्टा था', 'कप में दरार थी', 'वह चीनी डालना भूल गई'],
+      '4:00 से 4:35 तक चाय 35 मिनट रखी रही और ठंडी हो गई।']),
+
+    C('D11', 2, 2, ['The Spoilt Milk', 'The milk in the fridge went sour overnight.',
+      ['The milk was fresh yesterday evening.', 'This morning the freezer ice had melted.', 'There was a power cut through the whole night.', 'The fridge door was closed properly.'],
+      'What is the most likely cause?', ['The power cut stopped the fridge from cooling', 'Someone added lemon to it', 'The milk was already old', 'The fridge was too cold'],
+      'Melted freezer ice and an all-night power cut show the fridge was not cooling, so the milk spoiled.'],
+    ['ख़राब दूध', 'फ़्रिज में रखा दूध रात भर में फट गया।',
+      ['कल शाम दूध ताज़ा था।', 'आज सुबह फ़्रीज़र की बर्फ़ पिघली हुई थी।', 'पूरी रात बिजली गई रही।', 'फ़्रिज का दरवाज़ा ठीक से बंद था।'],
+      'सबसे संभावित कारण क्या है?', ['बिजली जाने से फ़्रिज ठंडा नहीं कर पाया', 'किसी ने उसमें नींबू डाल दिया', 'दूध पहले से पुराना था', 'फ़्रिज बहुत ज़्यादा ठंडा था'],
+      'पिघली बर्फ़ और रात भर बिजली न होना बताते हैं कि फ़्रिज ठंडा नहीं कर रहा था, इसलिए दूध फट गया।']),
+    C('D12', 2, 1, ['The Broken Vase', 'A vase broke in the hall at 3 pm.',
+      ['Kabir says, “I was in the garden all afternoon.”', 'It rained heavily all afternoon and the garden is very muddy.', 'Kabir’s shoes are perfectly clean and dry.'],
+      'What does the evidence show?', ['Kabir’s statement does not match the evidence', 'Kabir is clearly telling the truth', 'It did not rain at all', 'The vase broke in the garden'],
+      'Anyone in a muddy, rain-soaked garden all afternoon would have wet, muddy shoes. Kabir’s clean shoes do not fit his story.'],
+    ['टूटा फूलदान', 'दोपहर 3 बजे बैठक में एक फूलदान टूट गया।',
+      ['कबीर कहता है, “मैं पूरी दोपहर बगीचे में था।”', 'पूरी दोपहर तेज़ बारिश हुई और बगीचे में बहुत कीचड़ है।', 'कबीर के जूते बिल्कुल साफ़ और सूखे हैं।'],
+      'सबूत क्या बताते हैं?', ['कबीर की बात सबूतों से मेल नहीं खाती', 'कबीर साफ़ तौर पर सच बोल रहा है', 'बारिश हुई ही नहीं', 'फूलदान बगीचे में टूटा'],
+      'जो पूरी दोपहर कीचड़ भरे, भीगे बगीचे में हो, उसके जूते गीले और कीचड़ वाले होते। साफ़ जूते उसकी कहानी से मेल नहीं खाते।']),
+    C('D13', 2, 1, ['The Wrong House', 'The bakery delivered a birthday cake to the wrong house.',
+      ['The order was for house number 14, Lane 3.', 'It was delivered to house number 41, Lane 3.', 'The order slip was handwritten in a hurry.'],
+      'What most likely happened?', ['The two digits were read in the wrong order', 'House 14 does not exist', 'The family has moved', 'Nobody ordered a cake'],
+      '14 and 41 use the same digits reversed — an easy mistake with a hurried handwritten slip.'],
+    ['ग़लत घर', 'बेकरी ने जन्मदिन का केक ग़लत घर पहुँचा दिया।',
+      ['ऑर्डर मकान नंबर 14, गली 3 के लिए था।', 'केक मकान नंबर 41, गली 3 में पहुँचा।', 'ऑर्डर की पर्ची जल्दी में हाथ से लिखी गई थी।'],
+      'सबसे संभावना क्या हुआ?', ['दोनों अंक उल्टे क्रम में पढ़ लिए गए', 'मकान 14 है ही नहीं', 'परिवार घर बदल चुका है', 'किसी ने केक मँगाया ही नहीं'],
+      '14 और 41 में वही अंक उल्टे हैं — जल्दी में लिखी पर्ची से यह गलती आसानी से होती है।']),
+    C('D14', 2, 2, ['Moti Ate Twice', 'Moti the dog was given his breakfast twice today.',
+      ['Mother fed him at 8:00 am.', 'Father also fed him at 8:30 am without asking anyone.', 'The feeding chart on the fridge was left blank — nobody ticked it.'],
+      'What simple step would prevent this?', ['Tick the chart right after feeding', 'Give Moti less food', 'Hide the dog food', 'Feed him only at night'],
+      'The blank chart is the real problem: a quick tick after feeding tells everyone Moti has eaten.'],
+    ['मोती ने दो बार खाया', 'आज कुत्ते मोती को दो बार नाश्ता मिल गया।',
+      ['माँ ने उसे सुबह 8:00 बजे खाना दिया।', 'पिताजी ने भी किसी से पूछे बिना 8:30 बजे खाना दे दिया।', 'फ़्रिज पर लगा खाने का चार्ट ख़ाली था — किसी ने निशान नहीं लगाया।'],
+      'कौन-सा आसान कदम इसे रोक सकता है?', ['खाना देने के तुरंत बाद चार्ट पर निशान लगाना', 'मोती को कम खाना देना', 'कुत्ते का खाना छिपा देना', 'सिर्फ़ रात में खाना देना'],
+      'असली समस्या ख़ाली चार्ट है: खाना देने के बाद एक निशान सबको बता देता है कि मोती खा चुका है।']),
+    C('D15', 2, 2, ['The Mixed-up Tablet Box', 'Grandpa found the wrong tablets in his morning box.',
+      ['His morning tablets are white and his night tablets are yellow.', 'Today the morning box has yellow tablets in it.', 'Last night the boxes were refilled in a dim light during a power cut.'],
+      'What most likely happened?', ['The night tablets were put into the morning box by mistake', 'The white tablets changed colour', 'The chemist sent a new medicine', 'Grandpa bought yellow tablets himself'],
+      'Refilling in dim light makes it easy to mix up the boxes. When in doubt, check with the doctor or chemist before taking anything.'],
+    ['दवा के डिब्बे में गड़बड़', 'दादाजी को सुबह के डिब्बे में ग़लत गोलियाँ मिलीं।',
+      ['सुबह की गोलियाँ सफ़ेद और रात की गोलियाँ पीली हैं।', 'आज सुबह के डिब्बे में पीली गोलियाँ हैं।', 'कल रात बिजली जाने पर धीमी रोशनी में डिब्बे भरे गए थे।'],
+      'सबसे संभावना क्या हुआ?', ['रात की गोलियाँ ग़लती से सुबह के डिब्बे में रख दी गईं', 'सफ़ेद गोलियों का रंग बदल गया', 'दवा वाले ने नई दवा भेज दी', 'दादाजी ने ख़ुद पीली गोलियाँ ख़रीदीं'],
+      'धीमी रोशनी में डिब्बे भरते समय गड़बड़ आसानी से हो जाती है। शक हो तो कुछ भी लेने से पहले डॉक्टर या दवा वाले से पूछें।']),
+    C('D16', 2, 1, ['The Open Gate', 'The society gate is locked at 11 pm, but Vikram found it open at 11:30 pm.',
+      ['The watchman says he locked it at exactly 11 pm.', 'A neighbour drove in at 11:15 pm.', 'The watchman unlocks the gate for every car.'],
+      'Why was the gate open?', ['It was opened for the neighbour’s car and not locked again', 'The lock is broken', 'The gate is never locked', 'Vikram has his own key'],
+      'The gate was locked at 11, then opened for a car at 11:15. It was simply not locked again.'],
+    ['खुला गेट', 'सोसाइटी का गेट रात 11 बजे बंद होता है, पर विक्रम को 11:30 बजे खुला मिला।',
+      ['चौकीदार कहता है कि उसने ठीक 11 बजे ताला लगाया।', 'एक पड़ोसी 11:15 बजे गाड़ी लेकर अंदर आए।', 'चौकीदार हर गाड़ी के लिए गेट खोलता है।'],
+      'गेट खुला क्यों था?', ['पड़ोसी की गाड़ी के लिए खोला गया और फिर बंद नहीं किया गया', 'ताला टूटा हुआ है', 'गेट कभी बंद ही नहीं होता', 'विक्रम के पास अपनी चाबी है'],
+      'गेट 11 बजे बंद हुआ, फिर 11:15 पर गाड़ी के लिए खुला, और दोबारा बंद नहीं हुआ।']),
+    C('D17', 2, 1, ['The Lost Earring', 'Lakshmi lost one gold earring at a wedding.',
+      ['In the photos taken at 7 pm she is wearing both earrings.', 'From 8 to 9 pm she danced energetically on the dance floor.', 'At dinner at 9:30 pm one earring was missing.', 'She did not leave the hall between 7 and 9:30 pm.'],
+      'Where should she search first?', ['Around the dance floor', 'In the car park', 'At home', 'At the photo studio'],
+      'She had both at 7 and stayed in the hall. Lively dancing is the most likely moment for an earring to slip off.'],
+    ['खोई बाली', 'शादी में लक्ष्मी की एक सोने की बाली खो गई।',
+      ['शाम 7 बजे की तस्वीरों में उसने दोनों बालियाँ पहनी हैं।', '8 से 9 बजे तक उसने डांस फ़्लोर पर जोश से नाच किया।', 'रात 9:30 बजे खाने पर एक बाली ग़ायब थी।', '7 से 9:30 के बीच वह हॉल से बाहर नहीं गई।'],
+      'उसे सबसे पहले कहाँ ढूँढना चाहिए?', ['डांस फ़्लोर के आसपास', 'पार्किंग में', 'घर पर', 'फ़ोटो स्टूडियो में'],
+      '7 बजे दोनों बालियाँ थीं और वह हॉल में ही रही। जोश से नाचते समय बाली गिरने की सबसे ज़्यादा संभावना है।']),
+    C('D18', 2, 0, ['The Doubled Bill', 'The electricity bill for May is almost double the usual.',
+      ['The family bought a new air conditioner in April.', 'The number of people at home is the same.', 'The meter reading on the bill was checked and is correct.'],
+      'What is the most likely reason?', ['The new AC was used in the summer heat', 'The meter is faulty', 'The rates were halved', 'The TV was stolen'],
+      'The reading is correct and nothing else changed — except a new AC running in May.'],
+    ['दोगुना बिल', 'मई का बिजली बिल सामान्य से लगभग दोगुना आया।',
+      ['परिवार ने अप्रैल में नया एसी ख़रीदा।', 'घर में लोगों की संख्या वही है।', 'बिल की मीटर रीडिंग जाँची गई और सही है।'],
+      'सबसे संभावित कारण क्या है?', ['गर्मी में नया एसी चला', 'मीटर ख़राब है', 'दरें आधी हो गईं', 'टीवी चोरी हो गया'],
+      'रीडिंग सही है और कुछ नहीं बदला — सिवाय मई में चल रहे नए एसी के।']),
+    C('D19', 2, 2, ['The “Delivered” Parcel', 'The app says the parcel was delivered at 2 pm, but nobody received it.',
+      ['The delivery photo shows the parcel in front of a blue door.', 'Your front door is brown.', 'Your next-door neighbour’s door is blue.'],
+      'Where is the parcel most likely?', ['At the neighbour’s door', 'It was stolen from your door', 'It was never sent', 'At the post office'],
+      'The photo shows a blue door — your neighbour’s, not your brown one.'],
+    ['“पहुँचा हुआ” पार्सल', 'ऐप कहता है कि पार्सल 2 बजे पहुँच गया, पर किसी को मिला नहीं।',
+      ['डिलीवरी की फ़ोटो में पार्सल एक नीले दरवाज़े के सामने है।', 'आपका दरवाज़ा भूरा है।', 'बगल वाले पड़ोसी का दरवाज़ा नीला है।'],
+      'पार्सल सबसे संभावना कहाँ है?', ['पड़ोसी के दरवाज़े पर', 'आपके दरवाज़े से चोरी हो गया', 'भेजा ही नहीं गया', 'डाकघर में'],
+      'फ़ोटो में नीला दरवाज़ा है — पड़ोसी का, आपका भूरा नहीं।']),
+    C('D20', 2, 2, ['The Overflowing Tank', 'The rooftop water tank overflowed this morning.',
+      ['The water motor was switched on at 6:00 am.', 'The person who usually switches it off at 6:30 had gone for a long walk.', 'The motor has no automatic cut-off.'],
+      'What caused the overflow?', ['Nobody switched the motor off', 'A pipe burst', 'Heavy rain filled the tank', 'The tank is too small for the house'],
+      'Without an automatic cut-off, the motor kept pumping because the usual person was out.'],
+    ['बहती टंकी', 'आज सुबह छत की पानी की टंकी भर कर बहने लगी।',
+      ['पानी की मोटर सुबह 6:00 बजे चालू की गई।', 'जो आमतौर पर 6:30 पर इसे बंद करते हैं, वे लंबी सैर पर गए थे।', 'मोटर में अपने आप बंद होने की व्यवस्था नहीं है।'],
+      'टंकी बहने का कारण क्या था?', ['किसी ने मोटर बंद नहीं की', 'पाइप फट गया', 'तेज़ बारिश से टंकी भर गई', 'टंकी घर के लिए बहुत छोटी है'],
+      'अपने आप बंद होने की व्यवस्था न होने से मोटर चलती रही, क्योंकि बंद करने वाले बाहर थे।']),
+    C('D21', 2, null, ['Which Flat?', 'Deepak is visiting a friend on the second floor, which has flats 201, 202, 203 and 204 in a row.',
+      ['The friend’s flat is not at either end of the corridor.', 'Flats 201 and 204 are at the two ends.', 'The friend’s door has a tulsi pot outside.', 'Flat 202 has no plant outside.'],
+      'Which flat is the friend’s?', ['203', '202', '201', '204'],
+      'Not at the ends rules out 201 and 204. Flat 202 has no plant, so it must be 203.'],
+    ['कौन-सा फ़्लैट?', 'दीपक दूसरी मंज़िल पर एक दोस्त से मिलने आए हैं, जहाँ एक कतार में 201, 202, 203 और 204 फ़्लैट हैं।',
+      ['दोस्त का फ़्लैट गलियारे के किसी भी सिरे पर नहीं है।', '201 और 204 दोनों सिरों पर हैं।', 'दोस्त के दरवाज़े के बाहर तुलसी का गमला है।', '202 के बाहर कोई पौधा नहीं है।'],
+      'दोस्त का फ़्लैट कौन-सा है?', ['203', '202', '201', '204'],
+      'सिरों पर न होने से 201 और 204 हट गए। 202 के बाहर पौधा नहीं, इसलिए 203।']),
+    C('D22', 2, 3, ['The Library Book', 'The library says Anita did not return a book. Anita says she did.',
+      ['On Monday she put two books into the library’s drop box.', 'The library record shows only one book returned.', 'Returned books are collected from the drop box each evening.', 'Today the staff found the drop box jammed, with a book stuck inside.'],
+      'What is the most likely explanation?', ['Her second book is stuck inside the drop box', 'Anita kept the book', 'The library lost both books', 'Anita never borrowed it'],
+      'A jammed box with a book stuck inside explains why only one of her two books was recorded.'],
+    ['पुस्तकालय की किताब', 'पुस्तकालय कहता है कि अनीता ने एक किताब नहीं लौटाई। अनीता कहती है उसने लौटा दी।',
+      ['सोमवार को उसने पुस्तकालय के ड्रॉप बॉक्स में दो किताबें डालीं।', 'रिकॉर्ड में सिर्फ़ एक किताब लौटी दिखाई गई है।', 'ड्रॉप बॉक्स से किताबें हर शाम निकाली जाती हैं।', 'आज कर्मचारियों ने देखा कि ड्रॉप बॉक्स अटका है और एक किताब अंदर फँसी है।'],
+      'सबसे संभावित वजह क्या है?', ['उसकी दूसरी किताब ड्रॉप बॉक्स में फँसी है', 'अनीता ने किताब रख ली', 'पुस्तकालय ने दोनों किताबें खो दीं', 'अनीता ने किताब ली ही नहीं थी'],
+      'अटका हुआ बॉक्स और उसमें फँसी किताब बताती है कि दो में से सिर्फ़ एक क्यों दर्ज हुई।']),
+
+    C('D23', 3, 0, ['The Missing Wallet', 'Mr Sharma came home and found his wallet missing.',
+      ['At 10:00 he paid the vegetable seller in cash from his wallet.', 'At 10:15 he bought medicine and paid by UPI on his phone.', 'At 10:30 he paid the auto driver with coins from his trouser pocket.', 'The vegetable seller remembers, “He left in a hurry when his phone rang.”'],
+      'Where was the wallet most likely left?', ['At the vegetable stall', 'At the chemist’s shop', 'In the auto', 'It was at home all along'],
+      'The last time he used the wallet was at the vegetable stall. His later payments did not need it, and he left the stall in a hurry.'],
+    ['ग़ायब बटुआ', 'शर्मा जी घर आए तो बटुआ ग़ायब था।',
+      ['10:00 बजे उन्होंने बटुए से नकद देकर सब्ज़ी ख़रीदी।', '10:15 पर उन्होंने दवा ख़रीदी और फ़ोन से UPI से भुगतान किया।', '10:30 पर ऑटो वाले को पतलून की जेब के सिक्कों से पैसे दिए।', 'सब्ज़ी वाला याद करता है, “फ़ोन बजा तो वे जल्दी में चले गए।”'],
+      'बटुआ सबसे संभावना कहाँ छूटा?', ['सब्ज़ी की दुकान पर', 'दवा की दुकान पर', 'ऑटो में', 'वह घर पर ही था'],
+      'बटुए का आख़िरी इस्तेमाल सब्ज़ी की दुकान पर हुआ। बाद के भुगतानों में उसकी ज़रूरत नहीं थी, और वे जल्दी में निकले।']),
+    C('D24', 3, 0, ['Two Watches, One Guest', 'Priya and Joseph disagree about when the guest arrived.',
+      ['Priya’s watch runs 10 minutes fast.', 'Joseph’s phone shows the correct time.', 'Priya’s watch read 6:40 when the guest arrived.', 'Joseph says the guest arrived at 6:30.'],
+      'What is the real arrival time?', ['6:30 — they actually agree', '6:40', '6:50', '6:20'],
+      'Priya’s watch is 10 minutes fast, so 6:40 on it means 6:30 — the same as Joseph’s correct phone.'],
+    ['दो घड़ियाँ, एक मेहमान', 'मेहमान कब आए, इस पर प्रिया और जोसेफ़ में मतभेद है।',
+      ['प्रिया की घड़ी 10 मिनट आगे चलती है।', 'जोसेफ़ का फ़ोन सही समय दिखाता है।', 'मेहमान आए तब प्रिया की घड़ी में 6:40 था।', 'जोसेफ़ कहते हैं मेहमान 6:30 पर आए।'],
+      'मेहमान असल में कब आए?', ['6:30 — दोनों असल में सहमत हैं', '6:40', '6:50', '6:20'],
+      'प्रिया की घड़ी 10 मिनट आगे है, इसलिए उसमें 6:40 का मतलब 6:30 — जोसेफ़ के सही फ़ोन जितना ही।']),
+    C('D25', 3, 0, ['The Last Train', 'Four friends left a party. Trains leave the station at 10:55 pm and 11:10 pm (the last one).',
+      ['The walk from the party to the station takes 20 minutes.', 'Rahul left at 10:30 pm.', 'Imran left at 10:45 pm.', 'Seema left at 10:55 pm.', 'Gita left at 11:00 pm by car to her home nearby.'],
+      'Who caught the last train at 11:10?', ['Imran', 'Rahul', 'Seema', 'Gita'],
+      'Rahul reached at 10:50 (caught the 10:55). Imran reached at 11:05 — in time for 11:10. Seema reached at 11:15, too late. Gita went by car.'],
+    ['आख़िरी ट्रेन', 'चार दोस्त एक पार्टी से निकले। स्टेशन से ट्रेनें रात 10:55 और 11:10 (आख़िरी) पर चलती हैं।',
+      ['पार्टी से स्टेशन तक पैदल 20 मिनट लगते हैं।', 'राहुल 10:30 बजे निकला।', 'इमरान 10:45 बजे निकला।', 'सीमा 10:55 बजे निकली।', 'गीता 11:00 बजे कार से पास के अपने घर गई।'],
+      '11:10 की आख़िरी ट्रेन किसने पकड़ी?', ['इमरान ने', 'राहुल ने', 'सीमा ने', 'गीता ने'],
+      'राहुल 10:50 पर पहुँचा (10:55 की पकड़ी)। इमरान 11:05 पर पहुँचा — 11:10 के लिए समय पर। सीमा 11:15 पर पहुँची, देर हो गई। गीता कार से गई।']),
+    C('D26', 3, 2, ['The Tea Stall Accounts', 'At the end of the day, the chaiwala’s cash box is ₹200 short.',
+      ['He sold 50 cups of tea at ₹10 each.', 'The cash box has only ₹300.', 'His notebook shows 20 cups given on credit to the office next door, to be paid on Friday.'],
+      'What explains the difference?', ['The 20 cups on credit — ₹200 not yet paid', 'Someone stole ₹200', 'He sold fewer cups', 'The price went down'],
+      '50 × ₹10 = ₹500 expected. 20 cups × ₹10 = ₹200 is owed by the office. ₹500 − ₹200 = ₹300 — exactly what is in the box.'],
+    ['चाय की दुकान का हिसाब', 'दिन के अंत में चायवाले के गल्ले में ₹200 कम हैं।',
+      ['उसने ₹10 की दर से 50 कप चाय बेची।', 'गल्ले में सिर्फ़ ₹300 हैं।', 'उसकी कॉपी में लिखा है कि बगल के दफ़्तर को 20 कप उधार दिए, पैसे शुक्रवार को मिलेंगे।'],
+      'अंतर की वजह क्या है?', ['20 कप उधार — ₹200 अभी मिलने बाकी हैं', 'किसी ने ₹200 चुरा लिए', 'उसने कम कप बेचे', 'दाम घट गए'],
+      '50 × ₹10 = ₹500 होने चाहिए। 20 कप × ₹10 = ₹200 दफ़्तर पर उधार हैं। ₹500 − ₹200 = ₹300 — ठीक उतना जितना गल्ले में है।']),
+    C('D27', 3, 3, ['The Picked Mangoes', 'Someone picked the ripe mangoes from the courtyard tree.',
+      ['The garden wall is high and the gate lock is not damaged.', 'Small bare footprints are found under the tree.', 'The family’s own ladder is leaning against the tree.', 'The neighbour’s children were playing in the courtyard with your grandson all afternoon.'],
+      'Who most likely picked the mangoes?', ['The children who were playing inside', 'A thief who jumped the wall', 'The gardener, who wears heavy boots', 'Nobody — the mangoes fell'],
+      'No one broke in, the footprints are small and bare, the ladder was already inside — and the children were there all afternoon.'],
+    ['तोड़े गए आम', 'आँगन के पेड़ से किसी ने पके आम तोड़ लिए।',
+      ['बगीचे की दीवार ऊँची है और गेट का ताला सही-सलामत है।', 'पेड़ के नीचे छोटे, नंगे पैरों के निशान हैं।', 'परिवार की अपनी सीढ़ी पेड़ से टिकी है।', 'पड़ोस के बच्चे पूरी दोपहर आपके पोते के साथ आँगन में खेल रहे थे।'],
+      'आम सबसे संभावना किसने तोड़े?', ['अंदर खेल रहे बच्चों ने', 'दीवार फाँदकर आए चोर ने', 'माली ने, जो भारी जूते पहनता है', 'किसी ने नहीं — आम अपने आप गिर गए'],
+      'कोई अंदर घुसा नहीं, निशान छोटे और नंगे पैरों के हैं, सीढ़ी पहले से अंदर थी — और बच्चे पूरी दोपहर वहीं थे।']),
+    C('D28', 3, 2, ['The Wrong Bus', 'Uma took bus number 21 to the hospital, but it took her to the market.',
+      ['The bus to the hospital is number 12.', 'The number board on the bus was dusty.', 'Uma had left her spectacles at home.'],
+      'What is the best explanation?', ['Without spectacles she read 12 as 21', 'The hospital moved to the market', 'The driver took a wrong turn', 'Bus 21 goes to the hospital'],
+      '12 and 21 look alike, especially on a dusty board — and Uma did not have her spectacles.'],
+    ['ग़लत बस', 'उमा अस्पताल जाने के लिए बस 21 में बैठीं, पर वह बाज़ार पहुँच गईं।',
+      ['अस्पताल जाने वाली बस का नंबर 12 है।', 'बस का नंबर बोर्ड धूल से भरा था।', 'उमा अपना चश्मा घर भूल आई थीं।'],
+      'सबसे अच्छी वजह क्या है?', ['बिना चश्मे के उन्होंने 12 को 21 पढ़ लिया', 'अस्पताल बाज़ार में चला गया', 'ड्राइवर ने ग़लत मोड़ लिया', 'बस 21 अस्पताल जाती है'],
+      '12 और 21 एक जैसे दिखते हैं, ख़ासकर धूल भरे बोर्ड पर — और उमा के पास चश्मा नहीं था।']),
+    C('D29', 3, 1, ['The Burnt Rice', 'The rice burnt even though a 15-minute timer was set.',
+      ['The timer rang after 15 minutes, as it should.', 'Kavita was on a phone call and switched off the ringing timer without looking up.', 'She came back to the kitchen 20 minutes later.'],
+      'Why did the rice burn?', ['The timer rang, but the stove was not turned off', 'The timer was broken', 'The rice was of poor quality', 'The gas flame was too low'],
+      'The timer worked. It was silenced during the call, and the stove stayed on for 20 more minutes.'],
+    ['जले चावल', '15 मिनट का टाइमर लगाने के बावजूद चावल जल गए।',
+      ['टाइमर ठीक 15 मिनट बाद बजा।', 'कविता फ़ोन पर थी और उसने बिना देखे बजता टाइमर बंद कर दिया।', 'वह 20 मिनट बाद रसोई में लौटी।'],
+      'चावल क्यों जले?', ['टाइमर बजा, पर चूल्हा बंद नहीं किया गया', 'टाइमर ख़राब था', 'चावल घटिया थे', 'गैस की आँच बहुत धीमी थी'],
+      'टाइमर ने काम किया। फ़ोन के दौरान उसे बंद कर दिया गया, और चूल्हा 20 मिनट और जलता रहा।']),
+    C('D30', 3, 1, ['The Prize Call', 'Mr Gill got a phone call saying he has won a car.',
+      ['He never entered any contest or lucky draw.', 'The caller asked him to pay ₹5,000 as a “registration fee” first.', 'The call came from an unknown mobile number.'],
+      'What is the sensible conclusion?', ['It is a scam — real prizes never ask you to pay first', 'He really won a car', 'He should pay quickly before the offer ends', 'He should share his bank details to receive the car'],
+      'You cannot win a contest you never entered, and asking for money first is the classic sign of a scam.'],
+    ['इनाम वाला फ़ोन', 'गिल साहब को फ़ोन आया कि उन्होंने एक कार जीती है।',
+      ['उन्होंने कभी किसी प्रतियोगिता या लकी ड्रॉ में भाग नहीं लिया।', 'कॉलर ने पहले ₹5,000 “रजिस्ट्रेशन फ़ीस” भरने को कहा।', 'फ़ोन एक अनजान मोबाइल नंबर से आया।'],
+      'समझदारी भरा निष्कर्ष क्या है?', ['यह धोखा है — असली इनाम पहले पैसे नहीं माँगते', 'उन्होंने सच में कार जीती है', 'ऑफ़र ख़त्म होने से पहले जल्दी भुगतान करें', 'कार पाने के लिए बैंक विवरण दे दें'],
+      'जिस प्रतियोगिता में भाग नहीं लिया उसे जीत नहीं सकते, और पहले पैसे माँगना धोखे का पुराना संकेत है।']),
+    C('D31', 3, null, ['Who Broke the Pot?', 'One of three children broke a clay pot. Exactly ONE of them is telling the truth.',
+      ['Asha says, “Rohit broke it.”', 'Rohit says, “Asha is not telling the truth.”', 'Meena says, “I did not break it.”'],
+      'Who broke the pot?', ['Meena', 'Rohit', 'Asha', 'It cannot be known'],
+      'If Asha were truthful, Rohit would be lying (fine) and Meena lying — but then Meena broke it, not Rohit. That fails. If Rohit is the truthful one, Asha is lying (Rohit didn’t break it) and Meena is lying — so Meena broke it. Everything fits.'],
+    ['मटका किसने तोड़ा?', 'तीन बच्चों में से एक ने मिट्टी का मटका तोड़ा। उनमें से ठीक एक ही सच बोल रहा है।',
+      ['आशा कहती है, “रोहित ने तोड़ा।”', 'रोहित कहता है, “आशा सच नहीं बोल रही।”', 'मीना कहती है, “मैंने नहीं तोड़ा।”'],
+      'मटका किसने तोड़ा?', ['मीना ने', 'रोहित ने', 'आशा ने', 'पता नहीं चल सकता'],
+      'अगर आशा सच बोलती, तो मीना झूठी होती — यानी मीना ने तोड़ा, रोहित ने नहीं; बात नहीं बनती। अगर रोहित सच बोल रहा है, तो आशा झूठी (रोहित ने नहीं तोड़ा) और मीना भी झूठी — यानी मीना ने तोड़ा। सब मेल खाता है।']),
+    C('D32', 3, 2, ['The Double Payment', 'The family’s electricity bill was paid twice this month.',
+      ['Mr Patel paid it online on the 3rd.', 'Mrs Patel paid the same bill at the counter on the 5th.', 'Neither told the other about paying.', 'Next month’s bill shows a credit of ₹1,200.'],
+      'What happened, and what will follow?', ['The bill was paid twice; the extra is adjusted as credit next month', 'The bank made an error', 'Someone stole ₹1,200', 'The meter is faulty'],
+      'Two payments of the same bill by two people who did not talk — and the credit on the next bill shows the extra is being adjusted.'],
+    ['दो बार भुगतान', 'इस महीने परिवार का बिजली बिल दो बार भर दिया गया।',
+      ['पटेल जी ने 3 तारीख़ को ऑनलाइन भरा।', 'श्रीमती पटेल ने वही बिल 5 तारीख़ को काउंटर पर भरा।', 'दोनों ने एक-दूसरे को भुगतान के बारे में नहीं बताया।', 'अगले महीने के बिल में ₹1,200 जमा (क्रेडिट) दिखाया गया है।'],
+      'क्या हुआ, और आगे क्या होगा?', ['बिल दो बार भरा गया; अतिरिक्त रकम अगले महीने जमा के रूप में समायोजित होगी', 'बैंक से ग़लती हुई', 'किसी ने ₹1,200 चुरा लिए', 'मीटर ख़राब है'],
+      'बिना बात किए दो लोगों ने एक ही बिल भरा — और अगले बिल का क्रेडिट बताता है कि अतिरिक्त रकम समायोजित हो रही है।']),
+    C('D33', 3, 4, ['The Torn Notice', 'The notice on the society board was found torn in the morning.',
+      ['CCTV shows the notice whole at 5:50 am and torn at 6:10 am.', 'Mr Rao says he was walking in the park from 5:30 to 7:00 am.', 'The park guard confirms Mr Rao was there the whole time.', 'Mrs Pinto walked past the board at 6:00 am on her way to work.', 'A strong gust of wind hit the area at 6:05 am, and the notice was taped only at the top.'],
+      'What is the most likely explanation?', ['The wind tore the loosely taped notice', 'Mr Rao tore it', 'Mrs Pinto tore it', 'The CCTV is wrong'],
+      'Mr Rao has a confirmed alibi. Simply walking past does not make Mrs Pinto guilty. A strong gust at 6:05 on a notice taped only at the top fits the 5:50–6:10 window best.'],
+    ['फटा हुआ नोटिस', 'सुबह सोसाइटी के बोर्ड पर लगा नोटिस फटा हुआ मिला।',
+      ['CCTV में नोटिस 5:50 पर सही-सलामत और 6:10 पर फटा दिखता है।', 'राव साहब कहते हैं वे 5:30 से 7:00 बजे तक पार्क में सैर कर रहे थे।', 'पार्क का गार्ड पुष्टि करता है कि राव साहब पूरे समय वहीं थे।', 'श्रीमती पिंटो 6:00 बजे काम पर जाते हुए बोर्ड के पास से गुज़रीं।', '6:05 पर इलाके में तेज़ हवा का झोंका आया, और नोटिस सिर्फ़ ऊपर से चिपका था।'],
+      'सबसे संभावित वजह क्या है?', ['ढीले चिपके नोटिस को हवा ने फाड़ दिया', 'राव साहब ने फाड़ा', 'श्रीमती पिंटो ने फाड़ा', 'CCTV ग़लत है'],
+      'राव साहब का पक्का सबूत है कि वे पार्क में थे। सिर्फ़ पास से गुज़रने से श्रीमती पिंटो दोषी नहीं होतीं। 6:05 का तेज़ झोंका और ऊपर से चिपका नोटिस 5:50–6:10 के बीच की बात से सबसे अच्छा मेल खाता है।'])
+  ]);
+})();
+
+</script>
+  <script>
+/* SMART 50+ — Escape Room adventures (fictional). Each stage's reward reveals the clue needed later.
+ * Stage types: 'choice' (opts: index 0 correct, shuffled when shown), 'code' (enter digits), 'order' (tap items in the right order).
+ * Text arrays per language: [question, hint 1 (gentle), hint 2 (more revealing), explanation, reward / next clue]. */
+(function () {
+  'use strict';
+  function T(a) { return { q: a[0], h: [a[1], a[2]], x: a[3], r: a[4] }; }
+  function choice(opts, en, hi, extra) { var s = { type: 'choice', opts: opts, en: T(en), hi: T(hi) }; return Object.assign(s, extra || {}); }
+  function code(c, en, hi, extra) { var s = { type: 'code', code: c, en: T(en), hi: T(hi) }; return Object.assign(s, extra || {}); }
+  function order(items, en, hi, extra) { var s = { type: 'order', items: items, en: T(en), hi: T(hi) }; return Object.assign(s, extra || {}); }
+  var MAP = { en: '🌳 ⬜ 🏠 ⬜\n🥭 ⬜ ⬜ 🌳\n⬜ ⬜ 🪨 ⬜\n⬜ 💧 ⬜ 🌳', hi: '🌳 ⬜ 🏠 ⬜\n🥭 ⬜ ⬜ 🌳\n⬜ ⬜ 🪨 ⬜\n⬜ 💧 ⬜ 🌳' };
+
+  window.S50.ESCAPES = [
+    { id: 'E1', d: 1, icon: '🧳', en: { t: 'Grandma’s Locked Trunk', s: 'Grandma’s old trunk holds her famous recipe book. Can you open it?' },
+      hi: { t: 'दादी का बंद संदूक', s: 'दादी के पुराने संदूक में उनकी मशहूर रेसिपी की किताब है। क्या आप इसे खोल पाएँगे?' },
+      stages: [
+        choice({ en: ['Behind the wall clock', 'Under the bed', 'Inside the fridge', 'In the shoe rack'], hi: ['दीवार घड़ी के पीछे', 'पलंग के नीचे', 'फ़्रिज के अंदर', 'जूतों की रैक में'] },
+          ['A note on the trunk says: “The key is kept where we keep time.” Where will you look?', 'What in a house “keeps time”?', 'It hangs on the wall and has two hands.', 'A clock keeps time, so the key is behind the wall clock.', 'Behind the clock is a small key and a slip: “The lock wants the year we married. We married 12 years before our son was born in 1980.”'],
+          ['संदूक पर एक पर्ची लिखी है: “चाबी वहाँ है जहाँ हम समय रखते हैं।” आप कहाँ देखेंगे?', 'घर में “समय” कौन रखता है?', 'वह दीवार पर टँगी होती है और उसकी दो सुइयाँ होती हैं।', 'घड़ी समय रखती है, इसलिए चाबी दीवार घड़ी के पीछे है।', 'घड़ी के पीछे एक छोटी चाबी और पर्ची है: “ताला हमारी शादी का साल माँगता है। हमारी शादी बेटे के जन्म (1980) से 12 साल पहले हुई थी।”']),
+        code('1968', ['The trunk has a 4-digit number lock. Use the slip: enter the year Grandma married.', 'The son was born in 1980. They married 12 years earlier.', 'Work out 1980 − 12.', '1980 − 12 = 1968.', 'Click! The trunk opens. On top is a silk saree with a note: “Count the peacocks on the border — that is the drawer that holds my recipe book.”'],
+          ['संदूक पर 4 अंकों का ताला है। पर्ची की मदद से दादी की शादी का साल डालें।', 'बेटे का जन्म 1980 में हुआ। शादी 12 साल पहले हुई।', '1980 − 12 निकालें।', '1980 − 12 = 1968।', 'खट! संदूक खुल गया। ऊपर एक रेशमी साड़ी और पर्ची है: “किनारे पर बने मोर गिनो — वही दराज़ नंबर है जिसमें मेरी रेसिपी की किताब है।”']),
+        code('4', ['Here is the saree border. How many peacocks (🦚) are there? Enter the drawer number.', 'Count only the peacocks, not the flowers.', 'Count from the left, one by one: there are fewer than five.', 'There are 4 peacocks, so it is drawer 4.', 'Drawer 4 holds Grandma’s handwritten recipe book. Treasure found!'],
+          ['यह रही साड़ी की किनारी। इसमें कितने मोर (🦚) हैं? दराज़ का नंबर डालें।', 'सिर्फ़ मोर गिनें, फूल नहीं।', 'बाएँ से एक-एक करके गिनें: पाँच से कम हैं।', 'चार मोर हैं, इसलिए दराज़ 4।', 'दराज़ 4 में दादी की हाथ से लिखी रेसिपी की किताब है। ख़ज़ाना मिल गया!'],
+          { disp: '🦚 🌸 🦚 🌸 🌸 🦚 🌸 🌸 🦚 🌸' })
+      ] },
+    { id: 'E2', d: 1, icon: '🚉', en: { t: 'The Railway Waiting Room', s: 'You dozed off in a waiting room and your suitcase is locked away. Find it before your train arrives!' },
+      hi: { t: 'रेलवे का प्रतीक्षालय', s: 'प्रतीक्षालय में आपकी आँख लग गई और आपका सूटकेस लॉकर में बंद है। ट्रेन आने से पहले उसे निकालिए!' },
+      stages: [
+        order({ en: ['08:15 — Platform 3', '09:40 — Platform 1', '11:05 — Platform 4', '13:30 — Platform 2'], hi: ['08:15 — प्लेटफ़ॉर्म 3', '09:40 — प्लेटफ़ॉर्म 1', '11:05 — प्लेटफ़ॉर्म 4', '13:30 — प्लेटफ़ॉर्म 2'] },
+          ['Four old tickets lie on the bench. Tap them in order of departure time, earliest first.', 'Look only at the times. Which is earliest in the morning?', '13:30 is half past one in the afternoon — the latest one.', '08:15, then 09:40, then 11:05, then 13:30.', 'Read the platform numbers in that order: 3, 1, 4, 2. A sign on the locker says: “Code = platform numbers in order of departure.”'],
+          ['बेंच पर चार पुराने टिकट पड़े हैं। उन्हें चलने के समय के क्रम में टैप करें, सबसे पहले वाला पहले।', 'सिर्फ़ समय देखें। सुबह सबसे पहले कौन-सा है?', '13:30 यानी दोपहर डेढ़ बजे — यह सबसे आख़िरी है।', '08:15, फिर 09:40, फिर 11:05, फिर 13:30।', 'उसी क्रम में प्लेटफ़ॉर्म नंबर पढ़ें: 3, 1, 4, 2। लॉकर पर लिखा है: “कोड = चलने के क्रम में प्लेटफ़ॉर्म नंबर।”']),
+        code('3142', ['The cloakroom locker needs a 4-digit code. Use the clue from the tickets.', 'Write the platform numbers in departure order.', 'The earliest ticket (08:15) was Platform 3, then Platform 1…', '3, 1, 4, 2 → 3142.', 'Your suitcase is inside, with a station map and a note: “The exit is next to the clock and opposite the tea stall.”'],
+          ['सामान घर के लॉकर को 4 अंकों का कोड चाहिए। टिकटों वाले संकेत का उपयोग करें।', 'चलने के क्रम में प्लेटफ़ॉर्म नंबर लिखें।', 'सबसे पहला टिकट (08:15) प्लेटफ़ॉर्म 3 का था, फिर प्लेटफ़ॉर्म 1…', '3, 1, 4, 2 → 3142।', 'अंदर आपका सूटकेस है, साथ में स्टेशन का नक़्शा और पर्ची: “बाहर का रास्ता घड़ी के बगल में और चाय की दुकान के ठीक सामने है।”']),
+        choice({ en: ['The door on the north wall', 'The door on the south wall', 'The door on the east wall', 'The door on the west wall'], hi: ['उत्तर की दीवार वाला दरवाज़ा', 'दक्षिण की दीवार वाला दरवाज़ा', 'पूर्व की दीवार वाला दरवाज़ा', 'पश्चिम की दीवार वाला दरवाज़ा'] },
+          ['The map shows: 🕰️ clock on the NORTH wall, ☕ tea stall on the SOUTH wall, 🚻 washrooms on the EAST wall. Which door is the exit?', 'The note said the exit is next to the clock.', 'The tea stall is on the south wall; the opposite wall is the north wall.', 'The clock is on the north wall, opposite the tea stall on the south wall.', 'You walk out through the north door just as your train pulls in. Well done!'],
+          ['नक़्शे में: 🕰️ घड़ी उत्तर की दीवार पर, ☕ चाय की दुकान दक्षिण की दीवार पर, 🚻 शौचालय पूर्व की दीवार पर। बाहर का दरवाज़ा कौन-सा है?', 'पर्ची में लिखा था कि रास्ता घड़ी के बगल में है।', 'चाय की दुकान दक्षिण में है; उसके ठीक सामने उत्तर की दीवार है।', 'घड़ी उत्तर की दीवार पर है, जो दक्षिण की चाय की दुकान के सामने है।', 'आप उत्तर के दरवाज़े से बाहर निकलते हैं, और तभी आपकी ट्रेन आ जाती है। शाबाश!'])
+      ] },
+    { id: 'E3', d: 1, icon: '🛒', en: { t: 'The Kirana Storeroom', s: 'The shop door slammed shut while you were in the storeroom. Use the shop’s own notes to get out.' },
+      hi: { t: 'किराने का गोदाम', s: 'आप गोदाम में थे और दुकान का दरवाज़ा बंद हो गया। दुकान की पर्चियों की मदद से बाहर निकलिए।' },
+      stages: [
+        code('190', ['The cupboard has a 3-digit lock. A label says: “Code = price of 2 kg rice and 1 kg dal.” The price board shows Rice ₹50 per kg, Dal ₹90 per kg.', '2 kg rice costs 2 × ₹50.', '₹100 for rice, plus ₹90 for dal.', '2 × 50 = 100; 100 + 90 = 190.', 'The cupboard opens. A card inside says: “Sort the four jars from lightest to heaviest to open the next shelf.”'],
+          ['अलमारी पर 3 अंकों का ताला है। लेबल पर लिखा है: “कोड = 2 किलो चावल और 1 किलो दाल का दाम।” भाव-पट्टी: चावल ₹50 प्रति किलो, दाल ₹90 प्रति किलो।', '2 किलो चावल = 2 × ₹50।', 'चावल के ₹100, और दाल के ₹90।', '2 × 50 = 100; 100 + 90 = 190।', 'अलमारी खुल गई। अंदर एक कार्ड है: “अगली शेल्फ़ खोलने के लिए चारों डिब्बों को हल्के से भारी के क्रम में लगाओ।”']),
+        order({ en: ['250 g jar', '500 g jar', '1 kg jar', '2 kg jar'], hi: ['250 ग्राम का डिब्बा', '500 ग्राम का डिब्बा', '1 किलो का डिब्बा', '2 किलो का डिब्बा'] },
+          ['Tap the jars from lightest to heaviest.', 'Remember: 1 kg is the same as 1,000 g.', '250 g is the lightest; 2 kg is the heaviest.', '250 g < 500 g < 1 kg (1,000 g) < 2 kg.', 'Under the heaviest jar is a note: “The way out is through the door that is the colour of haldi.”'],
+          ['डिब्बों को हल्के से भारी के क्रम में टैप करें।', 'याद रखें: 1 किलो = 1,000 ग्राम।', '250 ग्राम सबसे हल्का; 2 किलो सबसे भारी।', '250 ग्राम < 500 ग्राम < 1 किलो (1,000 ग्राम) < 2 किलो।', 'सबसे भारी डिब्बे के नीचे पर्ची है: “बाहर का रास्ता उस दरवाज़े से है जिसका रंग हल्दी जैसा है।”']),
+        choice({ en: ['🟨 Yellow door', '🟥 Red door', '🟩 Green door', '🟦 Blue door'], hi: ['🟨 पीला दरवाज़ा', '🟥 लाल दरवाज़ा', '🟩 हरा दरवाज़ा', '🟦 नीला दरवाज़ा'] },
+          ['Which door will you open?', 'Haldi is turmeric.', 'Turmeric powder is bright yellow.', 'Haldi (turmeric) is yellow, so it is the yellow door.', 'The yellow door has a keypad. A sticker says: “Type the number of days in a week, then the number of months in a year.”'],
+          ['आप कौन-सा दरवाज़ा खोलेंगे?', 'हल्दी का रंग सोचिए।', 'हल्दी का पाउडर चटक पीला होता है।', 'हल्दी पीली होती है, इसलिए पीला दरवाज़ा।', 'पीले दरवाज़े पर कीपैड है। स्टिकर पर लिखा है: “पहले हफ़्ते के दिन, फिर साल के महीने टाइप करो।”']),
+        code('712', ['Enter the code from the sticker on the yellow door.', 'There are 7 days in a week.', 'There are 12 months in a year — type 7, then 12.', '7 and 12 → 712.', 'The door swings open onto the busy street. You are out!'],
+          ['पीले दरवाज़े के स्टिकर वाला कोड डालें।', 'हफ़्ते में 7 दिन होते हैं।', 'साल में 12 महीने — पहले 7, फिर 12 टाइप करें।', '7 और 12 → 712।', 'दरवाज़ा खुलता है और सामने चहल-पहल वाली सड़क है। आप बाहर आ गए!'])
+      ] },
+    { id: 'E4', d: 2, icon: '📚', en: { t: 'The Old Library', s: 'The librarian locked up early — with you still inside among the dusty shelves.' },
+      hi: { t: 'पुराना पुस्तकालय', s: 'पुस्तकालय वाले ने जल्दी ताला लगा दिया — और आप धूल भरी अलमारियों के बीच अंदर ही रह गए।' },
+      stages: [
+        choice({ en: ['32', '24', '20', '18'], hi: ['32', '24', '20', '18'] },
+          ['The shelves are numbered in a pattern: 2, 4, 8, 16, ? Which shelf comes next?', 'Each number is bigger than the one before. By how much?', 'Each number is double the one before.', '16 × 2 = 32.', 'On shelf 32 a book holds a bookmark with “3 8 1” and the word “MIRROR”.'],
+          ['अलमारियों के नंबर एक क्रम में हैं: 2, 4, 8, 16, ? अगली अलमारी कौन-सी है?', 'हर संख्या पिछली से बड़ी है। कितनी?', 'हर संख्या पिछली की दोगुनी है।', '16 × 2 = 32।', 'अलमारी 32 की एक किताब में बुकमार्क है, जिस पर “3 8 1” और शब्द “दर्पण” लिखा है।'], { disp: '2, 4, 8, 16, ?' }),
+        code('183', ['A drawer has a 3-digit lock. The bookmark said “3 8 1” and “MIRROR”. Enter the code.', 'A mirror shows things reversed.', 'Read 3 8 1 backwards.', '3 8 1 reversed is 1 8 3.', 'In the drawer are three keys — brass, silver and iron — and a note: “One opens the door, one the box, one the cupboard. Brass is not for the door. Silver is not for the door or the box.”'],
+          ['एक दराज़ पर 3 अंकों का ताला है। बुकमार्क पर “3 8 1” और “दर्पण” लिखा था। कोड डालें।', 'दर्पण में चीज़ें उल्टी दिखती हैं।', '3 8 1 को उल्टा पढ़ें।', '3 8 1 उल्टा = 1 8 3।', 'दराज़ में तीन चाबियाँ हैं — पीतल, चाँदी और लोहे की — और पर्ची: “एक दरवाज़े की, एक बक्से की, एक अलमारी की। पीतल वाली दरवाज़े की नहीं। चाँदी वाली न दरवाज़े की, न बक्से की।”']),
+        choice({ en: ['Brass key', 'Silver key', 'Iron key'], hi: ['पीतल की चाबी', 'चाँदी की चाबी', 'लोहे की चाबी'] },
+          ['Which key opens the box?', 'Silver is not for the door or the box — so silver opens the cupboard.', 'Brass is not for the door, and the cupboard is taken by silver. What is left for brass?', 'Silver → cupboard. Brass is not the door, so brass → box. Iron → door.', 'Inside the box are four wooden letters: T, I, X, E, and a card: “Spell the way out.”'],
+          ['बक्सा कौन-सी चाबी से खुलेगा?', 'चाँदी न दरवाज़े की, न बक्से की — तो चाँदी अलमारी की है।', 'पीतल दरवाज़े की नहीं, और अलमारी चाँदी की है। पीतल के लिए क्या बचा?', 'चाँदी → अलमारी। पीतल दरवाज़े की नहीं, तो पीतल → बक्सा। लोहा → दरवाज़ा।', 'बक्से में लकड़ी के चार अक्षर हैं: T, I, X, E, और एक कार्ड: “बाहर निकलने का शब्द बनाओ।”']),
+        order({ en: ['E', 'X', 'I', 'T'], hi: ['E', 'X', 'I', 'T'] },
+          ['Tap the letters in the right order to spell the way out.', 'It is the word written on signs above doors that lead outside.', 'It starts with E and ends with T.', 'E-X-I-T spells EXIT.', 'The iron key turns, the door creaks open, and you step out of the library!'],
+          ['अक्षरों को सही क्रम में टैप करके बाहर निकलने का अंग्रेज़ी शब्द बनाइए।', 'यह शब्द बाहर जाने वाले दरवाज़ों के ऊपर लिखा होता है।', 'यह E से शुरू होकर T पर ख़त्म होता है।', 'E-X-I-T से EXIT (निकास) बनता है।', 'लोहे की चाबी घूमती है, दरवाज़ा चरमराकर खुलता है, और आप पुस्तकालय से बाहर आ जाते हैं!'])
+      ] },
+    { id: 'E5', d: 2, icon: '💐', en: { t: 'The Wedding Hall Mix-up', s: 'The gifts got mixed up at a family wedding. Help sort it out before Nani leaves!' },
+      hi: { t: 'शादी हॉल की गड़बड़', s: 'परिवार की शादी में उपहार आपस में मिल गए। नानी के जाने से पहले सुलझाइए!' },
+      stages: [
+        order({ en: ['Boil the water', 'Add tea leaves', 'Add milk and sugar', 'Strain into cups'], hi: ['पानी उबालें', 'चायपत्ती डालें', 'दूध और चीनी डालें', 'कपों में छानें'] },
+          ['The cook will help only if you make chai the right way. Tap the steps in order.', 'Everything starts with heating the water.', 'Straining is always the last step.', 'Boil water, add tea leaves, add milk and sugar, then strain.', 'The happy cook whispers: “The gift room code is the number of guests at table 5, followed by the table number.”'],
+          ['रसोइया तभी मदद करेगा जब आप सही तरीके से चाय बनाएँ। कदम क्रम से टैप करें।', 'सब कुछ पानी गर्म करने से शुरू होता है।', 'छानना हमेशा आख़िरी कदम होता है।', 'पानी उबालें, चायपत्ती डालें, दूध और चीनी डालें, फिर छानें।', 'ख़ुश रसोइया धीरे से कहता है: “उपहार कमरे का कोड है — टेबल 5 पर बैठे मेहमानों की संख्या, फिर टेबल का नंबर।”']),
+        code('75', ['Here is table 5. Count the guests and enter the gift-room code.', 'Count every person at table 5.', 'There are 7 guests. Then add the table number, 5.', '7 guests at table 5 → 7 then 5 → 75.', 'The gift room opens. A note: “Nani’s gift is NOT in red paper, it is in a BIG box, and it HAS a bow.”'],
+          ['यह रही टेबल 5। मेहमान गिनें और उपहार कमरे का कोड डालें।', 'टेबल 5 पर हर व्यक्ति को गिनें।', '7 मेहमान हैं। फिर टेबल का नंबर 5 जोड़ें।', 'टेबल 5 पर 7 मेहमान → पहले 7 फिर 5 → 75।', 'उपहार कमरा खुल गया। पर्ची: “नानी का उपहार लाल काग़ज़ में नहीं है, बड़े डिब्बे में है, और उस पर रिबन का फूल है।”'],
+          { disp: '👨 👩 👴 👵 🧒 👧 👩' }),
+        choice({ en: ['Gold paper, big box, with a bow', 'Red paper, big box, with a bow', 'Gold paper, small box, with a bow', 'Green paper, big box, no bow'], hi: ['सुनहरा काग़ज़, बड़ा डिब्बा, रिबन वाला', 'लाल काग़ज़, बड़ा डिब्बा, रिबन वाला', 'सुनहरा काग़ज़, छोटा डिब्बा, रिबन वाला', 'हरा काग़ज़, बड़ा डिब्बा, बिना रिबन'] },
+          ['Which gift is for Nani?', 'First remove any gift in red paper.', 'Of the rest, keep only big boxes, then check for a bow.', 'Only “gold paper, big box, with a bow” meets all three conditions.', 'You hand Nani her gift just in time. She smiles: “Beta, the mix-up is solved!”'],
+          ['नानी का उपहार कौन-सा है?', 'पहले लाल काग़ज़ वाले उपहार हटा दें।', 'बाकी में से सिर्फ़ बड़े डिब्बे रखें, फिर रिबन देखें।', 'सिर्फ़ “सुनहरा काग़ज़, बड़ा डिब्बा, रिबन वाला” तीनों शर्तें पूरी करता है।', 'आप ठीक समय पर नानी को उपहार देते हैं। वे मुस्कुराती हैं: “बेटा, गड़बड़ सुलझ गई!”'])
+      ] },
+    { id: 'E6', d: 2, icon: '🎡', en: { t: 'The Lost Child at the Fair', s: 'At a busy village fair, a little girl has lost her mother. Help them find each other.' },
+      hi: { t: 'मेले में खोई बच्ची', s: 'गाँव के भीड़ भरे मेले में एक छोटी बच्ची अपनी माँ से बिछड़ गई है। उन्हें मिलाने में मदद कीजिए।' },
+      stages: [
+        choice({ en: ['👧 Girl, blue cap, yellow balloon', '👧 Girl, yellow cap, blue balloon', '👦 Boy, blue cap, yellow balloon', '👧 Girl, blue cap, red balloon'], hi: ['👧 लड़की, नीली टोपी, पीला गुब्बारा', '👧 लड़की, पीली टोपी, नीला गुब्बारा', '👦 लड़का, नीली टोपी, पीला गुब्बारा', '👧 लड़की, नीली टोपी, लाल गुब्बारा'] },
+          ['The announcer says: “A little girl in a blue cap is holding a yellow balloon.” Which child is she?', 'Check three things: girl, blue cap, yellow balloon.', 'Only one child matches all three.', 'She is the girl with a blue cap and a yellow balloon.', 'The girl says: “Mummy’s stall number is the two numbers on my balloon added together.” The balloon shows 12 and 15.'],
+          ['उद्घोषक कहता है: “नीली टोपी वाली एक छोटी बच्ची के हाथ में पीला गुब्बारा है।” वह कौन है?', 'तीन बातें देखें: लड़की, नीली टोपी, पीला गुब्बारा।', 'सिर्फ़ एक बच्चा तीनों से मेल खाता है।', 'वह नीली टोपी और पीले गुब्बारे वाली लड़की है।', 'बच्ची कहती है: “मम्मी की दुकान का नंबर मेरे गुब्बारे के दोनों नंबर जोड़कर बनता है।” गुब्बारे पर 12 और 15 लिखा है।']),
+        code('27', ['Enter the stall number.', 'Add the two numbers on the balloon.', '12 + 15 = ?', '12 + 15 = 27.', 'A guard says: “Stall 27? Walk past the giant wheel first, then the bangle shop, then the sweet stall — stall 27 is right after it.”'],
+          ['दुकान का नंबर डालें।', 'गुब्बारे के दोनों नंबर जोड़ें।', '12 + 15 = ?', '12 + 15 = 27।', 'एक गार्ड कहता है: “दुकान 27? पहले बड़े झूले के पास से जाओ, फिर चूड़ी की दुकान, फिर मिठाई की दुकान — उसके ठीक बाद 27 है।”']),
+        order({ en: ['🎡 Giant wheel', '💍 Bangle shop', '🍬 Sweet stall', '🏪 Stall 27'], hi: ['🎡 बड़ा झूला', '💍 चूड़ी की दुकान', '🍬 मिठाई की दुकान', '🏪 दुकान 27'] },
+          ['Tap the places in the order you will pass them.', 'The guard said to pass the giant wheel first.', 'Stall 27 comes last — right after the sweet stall.', 'Giant wheel → bangle shop → sweet stall → stall 27.', 'Mother and daughter hug each other. Everyone nearby claps for you!'],
+          ['जिस क्रम में आप जगहों से गुज़रेंगे, उसी क्रम में टैप करें।', 'गार्ड ने कहा था पहले बड़े झूले से गुज़रना है।', 'दुकान 27 आख़िर में है — मिठाई की दुकान के ठीक बाद।', 'बड़ा झूला → चूड़ी की दुकान → मिठाई की दुकान → दुकान 27।', 'माँ और बेटी गले मिलती हैं। आसपास सब आपके लिए ताली बजाते हैं!'])
+      ] },
+    { id: 'E7', d: 2, icon: '🏦', en: { t: 'The Bank Locker', s: 'Your family papers are in a bank locker — but the locker room has its own puzzles.' },
+      hi: { t: 'बैंक लॉकर', s: 'परिवार के ज़रूरी काग़ज़ बैंक लॉकर में हैं — पर लॉकर कमरे की अपनी पहेलियाँ हैं।' },
+      stages: [
+        choice({ en: ['●', '■', '▲', '★'], hi: ['●', '■', '▲', '★'] },
+          ['The locker room door shows a pattern: ▲ ● ■ ▲ ● ■ ▲ ? Which shape comes next?', 'The shapes repeat in a group of three.', 'After ▲ always comes ●.', 'The group ▲ ● ■ repeats, so ● comes after ▲.', 'A ● token drops out. It shows the digits 4 and 7 and a note: “Your locker number uses both digits once and is an odd number.”'],
+          ['लॉकर कमरे के दरवाज़े पर एक क्रम है: ▲ ● ■ ▲ ● ■ ▲ ? आगे कौन-सी आकृति आएगी?', 'आकृतियाँ तीन-तीन के समूह में दोहराती हैं।', '▲ के बाद हमेशा ● आता है।', '▲ ● ■ का समूह दोहराता है, इसलिए ▲ के बाद ●।', 'एक ● टोकन निकलता है। उस पर 4 और 7 लिखे हैं और पर्ची: “आपका लॉकर नंबर दोनों अंकों से एक-एक बार बनता है और विषम संख्या है।”'],
+          { disp: '▲ ● ■ ▲ ● ■ ▲ ?' }),
+        code('47', ['Enter your two-digit locker number.', 'With 4 and 7 you can make 47 or 74.', 'An odd number ends in 1, 3, 5, 7 or 9.', '74 is even; 47 is odd.', 'Locker 47 holds a form: “Before opening, tick the one detail that must NEVER be written on any slip.”'],
+          ['अपना दो अंकों का लॉकर नंबर डालें।', '4 और 7 से 47 या 74 बन सकता है।', 'विषम संख्या 1, 3, 5, 7 या 9 पर ख़त्म होती है।', '74 सम है; 47 विषम है।', 'लॉकर 47 में एक फ़ॉर्म है: “खोलने से पहले वह एक जानकारी चुनें जो कभी किसी पर्ची पर नहीं लिखनी चाहिए।”']),
+        choice({ en: ['OTP', 'Your name', 'Locker number', 'Today’s date'], hi: ['OTP', 'आपका नाम', 'लॉकर नंबर', 'आज की तारीख़'] },
+          ['Which detail must never be written on a slip or shared?', 'Think of the code that arrives by SMS.', 'Banks always warn: never share this one-time code.', 'An OTP must never be written down or shared with anyone.', 'The form says: “Well done. The inner code is your locker number plus 100.”'],
+          ['कौन-सी जानकारी कभी पर्ची पर नहीं लिखनी या किसी को नहीं बतानी चाहिए?', 'SMS से आने वाले कोड के बारे में सोचिए।', 'बैंक हमेशा चेताते हैं: यह एक बार का कोड कभी न बताएँ।', 'OTP कभी लिखना या किसी को बताना नहीं चाहिए।', 'फ़ॉर्म पर लिखा है: “शाबाश। अंदर का कोड है लॉकर नंबर + 100।”']),
+        code('147', ['Enter the locker’s inner code.', 'Your locker number is 47.', '47 + 100 = ?', '47 + 100 = 147.', 'The inner door opens. The family papers are safe — and so is your OTP!'],
+          ['लॉकर का अंदर वाला कोड डालें।', 'आपका लॉकर नंबर 47 है।', '47 + 100 = ?', '47 + 100 = 147।', 'अंदर का दरवाज़ा खुल गया। परिवार के काग़ज़ सुरक्षित हैं — और आपका OTP भी!'])
+      ] },
+    { id: 'E8', d: 3, icon: '⛈️', en: { t: 'The Monsoon Power Cut', s: 'A storm knocks out the power at night. Restore it safely, step by step.' },
+      hi: { t: 'बरसात की बिजली कटौती', s: 'रात को तूफ़ान से बिजली चली गई। कदम-दर-कदम सुरक्षित तरीके से उसे वापस लाइए।' },
+      stages: [
+        choice({ en: ['Bedroom drawer', 'Bedroom cupboard', 'Kitchen drawer', 'Hall drawer'], hi: ['बेडरूम की दराज़', 'बेडरूम की अलमारी', 'रसोई की दराज़', 'बैठक की दराज़'] },
+          ['A family note says: “The torch is not in the kitchen. It is in the room where we sleep. It is in a drawer, not a cupboard.” Where is it?', 'Which room do we sleep in?', 'The bedroom — and a drawer, not a cupboard.', 'Not the kitchen; the bedroom; a drawer → the bedroom drawer.', 'With the torch you find the switch board and a note: “Fridge first, fan last. Lights before the TV.”'],
+          ['परिवार की पर्ची कहती है: “टॉर्च रसोई में नहीं है। वह उस कमरे में है जहाँ हम सोते हैं। वह दराज़ में है, अलमारी में नहीं।” टॉर्च कहाँ है?', 'हम किस कमरे में सोते हैं?', 'बेडरूम — और दराज़, अलमारी नहीं।', 'रसोई नहीं; बेडरूम; दराज़ → बेडरूम की दराज़।', 'टॉर्च से आपको स्विच बोर्ड मिलता है और पर्ची: “पहले फ़्रिज, आख़िर में पंखा। टीवी से पहले बत्तियाँ।”']),
+        order({ en: ['Fridge', 'Lights', 'TV', 'Fan'], hi: ['फ़्रिज', 'बत्तियाँ', 'टीवी', 'पंखा'] },
+          ['Tap the switches in the safe order from the note.', 'The fridge goes first and the fan goes last.', 'Lights must come before the TV.', 'Fridge → lights → TV → fan.', 'The inverter beeps and blinks: two long flashes and five short flashes. A sticker reads: “Long = 10, Short = 1.”'],
+          ['पर्ची के सुरक्षित क्रम में स्विच टैप करें।', 'फ़्रिज सबसे पहले और पंखा सबसे आख़िर में।', 'बत्तियाँ टीवी से पहले।', 'फ़्रिज → बत्तियाँ → टीवी → पंखा।', 'इन्वर्टर बीप करता है और चमकता है: दो लंबी चमक और पाँच छोटी चमक। स्टिकर पर लिखा है: “लंबी = 10, छोटी = 1।”']),
+        code('25', ['What number do the flashes show?', 'Each long flash is worth 10.', '2 long = 20, 5 short = 5. 20 + 5 = ?', '2 × 10 + 5 × 1 = 25.', 'Inside the inverter cover is a card with a pattern: 1, 3, 6, 10, ?'],
+          ['चमक कौन-सी संख्या बताती है?', 'हर लंबी चमक 10 की है।', '2 लंबी = 20, 5 छोटी = 5। 20 + 5 = ?', '2 × 10 + 5 × 1 = 25।', 'इन्वर्टर के ढक्कन के अंदर एक कार्ड पर क्रम है: 1, 3, 6, 10, ?'],
+          { disp: '— — · · · · ·' }),
+        choice({ en: ['15', '14', '13', '16'], hi: ['15', '14', '13', '16'] },
+          ['Which number comes next: 1, 3, 6, 10, ?', 'Look at how much is added each time.', 'You add 2, then 3, then 4… next you add 5.', '10 + 5 = 15.', 'The last note says: “To open the storm door, add the two numbers you found.”'],
+          ['आगे कौन-सी संख्या आएगी: 1, 3, 6, 10, ?', 'देखिए हर बार कितना जुड़ रहा है।', 'पहले 2, फिर 3, फिर 4… अब 5 जुड़ेगा।', '10 + 5 = 15।', 'आख़िरी पर्ची कहती है: “तूफ़ान वाला दरवाज़ा खोलने के लिए जो दो संख्याएँ मिलीं, उन्हें जोड़ो।”'],
+          { disp: '1, 3, 6, 10, ?' }),
+        code('40', ['Enter the storm-door code.', 'The two numbers came from the flashes and the pattern.', '25 + 15 = ?', '25 + 15 = 40.', 'The storm door opens and the power is back. Hot chai for everyone!'],
+          ['तूफ़ान वाले दरवाज़े का कोड डालें।', 'दोनों संख्याएँ चमक और क्रम से मिली थीं।', '25 + 15 = ?', '25 + 15 = 40।', 'दरवाज़ा खुल गया और बिजली वापस आ गई। सबके लिए गरम चाय!'])
+      ] },
+    { id: 'E9', d: 3, icon: '🗺️', en: { t: 'Grandpa’s Treasure Map', s: 'Grandpa left a map of the old garden. Follow it to find what he hid.' },
+      hi: { t: 'दादाजी का ख़ज़ाने का नक़्शा', s: 'दादाजी पुराने बगीचे का नक़्शा छोड़ गए। उसके सहारे वह चीज़ ढूँढिए जो उन्होंने छिपाई।' },
+      stages: [
+        choice({ en: ['🥭 Mango tree', '🏠 Hut', '🪨 Rock', '💧 Well'], hi: ['🥭 आम का पेड़', '🏠 झोपड़ी', '🪨 चट्टान', '💧 कुआँ'] },
+          ['North is up. Start at the well 💧. Walk 2 squares north (up), then 1 square west (left). Where are you?', 'From the well, go up two squares first.', 'After going up two squares you are on an empty square; one square to the left is the 🥭.', 'Two up from the well, then one left, lands on the mango tree.', 'Under the mango tree is a tin with a note: “The first digit of my safe is the number of 🌳 trees on this map. The second digit is the number of wells, doubled.”'],
+          ['ऊपर उत्तर है। कुएँ 💧 से शुरू करें। 2 ख़ाने उत्तर (ऊपर) चलें, फिर 1 ख़ाना पश्चिम (बाएँ)। आप कहाँ पहुँचे?', 'कुएँ से पहले दो ख़ाने ऊपर जाएँ।', 'दो ख़ाने ऊपर जाकर आप ख़ाली ख़ाने पर हैं; उसके एक बाएँ 🥭 है।', 'कुएँ से दो ऊपर, फिर एक बाएँ — आम का पेड़।', 'आम के पेड़ के नीचे एक डिब्बा है, पर्ची के साथ: “तिजोरी का पहला अंक नक़्शे पर 🌳 पेड़ों की संख्या है। दूसरा अंक कुओं की संख्या का दोगुना है।”'],
+          { disp: MAP, map: true }),
+        code('32', ['Look at the map again and enter the 2-digit safe code.', 'Count only the 🌳 trees — the mango tree 🥭 is a different picture.', 'There are 3 🌳 trees and 1 well (1 × 2 = 2).', '3 trees, then 1 well × 2 = 2 → 32.', 'The safe opens! Inside are four old photographs and a note: “Put them in order and you will see my life story.”'],
+          ['नक़्शे को फिर देखें और तिजोरी का 2 अंकों का कोड डालें।', 'सिर्फ़ 🌳 पेड़ गिनें — आम का पेड़ 🥭 अलग चित्र है।', '3 पेड़ 🌳 हैं और 1 कुआँ (1 × 2 = 2)।', '3 पेड़, फिर 1 कुआँ × 2 = 2 → 32।', 'तिजोरी खुल गई! अंदर चार पुरानी तस्वीरें हैं और पर्ची: “इन्हें क्रम से लगाओ, मेरी जीवन कहानी दिखेगी।”'],
+          { disp: MAP, map: true }),
+        order({ en: ['Black-and-white wedding photo, 1962', 'Photo with the first scooter, 1975', 'Son’s graduation in colour, 1998', 'Video-call photo with grandchildren, 2015'], hi: ['श्वेत-श्याम शादी की तस्वीर, 1962', 'पहले स्कूटर के साथ तस्वीर, 1975', 'बेटे के दीक्षांत की रंगीन तस्वीर, 1998', 'नाती-पोतों के साथ वीडियो कॉल की तस्वीर, 2015'] },
+          ['Put Grandpa’s photographs in order, oldest first.', 'Look at the year written on each photo.', '1962 is the oldest; 2015 is the newest.', '1962 → 1975 → 1998 → 2015.', 'In order, the photos tell Grandpa’s life story — the real family treasure. Adventure complete!'],
+          ['दादाजी की तस्वीरें क्रम से लगाइए, सबसे पुरानी पहले।', 'हर तस्वीर पर लिखा साल देखें।', '1962 सबसे पुरानी; 2015 सबसे नई।', '1962 → 1975 → 1998 → 2015।', 'क्रम से लगी तस्वीरें दादाजी की जीवन कहानी बताती हैं — परिवार का असली ख़ज़ाना। रोमांच पूरा!'])
+      ] },
+    { id: 'E10', d: 3, icon: '🏛️', en: { t: 'Museum After Hours', s: 'You lingered too long in a museum gallery. The doors have locked for the night!' },
+      hi: { t: 'बंद संग्रहालय', s: 'आप संग्रहालय की एक गैलरी में ज़्यादा देर रुक गए। रात के लिए दरवाज़े बंद हो गए!' },
+      stages: [
+        choice({ en: ['5:15', '5:45', '4:15', '5:00'], hi: ['5:15', '5:45', '4:15', '5:00'] },
+          ['The guard’s clock shows this time. The doors open for a short while and lock again 30 minutes later. When will they lock?', 'Read the clock first: it shows 4:45.', '4:45 + 30 minutes = ?', '4:45 + 30 minutes = 5:15.', 'A painting on the wall has numbers in its frame: 7, 14, 21, ?'],
+          ['गार्ड की घड़ी यह समय दिखा रही है। दरवाज़े थोड़ी देर खुलते हैं और 30 मिनट बाद फिर बंद हो जाते हैं। वे कब बंद होंगे?', 'पहले घड़ी पढ़ें: 4:45 बजे हैं।', '4:45 + 30 मिनट = ?', '4:45 + 30 मिनट = 5:15।', 'दीवार की एक पेंटिंग के फ़्रेम पर संख्याएँ हैं: 7, 14, 21, ?'],
+          { clock: { h: 4, m: 45 } }),
+        choice({ en: ['28', '27', '24', '35'], hi: ['28', '27', '24', '35'] },
+          ['Which number completes the painting’s frame: 7, 14, 21, ?', 'How much is added each time?', 'Add 7 each time.', '21 + 7 = 28.', 'Behind the painting, a plaque says: “Arrange these from oldest to newest to open the hall.”'],
+          ['पेंटिंग के फ़्रेम में कौन-सी संख्या आएगी: 7, 14, 21, ?', 'हर बार कितना जुड़ रहा है?', 'हर बार 7 जुड़ता है।', '21 + 7 = 28।', 'पेंटिंग के पीछे एक पट्टिका पर लिखा है: “हॉल खोलने के लिए इन्हें पुराने से नए के क्रम में लगाओ।”'],
+          { disp: '7, 14, 21, ?' }),
+        order({ en: ['Stone tools', 'Copper coins', 'Printing press', 'Television'], hi: ['पत्थर के औज़ार', 'ताँबे के सिक्के', 'छापाख़ाना', 'टेलीविज़न'] },
+          ['Arrange these inventions from oldest to newest.', 'Which of these did the earliest people use?', 'Stone tools are the oldest; television is the newest.', 'Stone tools → copper coins → printing press → television.', 'The hall door opens. A last sign says: “Exit code = the first number in the painting, then the minutes when the doors lock.”'],
+          ['इन आविष्कारों को सबसे पुराने से सबसे नए के क्रम में लगाइए।', 'सबसे पहले के लोग इनमें से क्या इस्तेमाल करते थे?', 'पत्थर के औज़ार सबसे पुराने; टेलीविज़न सबसे नया।', 'पत्थर के औज़ार → ताँबे के सिक्के → छापाख़ाना → टेलीविज़न।', 'हॉल का दरवाज़ा खुलता है। आख़िरी बोर्ड पर लिखा है: “निकास कोड = पेंटिंग की पहली संख्या, फिर दरवाज़े बंद होने के मिनट।”']),
+        code('715', ['Enter the exit code.', 'The painting started with 7.', 'The doors lock at 5:15 — the minutes are 15. Type 7, then 15.', '7 and 15 → 715.', 'Two exits appear. Remember the safety signs!'],
+          ['निकास कोड डालें।', 'पेंटिंग 7 से शुरू होती थी।', 'दरवाज़े 5:15 पर बंद होंगे — मिनट 15 हैं। पहले 7, फिर 15।', '7 और 15 → 715।', 'दो रास्ते दिखते हैं। सुरक्षा संकेत याद रखिए!']),
+        choice({ en: ['The door with the green running-person sign', 'The door marked “Staff only — alarm”', 'The window on the second floor', 'The door to the basement store'], hi: ['हरे दौड़ते-व्यक्ति वाले निशान का दरवाज़ा', '“सिर्फ़ कर्मचारी — अलार्म” वाला दरवाज़ा', 'दूसरी मंज़िल की खिड़की', 'तहख़ाने के गोदाम का दरवाज़ा'] },
+          ['Which way is the safe exit?', 'Emergency exits have a special sign.', 'Exit signs are usually green with a running person.', 'The green running-person sign marks the safe emergency exit.', 'You step out into the cool evening air. Museum mystery solved!'],
+          ['सुरक्षित निकास कौन-सा है?', 'आपात निकास का एक ख़ास निशान होता है।', 'निकास के निशान आमतौर पर हरे होते हैं, जिन पर दौड़ता व्यक्ति बना होता है।', 'हरा दौड़ता-व्यक्ति निशान सुरक्षित आपात निकास बताता है।', 'आप शाम की ठंडी हवा में बाहर आ जाते हैं। संग्रहालय का रहस्य सुलझ गया!'])
+      ] }
+  ];
+})();
+
+</script>
   <!-- Screens and games -->
   <script>
 /* SMART 50+ — main screens: onboarding, home, games list, daily challenge, progress, achievements, settings, about. */
@@ -3819,7 +4450,8 @@ body.no-nav #view { padding-bottom: 2rem; }
   var GAME_ICON = {
     wherekept: '🔑', trip: '🧳', changed: '🔍', missing: '🧐', familytree: '🌳', lifeexp: '🌟',
     household: '🏠', grandmaster: '♟️', scam: '🛡️', thennow: '📻', finish: '🎬', words: '✉️',
-    pairs: '🃏', lamps: '🪔', oddone: '🔎', clock: '🕰️', sudoku: '🔢', kirana: '🛒'
+    pairs: '🃏', lamps: '🪔', oddone: '🔎', clock: '🕰️', sudoku: '🔢', kirana: '🛒',
+    detective: '🕵️', escape: '🗝️', shapes: '🔷'
   };
   S50.GAME_ICON = GAME_ICON;
 
@@ -5885,6 +6517,647 @@ body.no-nav #view { padding-bottom: 2rem; }
   }
   S50.Games.register({ id: 'sudoku', cat: 'reasoning', start: startSudoku });
   S50.Sudoku = { make: makeSudoku, conflicts: conflicts };
+})();
+
+</script>
+  <script>
+/* SMART 50+ — Mystery Detective, Escape Room and Shape Shifter. */
+(function () {
+  'use strict';
+  var S50 = window.S50;
+  var U = S50.U, h = U.h, t = S50.t, UI = S50.UI, Store = S50.Store, Bank = S50.Bank, App = S50.App;
+
+  function title(id) { return t('games.' + id + '.name'); }
+  function L(obj) { return S50.L(obj); }
+  function focusFirst(el, sel) { var f = el.querySelector(sel); if (f) try { f.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+  function feedbackBox(ok, head, pts) {
+    return h('div', { class: 'feedback ' + (ok ? 'fb-good' : 'fb-soft'), attrs: { role: 'status', 'aria-live': 'polite' } },
+      h('div', { class: 'fb-head' }, h('strong', { text: head }), pts ? h('span', { class: 'fb-points', text: t('common.points', { n: pts }) }) : null));
+  }
+
+  /* =====================================================================
+   * GAME 19 — MYSTERY DETECTIVE
+   * ===================================================================== */
+  function startDetective() {
+    var CASES = 6;
+    var items = Bank.draw('detective', CASES, { sort: true });
+    if (!items.length) return UI.errorScreen();
+    var st = { i: 0, score: 0, correct: 0, total: 0, streak: 0, keyAsked: 0 };
+    var body = UI.screen({ title: title('detective'), icon: S50.GAME_ICON.detective, cat: 'reasoning', back: 'games/reasoning' });
+    var wrap = h('div', { class: 'quiz' });
+    body.appendChild(wrap);
+
+    function show() {
+      UI.stopTimers();
+      if (st.i >= items.length) {
+        return UI.complete({ gameId: 'detective', title: title('detective'), cat: 'reasoning', score: st.score, correct: st.correct, total: st.total }, { back: 'games/reasoning' });
+      }
+      var item = items[st.i];
+      var c = L(item.raw);
+      var E = item.raw.en;
+      var clues = (c.c && c.c.length ? c.c : E.c) || [];
+      var opened = clues.map(function () { return false; });
+      U.clear(wrap);
+      wrap.appendChild(UI.progressBar(st.i + 1, items.length, t('detective.caseOf', { n: st.i + 1, t: items.length }) + ' · ' + (t('detective.level')[Math.min(2, (item.difficulty || 1) - 1)] || '')));
+      if (st.i === 0) wrap.appendChild(h('p', { class: 'hint', text: t('detective.intro') }));
+      var card = h('div', { class: 'card case-card' });
+      card.appendChild(h('h2', { class: 'case-title', text: '🕵️ ' + (c.t || E.t) }));
+      card.appendChild(h('p', { class: 'case-label', text: t('detective.situation') }));
+      card.appendChild(h('p', { class: 'case-story', text: c.s || E.s }));
+      if (UI.Speech.available()) {
+        card.appendChild(h('button', { class: 'btn btn-ghost btn-small', type: 'button', text: t('common.listen'), on: { click: function () {
+          UI.Speech.say((c.s || E.s) + '. ' + clues.filter(function (x, i) { return opened[i]; }).join('. ') + '. ' + (c.q || E.q));
+        } } }));
+      }
+      card.appendChild(h('p', { class: 'case-label', text: '🔍 ' + t('detective.clues') }));
+      var list = h('ol', { class: 'clue-list' });
+      var showAll = h('button', { class: 'btn btn-ghost btn-small', type: 'button', text: t('detective.showAll'), on: { click: function () { clues.forEach(function (x, i) { open(i); }); } } });
+      function open(i) {
+        if (opened[i]) return;
+        opened[i] = true;
+        var li = list.children[i];
+        U.clear(li);
+        li.className = 'clue open';
+        li.appendChild(h('span', { class: 'clue-num', text: t('detective.clue', { n: i + 1 }) }));
+        li.appendChild(h('span', { class: 'clue-text', text: clues[i] }));
+        S50.Sound.play('tap');
+        if (opened.every(Boolean)) unlock();
+      }
+      clues.forEach(function (x, i) {
+        list.appendChild(h('li', { class: 'clue' }, h('button', { class: 'clue-btn', type: 'button', text: t('detective.examine', { n: i + 1 }), on: { click: function () { open(i); } } })));
+      });
+      card.appendChild(list);
+      card.appendChild(showAll);
+      card.appendChild(h('h2', { class: 'qtext', text: c.q || E.q }));
+      var lockNote = h('p', { class: 'hint', text: '🔒 ' + t('detective.locked') });
+      card.appendChild(lockNote);
+      var opts = (c.o && c.o.length ? c.o : E.o).slice();
+      var order = U.shuffle(opts.map(function (o, i) { return i; }));
+      var box = h('div', { class: 'options' });
+      var buttons = order.map(function (oi) {
+        var b = h('button', { class: 'opt', type: 'button', disabled: true, on: { click: function () { answer(oi); } } }, h('span', { class: 'opt-text', text: opts[oi] }));
+        b.dataset.idx = String(oi);
+        box.appendChild(b);
+        return b;
+      });
+      card.appendChild(box);
+      wrap.appendChild(card);
+      focusFirst(list, '.clue-btn');
+
+      function unlock() {
+        buttons.forEach(function (b) { b.disabled = false; });
+        lockNote.textContent = '';
+        showAll.style.display = 'none';
+      }
+      function answer(oi) {
+        if (buttons[0].dataset.done) return;
+        buttons.forEach(function (b) { b.disabled = true; b.dataset.done = '1'; });
+        var ok = oi === 0;
+        st.total += 1;
+        if (ok) { st.correct += 1; st.streak += 1; } else st.streak = 0;
+        var pts = Store.Score.question({ correct: ok, difficulty: item.difficulty, streak: st.streak });
+        st.score += pts;
+        Store.recordAnswer('reasoning', ok);
+        S50.Sound.play(ok ? 'correct' : 'wrong');
+        buttons.forEach(function (b) {
+          var idx = +b.dataset.idx;
+          if (idx === 0) { b.classList.add('is-correct'); b.appendChild(h('span', { class: 'opt-mark', text: '✓' })); }
+          else if (idx === oi) { b.classList.add('is-wrong'); b.appendChild(h('span', { class: 'opt-mark', text: '✗' })); }
+        });
+        var fb = feedbackBox(ok, ok ? t('common.correct') : t('common.wrong'), pts);
+        if (!ok) fb.appendChild(h('p', { class: 'fb-answer', text: t('common.correctAnswer', { a: opts[0] }) }));
+        fb.appendChild(h('p', { class: 'fb-explain', text: c.e || E.e }));
+        card.appendChild(fb);
+        // Occasionally (about every other case that has a key clue) ask which clue mattered most.
+        var k = item.raw.k;
+        if (typeof k === 'number' && (st.i % 2 === 1 || st.keyAsked === 0)) { st.keyAsked += 1; keyQuestion(fb, k); }
+        else nextBtn(fb);
+      }
+      function keyQuestion(fb, k) {
+        var q = h('div', { class: 'key-q' }, h('p', { class: 'fb-sub', text: '⭐ ' + t('detective.keyQ') }));
+        var kb = h('div', { class: 'options' });
+        var kbtns = clues.map(function (cl, i) {
+          var b = h('button', { class: 'opt opt-small', type: 'button', on: { click: function () {
+            kbtns.forEach(function (x) { x.disabled = true; });
+            var good = i === k;
+            if (good) { st.score += 30; b.classList.add('is-correct'); b.appendChild(h('span', { class: 'opt-mark', text: '✓' })); }
+            else { b.classList.add('is-wrong'); b.appendChild(h('span', { class: 'opt-mark', text: '✗' })); kbtns[k].classList.add('is-correct'); kbtns[k].appendChild(h('span', { class: 'opt-mark', text: '✓' })); }
+            S50.Sound.play(good ? 'correct' : 'tap');
+            q.appendChild(h('p', { class: 'fb-answer', text: good ? t('detective.keyRight', { n: 30 }) : t('detective.keyWrong', { n: k + 1 }) }));
+            nextBtn(q);
+          } } }, h('span', { class: 'opt-text', text: (i + 1) + '. ' + cl }));
+          kb.appendChild(b);
+          return b;
+        });
+        q.appendChild(kb);
+        fb.appendChild(q);
+        focusFirst(kb, 'button');
+      }
+      function nextBtn(parent) {
+        var last = st.i === items.length - 1;
+        var nb = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: last ? t('common.finish') : t('common.next'), on: { click: function () { st.i += 1; show(); } } });
+        parent.appendChild(nb);
+        try { nb.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+        parent.scrollIntoView({ block: 'nearest' });
+      }
+    }
+    show();
+  }
+  S50.Games.register({ id: 'detective', cat: 'reasoning', start: startDetective });
+
+  /* =====================================================================
+   * GAME 20 — ESCAPE ROOM (connected multi-stage adventures, progress saved)
+   * ===================================================================== */
+  function escById(id) { return (S50.ESCAPES || []).filter(function (e) { return e.id === id; })[0] || null; }
+  function saved() {
+    var s = Store.data.escape;
+    if (!s || typeof s !== 'object' || !escById(s.id)) return null;
+    var esc = escById(s.id);
+    s.stage = Math.max(0, Math.min(esc.stages.length - 1, U.num(s.stage)));
+    s.hints = Math.max(0, Math.min(3, U.num(s.hints)));
+    s.score = U.num(s.score); s.clean = U.num(s.clean);
+    return s;
+  }
+  function persist(s) { Store.data.escape = s; Store.save(); }
+  function doneList() { return Array.isArray(Store.data.escapeDone) ? Store.data.escapeDone : []; }
+
+  function escapeMenu() {
+    var body = UI.screen({ title: title('escape'), icon: S50.GAME_ICON.escape, cat: 'reasoning', back: 'games/reasoning' });
+    body.appendChild(h('p', { class: 'lead', text: t('escape.intro') }));
+    var s = saved();
+    if (s) {
+      var esc = escById(s.id);
+      body.appendChild(h('div', { class: 'card esc-continue' },
+        h('h2', { class: 'card-title', text: '🗝️ ' + t('escape.cont') }),
+        h('p', { class: 'lead', text: esc.icon + ' ' + t('escape.at', { t: L(esc).t, n: s.stage + 1, m: esc.stages.length }) }),
+        h('button', { class: 'btn btn-primary btn-wide btn-big', type: 'button', text: t('escape.resume'), on: { click: function () { App.go('game/escape/play'); } } }),
+        h('button', { class: 'btn btn-ghost btn-wide', type: 'button', text: t('escape.restart'), on: { click: function () { begin(esc.id, true); } } })));
+    }
+    body.appendChild(h('h2', { class: 'section-title', text: t('escape.choose') }));
+    var done = doneList();
+    (S50.ESCAPES || []).forEach(function (esc) {
+      var isDone = done.indexOf(esc.id) >= 0;
+      body.appendChild(h('button', { class: 'esc-card', type: 'button', on: { click: function () { begin(esc.id, false); } } },
+        h('span', { class: 'game-icon', attrs: { 'aria-hidden': 'true' }, text: esc.icon }),
+        h('span', { class: 'game-text' },
+          h('strong', { text: L(esc).t }),
+          h('span', { text: L(esc).s }),
+          h('span', { class: 'game-best', text: '⭐'.repeat(esc.d) + ' ' + t('escape.diff')[esc.d - 1] + ' · ' + t('escape.stages', { n: esc.stages.length }) + (isDone ? '  ·  ' + t('escape.done') : '') })),
+        h('span', { class: 'game-play', attrs: { 'aria-hidden': 'true' }, text: '▶' })));
+    });
+  }
+  function begin(id, force) {
+    var s = saved();
+    function go() { persist({ id: id, stage: 0, hints: 0, score: 0, clean: 0 }); App.go('game/escape/play', true); }
+    if (s && !force && s.id !== id) {
+      UI.confirm(t('escape.replace'), t('common.start'), t('common.cancel')).then(function (ok) { if (ok) go(); });
+    } else if (s && s.id === id && !force) App.go('game/escape/play', true);
+    else go();
+  }
+
+  function finishAdventure(s, esc) {
+    var done = doneList().slice(); if (done.indexOf(esc.id) < 0) done.push(esc.id);
+    Store.data.escapeDone = done;
+    var result = { gameId: 'escape', title: title('escape') + ' · ' + L(esc).t, cat: 'reasoning', score: s.score, correct: s.clean, total: esc.stages.length };
+    persist(null);
+    UI.complete(result, { back: 'game/escape', again: function () { App.go('game/escape', true); } });
+  }
+
+  function escapePlay() {
+    var s = saved();
+    if (!s) return escapeMenu();
+    var esc = escById(s.id);
+    if (s.fin) return finishAdventure(s, esc);
+    var stage = esc.stages[s.stage];
+    var tx = L(stage);
+    var body = UI.screen({ title: title('escape'), icon: S50.GAME_ICON.escape, cat: 'reasoning', back: 'game/escape' });
+    body.appendChild(UI.progressBar(s.stage + 1, esc.stages.length, esc.icon + ' ' + L(esc).t + ' · ' + t('escape.stage', { n: s.stage + 1, m: esc.stages.length })));
+    if (s.stage === 0) body.appendChild(h('p', { class: 'lead', text: L(esc).s }));
+    // Inventory: rewards (clues) from earlier stages — needed to solve later stages.
+    var inv = h('div', { class: 'card inventory' }, h('h2', { class: 'card-title', text: t('escape.inventory') }));
+    if (s.stage === 0) inv.appendChild(h('p', { class: 'hint', text: t('escape.none') }));
+    else inv.appendChild(h('ol', { class: 'inv-list' }, esc.stages.slice(0, s.stage).map(function (p) { return h('li', { text: L(p).r }); })));
+    body.appendChild(inv);
+
+    var card = h('div', { class: 'card esc-stage' });
+    if (stage.disp) {
+      var dispText = typeof stage.disp === 'string' ? stage.disp : L(stage.disp);
+      if (stage.map) {
+        card.appendChild(h('div', { class: 'esc-map', attrs: { role: 'img', 'aria-label': dispText.replace(/\n/g, ' / ') } },
+          h('div', { class: 'esc-north', text: '⬆ N' }),
+          dispText.split('\n').map(function (row) { return h('div', { class: 'esc-map-row' }, row.split(' ').map(function (cell) { return h('span', { class: 'esc-map-cell', text: cell === '⬜' ? '' : cell }); })); })));
+      } else card.appendChild(h('div', { class: 'qdisplay', text: dispText }));
+    }
+    if (stage.clock) card.appendChild(h('div', { class: 'qclock' }, UI.clockSvg(stage.clock.h, stage.clock.m)));
+    card.appendChild(h('h2', { class: 'qtext', text: tx.q }));
+    var area = h('div', { class: 'esc-input' });
+    card.appendChild(area);
+    var msg = h('p', { class: 'esc-msg', attrs: { role: 'status', 'aria-live': 'polite' } });
+    card.appendChild(msg);
+    var hintBox = h('div', { class: 'esc-hints' });
+    var hintBtn = h('button', { class: 'btn btn-ghost', type: 'button' });
+    card.appendChild(hintBox);
+    card.appendChild(hintBtn);
+    body.appendChild(card);
+    var wrongs = 0, finished = false;
+
+    function drawHints() {
+      U.clear(hintBox);
+      for (var i = 0; i < Math.min(2, s.hints); i++) hintBox.appendChild(h('p', { class: 'esc-hint' }, h('strong', { text: t('escape.hintLabel') + ' ' }), tx.h[i]));
+      hintBtn.textContent = s.hints === 0 ? t('escape.hint1') : s.hints === 1 ? t('escape.hint2') : t('escape.reveal');
+      hintBtn.style.display = finished ? 'none' : '';
+    }
+    hintBtn.addEventListener('click', function () {
+      if (finished) return;
+      if (s.hints < 2) { s.hints += 1; persist(s); drawHints(); return; }
+      s.hints = 3; persist(s); solved(true);
+    });
+
+    function answerText() {
+      if (stage.type === 'code') return stage.code;
+      if (stage.type === 'order') return L(stage.items).join(' → ');
+      return L(stage.opts)[0];
+    }
+    function solved(revealed) {
+      if (finished) return;
+      finished = true;
+      var pts = revealed ? 0 : Math.max(25, 100 - 25 * Math.min(2, s.hints) - 10 * wrongs);
+      s.score += pts;
+      if (!revealed) s.clean += 1;
+      Store.recordAnswer('reasoning', !revealed);
+      S50.Sound.play(revealed ? 'tap' : 'correct');
+      Array.prototype.forEach.call(area.querySelectorAll('button'), function (b) { b.disabled = true; });
+      drawHints();
+      msg.textContent = '';
+      var fb = feedbackBox(!revealed, revealed ? t('escape.revealed') : t('escape.right'), pts);
+      fb.appendChild(h('p', { class: 'fb-answer', text: t('escape.answer', { a: answerText() }) }));
+      fb.appendChild(h('p', { class: 'fb-explain', text: tx.x }));
+      fb.appendChild(h('div', { class: 'new-clue' }, h('strong', { text: t('escape.newClue') }), h('p', { text: tx.r })));
+      var last = s.stage >= esc.stages.length - 1;
+      // Save progress immediately so leaving now never loses the solved stage.
+      if (!last) { s.stage += 1; s.hints = 0; } else s.fin = true;
+      persist(s);
+      var nb = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: last ? t('escape.finish') : t('escape.next'), on: { click: function () {
+        if (!last) return App.go('game/escape/play', true);
+        finishAdventure(s, esc);
+      } } });
+      fb.appendChild(nb);
+      card.appendChild(fb);
+      try { nb.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+      fb.scrollIntoView({ block: 'nearest' });
+    }
+    function wrong() {
+      wrongs += 1;
+      msg.textContent = '✗ ' + t('escape.wrong');
+      S50.Sound.play('wrong');
+    }
+
+    if (stage.type === 'choice') {
+      var opts = L(stage.opts);
+      var box = h('div', { class: 'options' + (opts.every(function (o) { return o.length <= 4; }) ? ' options-big' : '') });
+      U.shuffle(opts.map(function (o, i) { return i; })).forEach(function (oi) {
+        var b = h('button', { class: 'opt', type: 'button', on: { click: function () {
+          if (finished) return;
+          if (oi === 0) { b.classList.add('is-correct'); b.appendChild(h('span', { class: 'opt-mark', text: '✓' })); solved(false); }
+          else { b.disabled = true; b.classList.add('is-wrong'); b.appendChild(h('span', { class: 'opt-mark', text: '✗' })); wrong(); }
+        } } }, h('span', { class: 'opt-text', text: opts[oi] }));
+        box.appendChild(b);
+      });
+      area.appendChild(box);
+    } else if (stage.type === 'code') {
+      var entered = '';
+      var n = stage.code.length;
+      var slots = h('div', { class: 'code-slots', attrs: { 'aria-live': 'polite', 'aria-label': t('escape.code') } });
+      function drawSlots() {
+        U.clear(slots);
+        for (var i = 0; i < n; i++) slots.appendChild(h('span', { class: 'code-slot' + (entered[i] ? ' filled' : ''), attrs: { 'aria-label': t('escape.digitLabel', { n: i + 1 }) }, text: entered[i] || '' }));
+      }
+      var pad = h('div', { class: 'code-pad' });
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].forEach(function (d) {
+        pad.appendChild(h('button', { class: 'sk-num', type: 'button', text: d, on: { click: function () { if (entered.length < n) { entered += d; S50.Sound.play('tap'); drawSlots(); msg.textContent = ''; } } } }));
+      });
+      pad.appendChild(h('button', { class: 'sk-num sk-erase', type: 'button', text: t('escape.del'), on: { click: function () { entered = entered.slice(0, -1); drawSlots(); } } }));
+      area.appendChild(h('p', { class: 'hint', text: t('escape.digits', { n: n }) }));
+      area.appendChild(slots);
+      area.appendChild(pad);
+      area.appendChild(h('div', { class: 'sk-tools' },
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('escape.clear'), on: { click: function () { entered = ''; drawSlots(); } } }),
+        h('button', { class: 'btn btn-secondary', type: 'button', text: t('escape.check'), on: { click: function () {
+          if (finished) return;
+          if (entered.length < n) { msg.textContent = t('escape.digits', { n: n }); return; }
+          if (entered === stage.code) solved(false); else { wrong(); entered = ''; drawSlots(); }
+        } } })));
+      drawSlots();
+    } else if (stage.type === 'order') {
+      var items = L(stage.items);
+      var shown = U.shuffle(items.map(function (x, i) { return i; }), U.rng(U.hashStr(esc.id + '-' + s.stage)));
+      if (shown.every(function (v, i) { return v === i; })) shown.reverse();
+      var seq = [];
+      var tiles = h('div', { class: 'order-tiles' });
+      var row = h('ol', { class: 'order-row', attrs: { 'aria-label': t('escape.yourOrder') } });
+      function draw() {
+        U.clear(tiles); U.clear(row);
+        shown.forEach(function (ii) {
+          var used = seq.indexOf(ii) >= 0;
+          tiles.appendChild(h('button', { class: 'opt order-tile' + (used ? ' used' : ''), type: 'button', disabled: used || finished, on: { click: function () {
+            seq.push(ii); S50.Sound.play('tap'); msg.textContent = ''; draw();
+            if (seq.length === items.length) {
+              if (seq.every(function (v, k) { return v === k; })) solved(false);
+              else { wrong(); seq = []; draw(); }
+            }
+          } } }, h('span', { class: 'opt-text', text: items[ii] })));
+        });
+        for (var k = 0; k < items.length; k++) row.appendChild(h('li', { class: 'order-slot' + (seq[k] !== undefined ? ' filled' : ''), text: seq[k] !== undefined ? items[seq[k]] : '…' }));
+      }
+      area.appendChild(h('p', { class: 'hint', text: t('escape.order') }));
+      area.appendChild(tiles);
+      area.appendChild(h('p', { class: 'fb-sub', text: t('escape.yourOrder') }));
+      area.appendChild(row);
+      area.appendChild(h('div', { class: 'sk-tools' },
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('escape.undo'), on: { click: function () { if (!finished) { seq.pop(); draw(); } } } }),
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('escape.clear'), on: { click: function () { if (!finished) { seq = []; draw(); } } } })));
+      draw();
+    }
+    drawHints();
+    if (s.hints >= 3) solved(true);
+  }
+  S50.Games.register({ id: 'escape', cat: 'reasoning', start: function (p) { if (p[0] === 'play') escapePlay(); else escapeMenu(); } });
+
+  /* =====================================================================
+   * GAME 21 — SHAPE SHIFTER (30 fixed levels, built from a fixed seed so every player gets the same puzzles)
+   * ===================================================================== */
+  var SHAPES = {
+    D2: [[0, 0], [0, 1]], I3: [[0, 0], [0, 1], [0, 2]], L3: [[0, 0], [1, 0], [1, 1]],
+    I4: [[0, 0], [0, 1], [0, 2], [0, 3]], L4: [[0, 0], [1, 0], [2, 0], [2, 1]], T4: [[0, 0], [0, 1], [0, 2], [1, 1]],
+    S4: [[0, 1], [0, 2], [1, 0], [1, 1]], O4: [[0, 0], [0, 1], [1, 0], [1, 1]], P5: [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0]]
+  };
+  var LEVELS = 30;
+  function norm(cells) {
+    var mr = Math.min.apply(null, cells.map(function (c) { return c[0]; })), mc = Math.min.apply(null, cells.map(function (c) { return c[1]; }));
+    return cells.map(function (c) { return [c[0] - mr, c[1] - mc]; }).sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+  }
+  function rot(cells) { return norm(cells.map(function (c) { return [c[1], -c[0]]; })); }
+  function flip(cells) { return norm(cells.map(function (c) { return [c[0], -c[1]]; })); }
+  function key(r, c) { return r + ',' + c; }
+  function levelCfg(L) {
+    var mode = L >= 8 && L % 5 === 3 ? 'pattern' : L >= 10 && L % 5 === 0 ? 'mirror' : 'fill';
+    var n = L <= 4 ? 2 : L <= 10 ? 3 : L <= 17 ? 4 : L <= 24 ? 5 : 6;
+    var set = L <= 4 ? ['D2', 'I3', 'L3'] : L <= 10 ? ['D2', 'I3', 'L3', 'O4', 'T4'] : L <= 17 ? ['L3', 'I3', 'T4', 'L4', 'S4', 'O4'] : ['L3', 'T4', 'L4', 'S4', 'O4', 'I4', 'P5'];
+    var rows = n <= 3 ? 4 : n <= 4 ? 5 : 6, cols = rows;
+    if (mode === 'mirror') { n = Math.max(2, Math.min(4, n - 1)); rows = n <= 2 ? 4 : 5; cols = 6; }
+    return { L: L, mode: mode, n: n, set: set, rows: rows, cols: cols, rotate: L >= 5, flip: L >= 11 };
+  }
+  function orientations(cells, allowFlip) {
+    var out = [], seen = {}, c = norm(cells);
+    for (var f = 0; f < (allowFlip ? 2 : 1); f++) {
+      for (var r = 0; r < 4; r++) { var k = JSON.stringify(c); if (!seen[k]) { seen[k] = 1; out.push(c); } c = rot(c); }
+      c = flip(c);
+    }
+    return out;
+  }
+  /* Place n pieces touching each other inside the area; returns [{name, cells(abs)}] or null. */
+  function growPieces(rnd, cfg, n, maxCol) {
+    for (var attempt = 0; attempt < 60; attempt++) {
+      var occ = {}, pieces = [], ok = true;
+      for (var i = 0; i < n && ok; i++) {
+        var placed = false;
+        for (var tries = 0; tries < 250 && !placed; tries++) {
+          var name = U.pick(cfg.set, rnd);
+          var shapes = orientations(SHAPES[name], true);
+          var sh = U.pick(shapes, rnd);
+          var r0 = U.randInt(0, cfg.rows - 1, rnd), c0 = U.randInt(0, maxCol, rnd);
+          var cells = sh.map(function (c) { return [c[0] + r0, c[1] + c0]; });
+          if (cells.some(function (c) { return c[0] >= cfg.rows || c[1] > maxCol || occ[key(c[0], c[1])]; })) continue;
+          if (i > 0 && !cells.some(function (c) { return occ[key(c[0] - 1, c[1])] || occ[key(c[0] + 1, c[1])] || occ[key(c[0], c[1] - 1)] || occ[key(c[0], c[1] + 1)]; })) continue;
+          cells.forEach(function (c) { occ[key(c[0], c[1])] = true; });
+          pieces.push({ name: name, cells: cells });
+          placed = true;
+        }
+        if (!placed) ok = false;
+      }
+      if (ok) return pieces;
+    }
+    return null;
+  }
+  function buildLevel(L) {
+    var cfg = levelCfg(L);
+    var rnd = U.rng(7919 + L * 104729);
+    var target = {}, fixed = {}, sol;
+    if (cfg.mode === 'mirror') {
+      var half = cfg.cols / 2;
+      var left = growPieces(rnd, cfg, cfg.n, half - 1);
+      left.forEach(function (p) { p.cells.forEach(function (c) { fixed[key(c[0], c[1])] = 'm'; }); });
+      sol = left.map(function (p) { return { name: p.name, cells: p.cells.map(function (c) { return [c[0], cfg.cols - 1 - c[1]]; }) }; });
+    } else {
+      var all = growPieces(rnd, cfg, cfg.mode === 'pattern' ? cfg.n + 1 : cfg.n, cfg.cols - 1);
+      if (cfg.mode === 'pattern') {
+        var lock = all.splice(Math.floor(rnd() * all.length), 1)[0];
+        lock.cells.forEach(function (c) { fixed[key(c[0], c[1])] = 'p'; });
+      }
+      sol = all;
+    }
+    sol.forEach(function (p) { p.cells.forEach(function (c) { target[key(c[0], c[1])] = true; }); });
+    var letters = 'ABCDEFG';
+    var pieces = sol.map(function (p, i) {
+      var base = norm(p.cells);
+      var cur = base;
+      if (cfg.rotate) {
+        var turns = 1 + Math.floor(rnd() * 3);
+        for (var k = 0; k < turns; k++) cur = rot(cur);
+        if (cfg.flip && rnd() < 0.5) cur = flip(cur);
+      }
+      return { id: i, letter: letters[i], sol: p.cells, cur: cur, placed: null };
+    });
+    return { cfg: cfg, target: target, fixed: fixed, pieces: pieces };
+  }
+
+  function shapesMenu() {
+    var unlocked = Math.min(LEVELS, Store.gameLevel('shapes'));
+    var body = UI.screen({ title: title('shapes'), icon: S50.GAME_ICON.shapes, cat: 'attention', back: 'games/attention' });
+    body.appendChild(h('p', { class: 'lead', text: t('shapes.intro') }));
+    body.appendChild(h('button', { class: 'btn btn-primary btn-big btn-wide', type: 'button', text: t('shapes.play', { n: unlocked }), on: { click: function () { App.go('game/shapes/' + unlocked); } } }));
+    body.appendChild(h('h2', { class: 'section-title', text: t('shapes.chooseLevel') }));
+    var grid = h('div', { class: 'level-grid' });
+    for (var i = 1; i <= LEVELS; i++) (function (n) {
+      var open = n <= unlocked;
+      var mode = levelCfg(n).mode;
+      grid.appendChild(h('button', { class: 'level-btn' + (open ? '' : ' locked') + (n < unlocked ? ' done' : ''), type: 'button', disabled: !open,
+        attrs: { 'aria-label': t('shapes.level', { n: n, t: LEVELS }) + ' — ' + (open ? t('shapes.mode.' + mode) : t('shapes.locked')) },
+        on: { click: function () { App.go('game/shapes/' + n); } } },
+        h('span', { class: 'lv-num', text: String(n) }),
+        h('span', { class: 'lv-mode', attrs: { 'aria-hidden': 'true' }, text: open ? (mode === 'mirror' ? '⇋' : mode === 'pattern' ? '◩' : '▦') : '🔒' })));
+    })(i);
+    body.appendChild(grid);
+  }
+
+  function shapesPlay(startLevel) {
+    var PER_ROUND = 3;
+    var st = { k: 0, score: 0, correct: 0, total: 0 };
+    var level = startLevel;
+    var body = UI.screen({ title: title('shapes'), icon: S50.GAME_ICON.shapes, cat: 'attention', back: 'game/shapes' });
+    var wrap = h('div', {});
+    body.appendChild(wrap);
+
+    function next() {
+      if (st.k >= PER_ROUND || level > LEVELS) {
+        return UI.complete({ gameId: 'shapes', title: title('shapes'), cat: 'attention', score: st.score, correct: st.correct, total: st.total },
+          { back: 'game/shapes', again: function () { App.go('game/shapes', true); } });
+      }
+      play(buildLevel(level));
+    }
+
+    function play(P) {
+      var cfg = P.cfg, sel = null, hints = 0, flashBad = {};
+      U.clear(wrap);
+      wrap.appendChild(UI.progressBar(st.k + 1, PER_ROUND, t('shapes.puzzle', { n: st.k + 1, t: PER_ROUND }) + ' · ' + t('shapes.level', { n: cfg.L, t: LEVELS })));
+      wrap.appendChild(h('div', { class: 'shape-mode' }, h('strong', { text: (cfg.mode === 'mirror' ? '⇋ ' : cfg.mode === 'pattern' ? '◩ ' : '▦ ') + t('shapes.mode.' + cfg.mode) }), h('span', { text: ' — ' + t('shapes.modeDesc.' + cfg.mode) })));
+      var msg = h('p', { class: 'shape-msg', attrs: { role: 'status', 'aria-live': 'polite' }, text: t('shapes.pick') });
+      var board = h('div', { class: 'shape-board', attrs: { role: 'grid', 'aria-label': t('shapes.board') }, style: { gridTemplateColumns: 'repeat(' + cfg.cols + ', minmax(0, 1fr))' } });
+      var tray = h('div', { class: 'shape-tray' });
+      var card = h('div', { class: 'card shape-card' }, msg, board,
+        cfg.mode === 'mirror' ? h('div', { class: 'mirror-line-note', attrs: { 'aria-hidden': 'true' }, text: '⇋' }) : null,
+        h('h2', { class: 'card-title', text: t('shapes.pieces') }), tray);
+      var tools = h('div', { class: 'shape-tools' },
+        h('button', { class: 'btn btn-secondary', type: 'button', text: t('shapes.rotate'), on: { click: function () { turn(false); } } }),
+        cfg.flip || cfg.mode === 'mirror' ? h('button', { class: 'btn btn-secondary', type: 'button', text: t('shapes.flip'), on: { click: function () { turn(true); } } }) : null,
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('shapes.hint'), on: { click: hint } }),
+        h('button', { class: 'btn btn-ghost', type: 'button', text: t('shapes.reset'), on: { click: reset } }));
+      card.appendChild(tools);
+      wrap.appendChild(card);
+
+      function owner(r, c) {
+        for (var i = 0; i < P.pieces.length; i++) {
+          var pl = P.pieces[i].placed;
+          if (pl && pl.some(function (x) { return x[0] === r && x[1] === c; })) return P.pieces[i];
+        }
+        return null;
+      }
+      function drawBoard() {
+        U.clear(board);
+        for (var r = 0; r < cfg.rows; r++) for (var c = 0; c < cfg.cols; c++) (function (r, c) {
+          var k = key(r, c);
+          var mirrorEdge = cfg.mode === 'mirror' && c === cfg.cols / 2 - 1 ? ' mirror-edge' : '';
+          if (P.fixed[k]) { board.appendChild(h('div', { class: 'sh-cell fixed' + mirrorEdge, attrs: { role: 'gridcell', 'aria-label': t('shapes.cell', { r: r + 1, c: c + 1 }) + ', ' + t('shapes.cellFixed') } })); return; }
+          if (!P.target[k]) { board.appendChild(h('div', { class: 'sh-cell off' + mirrorEdge, attrs: { 'aria-hidden': 'true' } })); return; }
+          var o = owner(r, c);
+          var b = h('button', { class: 'sh-cell target' + (o ? ' pc pc-' + o.id : '') + (flashBad[k] ? ' bad' : ''), type: 'button',
+            attrs: { role: 'gridcell', 'aria-label': t('shapes.cell', { r: r + 1, c: c + 1 }) + ', ' + (o ? t('shapes.cellPiece', { l: o.letter }) : t('shapes.cellTarget')) } },
+            o ? o.letter : '', flashBad[k] ? h('span', { class: 'sh-x', attrs: { 'aria-hidden': 'true' }, text: '✗' }) : null);
+          b.addEventListener('click', function () { tapCell(r, c); });
+          board.appendChild(b);
+        })(r, c);
+      }
+      function mini(cells, withHandle) {
+        var rows = Math.max.apply(null, cells.map(function (c) { return c[0]; })) + 1, cols = Math.max.apply(null, cells.map(function (c) { return c[1]; })) + 1;
+        var g = h('span', { class: 'mini', attrs: { 'aria-hidden': 'true' }, style: { gridTemplateColumns: 'repeat(' + cols + ', 1fr)' } });
+        for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+          var on = cells.some(function (x) { return x[0] === r && x[1] === c; });
+          var handle = withHandle && on && cells[0][0] === r && cells[0][1] === c;
+          g.appendChild(h('span', { class: 'mini-cell' + (on ? ' on' : ''), text: handle ? '●' : '' }));
+        }
+        return g;
+      }
+      function drawTray() {
+        U.clear(tray);
+        P.pieces.forEach(function (p) {
+          var b = h('button', { class: 'tray-piece pc-' + p.id + (sel === p ? ' selected' : '') + (p.placed ? ' placed' : ''), type: 'button',
+            attrs: { 'aria-pressed': sel === p ? 'true' : 'false', 'aria-label': t('shapes.piece', { l: p.letter }) + (p.placed ? ', ' + t('shapes.onBoard') : '') } },
+            h('span', { class: 'tray-letter', text: p.letter }), mini(p.cur, !p.placed), p.placed ? h('span', { class: 'tray-state', text: t('shapes.onBoard') }) : null);
+          b.addEventListener('click', function () {
+            if (p.placed) { p.placed = null; msg.textContent = t('shapes.picked', { l: p.letter }); }
+            else msg.textContent = t('shapes.selected', { l: p.letter });
+            sel = p; S50.Sound.play('tap'); draw();
+          });
+          tray.appendChild(b);
+        });
+      }
+      function draw() { drawBoard(); drawTray(); }
+      function turn(isFlip) {
+        if (!sel) { msg.textContent = t('shapes.pick'); return; }
+        if (sel.placed) sel.placed = null;
+        sel.cur = isFlip ? flip(sel.cur) : rot(sel.cur);
+        msg.textContent = t('shapes.selected', { l: sel.letter });
+        S50.Sound.play('tap');
+        draw();
+      }
+      function fits(cells, except) {
+        return cells.every(function (x) {
+          var k = key(x[0], x[1]);
+          if (!P.target[k] || P.fixed[k]) return false;
+          var o = owner(x[0], x[1]);
+          return !o || o === except;
+        });
+      }
+      function tapCell(r, c) {
+        var o = owner(r, c);
+        if (!sel && o) { o.placed = null; sel = o; msg.textContent = t('shapes.picked', { l: o.letter }); S50.Sound.play('tap'); return draw(); }
+        if (!sel) { msg.textContent = t('shapes.pick'); return; }
+        var hd = sel.cur[0];
+        var cells = sel.cur.map(function (x) { return [r + x[0] - hd[0], c + x[1] - hd[1]]; });
+        if (fits(cells, sel)) {
+          sel.placed = cells;
+          msg.textContent = t('shapes.placed', { l: sel.letter });
+          S50.Sound.play('correct');
+          sel = P.pieces.filter(function (p) { return !p.placed; })[0] || null;
+          draw();
+          checkDone();
+        } else {
+          msg.textContent = t('shapes.noFit', { l: sel.letter });
+          S50.Sound.play('wrong');
+          flashBad = {};
+          cells.forEach(function (x) { if (x[0] >= 0 && x[1] >= 0 && x[0] < cfg.rows && x[1] < cfg.cols) flashBad[key(x[0], x[1])] = true; });
+          drawBoard();
+          UI.later(function () { flashBad = {}; drawBoard(); }, 1100);
+        }
+      }
+      function hint() {
+        function sig(cells) { return cells.map(function (x) { return key(x[0], x[1]); }).sort().join('|'); }
+        var p = P.pieces.filter(function (q) { return !q.placed || sig(q.placed) !== sig(q.sol); })[0];
+        if (!p) return;
+        hints += 1;
+        // Free the solution squares, then put this piece exactly where it belongs.
+        P.pieces.forEach(function (q) {
+          if (q !== p && q.placed && q.placed.some(function (x) { return p.sol.some(function (y) { return y[0] === x[0] && y[1] === x[1]; }); })) q.placed = null;
+        });
+        p.cur = norm(p.sol);
+        p.placed = p.sol.map(function (x) { return [x[0], x[1]]; });
+        sel = P.pieces.filter(function (q) { return !q.placed; })[0] || null;
+        msg.textContent = t('shapes.placed', { l: p.letter }) + ' (' + t('shapes.hintsUsed', { n: hints }) + ')';
+        draw();
+        checkDone();
+      }
+      function reset() {
+        P.pieces.forEach(function (p) { p.placed = null; });
+        sel = null; msg.textContent = t('shapes.pick');
+        draw();
+      }
+      function checkDone() {
+        var all = Object.keys(P.target).every(function (k) { var rc = k.split(','); return !!owner(+rc[0], +rc[1]); });
+        if (!all) return;
+        var pts = Math.max(30, 100 + 15 * P.pieces.length - 30 * hints);
+        st.score += pts; st.total += 1;
+        if (!hints) st.correct += 1;
+        Store.recordAnswer('attention', !hints);
+        if (cfg.L + 1 > Store.gameLevel('shapes')) Store.setGameLevel('shapes', Math.min(LEVELS, cfg.L + 1), LEVELS);
+        S50.Sound.play('complete');
+        Array.prototype.forEach.call(card.querySelectorAll('button'), function (b) { b.disabled = true; });
+        var nb = h('button', { class: 'btn btn-primary btn-wide', type: 'button', text: st.k + 1 >= PER_ROUND || cfg.L >= LEVELS ? t('common.finish') : t('shapes.next'), on: { click: function () { st.k += 1; level += 1; next(); } } });
+        var fb = feedbackBox(true, t('shapes.solved'), pts);
+        if (hints) fb.appendChild(h('p', { text: t('shapes.hintsUsed', { n: hints }) }));
+        fb.appendChild(nb);
+        card.appendChild(fb);
+        try { nb.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+        fb.scrollIntoView({ block: 'nearest' });
+      }
+      draw();
+    }
+    next();
+  }
+  S50.Games.register({ id: 'shapes', cat: 'attention', start: function (p) {
+    var n = U.num(p[0]);
+    if (n >= 1 && n <= Math.min(LEVELS, Store.gameLevel('shapes'))) shapesPlay(n); else shapesMenu();
+  } });
+  S50.Shapes = { build: buildLevel, levels: LEVELS, cfg: levelCfg, rot: rot, flip: flip, norm: norm };
 })();
 
 </script>
